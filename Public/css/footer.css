@@ -1,0 +1,28 @@
+@font-face {
+    font-family: woff;
+    src: url(../fonts/fontawesome-webfont.woff);
+}
+
+.footer {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 30px;
+}
+
+h1.footer {
+    padding-top: 80px;
+    margin: 0!important;
+    font-size: larger;
+}
+
+#icon {
+    padding-top: 2%;
+}
+
+img.img_icon {
+    padding-left: 2%;
+    padding-right: 2%;
+    height: 40px;
+    width: 40px;
+}

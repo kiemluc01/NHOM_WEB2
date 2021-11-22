@@ -1,0 +1,52 @@
+form#login {
+    padding: 8%;
+    background-image: url('../images/logo.jpg');
+}
+
+@font-face {
+    font-family: roboto_bold;
+    src: url(../fonts/Dancing_Script,Roboto/Roboto/Roboto-Bold.ttf);
+}
+
+@font-face {
+    font-family: roboto_regular;
+    src: url(../fonts/Dancing_Script,Roboto/Roboto/Roboto-Regular.ttf);
+}
+
+table.login,
+td.login {
+    align-items: center;
+    font-family: roboto_bold;
+    color: #ac0000;
+}
+
+input.login {
+    height: 25px;
+    border-radius: 10px/10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    font-family: roboto_regular;
+    font-size: 15px;
+}
+
+input#btnlogin {
+    height: 40px;
+    width: 120px;
+    border-radius: 10px/10px;
+    background-color: #ac0000;
+    margin: 5px;
+    font-family: roboto_bold;
+    color: #FFF;
+}
+
+a#btnlogin_register {
+    height: 60px;
+    width: 200px;
+    text-decoration: none;
+    border-radius: 10px/10px;
+    background-color: #009100;
+    padding: 10px;
+    margin-top: 10px;
+    font-family: roboto_bold;
+    color: #fff;
+}

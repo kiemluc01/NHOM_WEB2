@@ -1,0 +1,103 @@
+div#container_newbook {
+    display: flex;
+    justify-content: space-between;
+}
+
+img.new_book {
+    height: 200px;
+    width: 180px;
+}
+
+table,
+th,
+td,
+tr {
+    align-items: center;
+}
+
+div#icon_quantity {
+    justify-content: space-between;
+}
+
+div#icon_quantity,
+div.icon_quantity {
+    display: flex;
+}
+
+img.icon_quantity {
+    height: 30px;
+    width: 30px;
+}
+
+div#contruction {
+    width: 220px;
+    height: 150px;
+    text-overflow: ellipsis;
+}
+
+table#new_book_container {
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+a.submit_chitiet {
+    line-height: 30px;
+    height: 30px;
+    width: 120px;
+    background-color: #4EBA88;
+    border-radius: 10px/10px;
+    text-decoration: none;
+    display: block;
+    font-family: roboto;
+    color: #FFF;
+}
+
+figcaption {
+    line-height: 30px;
+    margin-left: 5px;
+}
+
+p#introduct {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 8;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    font-family: roboto;
+    color: #595959;
+    height: 150px;
+    width: 210px;
+}
+
+@font-face {
+    font-family: roboto;
+    src: url(../fonts/Dancing_Script,Roboto/Roboto/Roboto-Bold.ttf);
+}
+
+@font-face {
+    font-family: roboto_regular;
+    src: url(../fonts/Dancing_Script,Roboto/Roboto/Roboto-Regular.ttf);
+}
+
+th#bookname {
+    font-family: roboto;
+}
+
+td#writer {
+    font-family: roboto_regular;
+}
+
+h3#title_new_book {
+    background-color: #FFF;
+    height: 30px;
+    line-height: 30px;
+    color: #595959;
+    font-family: roboto;
+    margin-top: 5%;
+}
+
+figcaption.text {
+    font-family: roboto;
+    color: #595959;
+    font-size: 20px;
+}

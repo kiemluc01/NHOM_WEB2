@@ -1,0 +1,43 @@
+form#register {
+    padding: 10%;
+    background-image: url('../images/logo.jpg');
+}
+
+table.register,
+td.register {
+    align-items: center;
+    font-family: roboto_bold;
+    color: #ac0000;
+}
+
+input.register {
+    height: 25px;
+    border-radius: 10px/10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    font-family: roboto_regular;
+}
+
+input#btnregister {
+    height: 30px;
+    width: 100px;
+    border-radius: 10px/10px;
+    background-color: #ac0000;
+    margin: 10px;
+    font-family: roboto_bold;
+    color: #FFF;
+}
+
+a.register {
+    color: rgb(20, 2, 53);
+}
+
+@font-face {
+    font-family: roboto_bold;
+    src: url(../fonts/Dancing_Script,Roboto/Roboto/Roboto-Bold.ttf);
+}
+
+@font-face {
+    font-family: roboto_regular;
+    src: url(../fonts/Dancing_Script,Roboto/Roboto/Roboto-Regular.ttf);
+}

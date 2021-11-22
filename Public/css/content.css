@@ -1,0 +1,15 @@
+#book:hover {
+    transform: scale(1.1);
+}
+
+#favorite {
+    background-color: gray;
+}
+
+#favorite:hover {
+    transform: scale(1.2);
+}
+
+#container_fvr:visited {
+    background-image: url('../images/icon_favorite_true.png');
+}

@@ -1,0 +1,13 @@
+body {
+    background-color: #ececec;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    border-bottom: 1px #23a8a6 solid;
+    background-color: #fff;
+}

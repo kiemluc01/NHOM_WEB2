@@ -1,0 +1,65 @@
+/* Code animation */
+
+@keyframes enimateLeft {
+    10% {
+        background-image: url('../images/banner2.png');
+    }
+    20% {
+        background-image: url('../images/banner2.png');
+    }
+    30% {
+        background-image: url('../images/banner3.png');
+    }
+    40% {
+        background-image: url('../images/banner3.png');
+    }
+    50% {
+        background-image: url('../images/banner4.png');
+    }
+    60% {
+        background-image: url('../images/banner4.png');
+    }
+    70% {
+        background-image: url('../images/banner5.png');
+    }
+    80% {
+        background-image: url('../images/banner5.png');
+    }
+    90% {
+        background-image: url('../images/banner6.png');
+    }
+    100% {
+        background-image: url('../images/banner6.png');
+    }
+}
+
+div#bannerLeft {
+    width: 50%;
+    height: 438px;
+    background-image: url('../images/banner1.png');
+    animation-name: enimateLeft;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+}
+
+#text {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 25px;
+    color: palegreen;
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Dancing;
+    src: url(../fonts/DancingScript-VariableFont_wght.ttf);
+}
+
+.text {
+    margin-left: 5%;
+    font-family: Dancing;
+    font-size: 45px;
+    font-weight: bold;
+    color: #fff;
+}

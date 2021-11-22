@@ -1,0 +1,41 @@
+@font-face {
+    font-family: roboto_bold;
+    src: url('../fonts/Roboto/Roboto-Bold.ttf');
+}
+
+ul.login {
+    width: 35%;
+    height: 75px;
+    display: flex;
+    background-color: #fff;
+    padding: 0;
+    justify-content: space-between;
+}
+
+ul.login li {
+    list-style-type: none;
+    text-align: center;
+}
+
+ul.login li:hover {
+    background-color: #4EBA88;
+}
+
+ul.login li.login {
+    margin-left: 110px;
+}
+
+ul.login li.register {
+    margin-right: 100px;
+}
+
+ul.login li a {
+    text-decoration: none;
+    font-size: 20px;
+    font-family: roboto_bold;
+    color: #000;
+    line-height: 75px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 150px;
+}

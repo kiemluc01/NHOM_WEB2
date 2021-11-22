@@ -1,0 +1,66 @@
+@keyframes enimateRight {
+    10% {
+        background-image: url('../images/banner7.png');
+    }
+    20% {
+        background-image: url('../images/banner7.png');
+    }
+    30% {
+        background-image: url('../images/banner8.png');
+    }
+    40% {
+        background-image: url('../images/banner8.png');
+    }
+    50% {
+        background-image: url('../images/banner9.png');
+    }
+    60% {
+        background-image: url('../images/banner9.png');
+    }
+    70% {
+        background-image: url('../images/banner10.png');
+    }
+    80% {
+        background-image: url('../images/banner10.png');
+    }
+    90% {
+        background-image: url('../images/banner11.png');
+    }
+    100% {
+        background-image: url('../images/banner11.png');
+    }
+}
+
+
+/* Áp dụng animation vào phần tử */
+
+div#bannerRight {
+    width: 50%;
+    height: 438px;
+    background-image: url('../images/banner1.png');
+    animation-name: enimateRight;
+    animation-duration: 40s;
+    animation-iteration-count: infinite;
+}
+
+#text2 {
+    position: absolute;
+    top: 50px;
+    left: 500px;
+    font-size: 25px;
+    color: white;
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Dancing;
+    src: url(../fonts/DancingScript-VariableFont_wght.ttf);
+}
+
+.text {
+    margin-left: 5%;
+    font-family: Dancing;
+    font-size: 45px;
+    font-weight: bold;
+    color: #fff;
+}
