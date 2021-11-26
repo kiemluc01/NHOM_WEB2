@@ -1,3 +1,11 @@
+:root {
+    --light: #F0F7D4;
+    --link: #B2D732;
+    --linkhover: #6e8322;
+    --primary: #4424D6;
+    --icolor: #FC600A;
+    --dark: #110934;
+}
 body {
     background-color: #ececec;
     top: 0;
