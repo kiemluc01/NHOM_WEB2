@@ -11,10 +11,10 @@ Book là một dịch vụ đăng ký đọc kỹ thuật số. Đổi lại v�
 gồm hơn 500.000 cuốn sáchbằng nhiều ngôn ngữ. Đăng ký này có thể được chấm dứt bất kỳ lúc nào trong phần "Đăng ký".
         </pre>
         <div id="icon"  style="padding-top: 2%;">
-            <a href="#"><img src="Public/images/icon_twitter.png" alt="twicter" class="img_icon"></a>
-            <a href="#"><img src="Public/images/icon_fb.png" alt="facebook" class="img_icon" ></a>
-            <a href="#"><img src="Public/images/icon_yt.png" alt="youtube" class="img_icon"></a>
-            <a href="#"><img src="Public/images/icon_instagram.png" alt="intagram" class="img_icon"></a>
+            <a href="#"><i class="fab fa-twitter-square"></i></a>
+            <a href="#"><i class="fab fa-facebook-square"></i></a>
+            <a href="#"><i class="fab fa-youtube-square"></i></a>
+            <a href="#"><i class="fab fa-instagram-square"></i></a>
         </div>
     </center>
 
