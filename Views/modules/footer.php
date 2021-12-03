@@ -19,3 +19,4 @@ gồm hơn 500.000 cuốn sáchbằng nhiều ngôn ngữ. Đăng ký này có t
     </center>
 
 </div>
+<script src="Public/javascript/main.js"></script>

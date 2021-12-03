@@ -23,7 +23,15 @@ while ($row = $result->fetch_assoc()) {
             <div id="main_details1">
                 <h2 id="bookname"><?php echo $Tensach; ?></h2>
                 <p id="writer"><?php echo $Tacgia; ?></p>
-                <p id="star" style="color: #F34B4B;">✫ ✫ ✫ ✫ ✫</p>
+                <div class="star-rating">
+                    <i class="far fa-star i-rate"></i>
+                    <i class="far fa-star i-rate"></i>
+                    <i class="far fa-star i-rate"></i>
+                    <i class="far fa-star i-rate"></i>
+                    <i class="far fa-star i-rate"></i>
+                    <i class="far fa-star i-rate"></i>
+                    <i class="far fa-star i-rate"></i>
+                </div>
                 <!-- name book, writer and rate number star -->
             </div>
             <div id="main_details2">
