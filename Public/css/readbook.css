@@ -1,0 +1,22 @@
+@font-face {
+    font-family: roboto_regular;
+    src: url(../fonts/Dancing_Script,Roboto/Roboto/Roboto-Regular.ttf);
+}
+
+a.page {
+    line-height: 30px;
+    color: black;
+    font-family: roboto_regular;
+    text-decoration: none;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    margin: 10px;
+    border: 1px solid black;
+    background-color: gray;
+}
+
+div.container_page {
+    display: flex;
+    margin-left: 20%;
+}
