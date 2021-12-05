@@ -36,13 +36,3 @@ h3#title_cmt {
     height: 30px;
     line-height: 30px;
 }
-
-@font-face {
-    font-family: roboto_bold;
-    src: url(../fonts/Dancing_Script,Roboto/Roboto/Roboto-Bold.ttf);
-}
-
-@font-face {
-    font-family: roboto_light;
-    src: url(../fonts/Dancing_Script,Roboto/Roboto/Roboto-Regular.ttf);
-}

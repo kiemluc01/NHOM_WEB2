@@ -52,11 +52,6 @@ div#bannerRight {
     font-weight: bold;
 }
 
-@font-face {
-    font-family: Dancing;
-    src: url(../fonts/DancingScript-VariableFont_wght.ttf);
-}
-
 .text {
     margin-left: 5%;
     font-family: Dancing;

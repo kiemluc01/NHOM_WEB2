@@ -7,15 +7,26 @@
     --dark: #110934;
 }
 body {
-    background-color: #ececec;
-    top: 0;
-    left: 0;
-    right: 0;
+    background-color: var(--light);
+    /* top: 0; */
+    /* left: 0; */
+    /* right: 0; */
+    font-family: "roboto", serif;
+    box-sizing: border-box;
+    /* padding: 0; */
+    margin: 0;
 }
 
 .sticky {
     position: fixed;
     top: 0;
-    border-bottom: 1px #23a8a6 solid;
-    background-color: #fff;
+    width: 100%;
+    /* border-bottom: 1px #23a8a6 solid; */
+    /* background-color: #fff; */
+}
+.site-content {
+    padding-top: 16px;
+}
+.sticky + .site-content {
+    padding-top: 60px;
 }
