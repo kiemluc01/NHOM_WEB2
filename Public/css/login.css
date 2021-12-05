@@ -2,17 +2,6 @@ form#login {
     padding: 8%;
     background-image: url('../images/logo.jpg');
 }
-
-@font-face {
-    font-family: roboto_bold;
-    src: url(../fonts/Dancing_Script,Roboto/Roboto/Roboto-Bold.ttf);
-}
-
-@font-face {
-    font-family: roboto_regular;
-    src: url(../fonts/Dancing_Script,Roboto/Roboto/Roboto-Regular.ttf);
-}
-
 table.login,
 td.login {
     align-items: center;

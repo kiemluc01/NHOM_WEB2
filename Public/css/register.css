@@ -31,13 +31,3 @@ input#btnregister {
 a.register {
     color: rgb(20, 2, 53);
 }
-
-@font-face {
-    font-family: roboto_bold;
-    src: url(../fonts/Dancing_Script,Roboto/Roboto/Roboto-Bold.ttf);
-}
-
-@font-face {
-    font-family: roboto_regular;
-    src: url(../fonts/Dancing_Script,Roboto/Roboto/Roboto-Regular.ttf);
-}
