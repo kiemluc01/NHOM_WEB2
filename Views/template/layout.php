@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="Public/css/rating.css">
     <link rel="stylesheet" href="Public/css/register.css">
     <link rel="stylesheet" href="Public/css/readbook.css">
-    <link rel="stylesheet" href="Public\css\fontfamily.css">
+    <link rel="stylesheet" href="Public/css/fontfamily.css">
 
     <!-- bootrap collapse -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
