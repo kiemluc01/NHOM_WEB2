@@ -101,5 +101,5 @@ function LoadTirtle()
 {
     if (isset($_REQUEST['bookname']))
         return $_REQUEST['bookname'];
-    return 'Đọc sách online';
+    return 'Three Owls Books';
 }
