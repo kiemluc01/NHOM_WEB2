@@ -3,32 +3,37 @@ $book = loadModel('Book');
 $category = $book->get_category_all();
 
 ?>
+<div class="header-top">
+    <div class="header-img">
+        <img src="Public\images\logo_main.png" alt="">
+    </div>
+</div>
 <div id="menu_main">
-    <ul class="nav">
-        <li class="logo"><img src="Public/images/logo.jpg" alt="" class="logo"></li>
-        <li class="nav"><a href="index.php">Trang chủ</a></li>
-        <li class="nav"><a href="">Thể loại</a>
-            <ul class="sub_menu">
-                <?php while ($result = $category->fetch_assoc()) { ?>
-                    <li><a href="<?php loadHrefCategory($result['idDanhmuc']); ?>"><?php echo $result['Tendanhmuc']; ?></a></li>
-                <?php } ?>
-            </ul>
-        </li>
-        <li class="nav"><a href="">Ngôn ngữ</a>
-            <ul class="sub_menu">
-                <li><a href="">Tiếng Việt</a></li>
-                <li><a href="">Tiếng Anh</a></li>
-            </ul>
-        </li>
-        <li>
-            <form action="" class="find">
-                <input type="text" name="" id="" placeholder="tìm kiếm" class="find">
-                <a href="" class="find"><img src="Public/images/icon_find.png" alt="" class="find"></a>
-            </form>
-        </li>
-    </ul>
-    <ul class="login">
-        <li class="login"><a href="index.php?option=login">Đăng nhập</a></li>
-        <li class="register"><a href="index.php?option=register">Đăng ký</a></li>
-    </ul>
+    <a href="."><img src="Public\images\logo_light.png" alt="" class="logo"></a>
+    <a href="index.php">Trang chủ</a>
+    <div class="nav-drop">
+        <button class="dropbtn">Thể loại <i class="fa fa-caret-down"></i></button>
+        <div class="drop-content">
+            <?php while ($result = $category->fetch_assoc()) { ?>
+                <a href="<?php loadHrefCategory($result['idDanhmuc']); ?>"><?php echo $result['Tendanhmuc']; ?></a>
+            <?php } ?>
+        </div>
+    </div>
+    <div class="nav-drop">
+        <button class="dropbtn">Ngôn ngữ <i class="fa fa-caret-down"></i></button>
+        <div class="drop-content">
+            <a href="">Tiếng Việt</a>
+            <a href="">Tiếng Anh</a>
+        </div>
+    </div>
+    <div class="search-container">
+        <form action="" class="find">
+            <input type="text" name="find" id="" placeholder="Tìm kiếm .." class="find">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+    <div class="login-container">
+        <a href="index.php?option=login">Đăng nhập</a>
+        <a href="index.php?option=register">Đăng ký</a>
+    </div>
 </div>
