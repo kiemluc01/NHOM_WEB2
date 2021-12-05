@@ -13,7 +13,7 @@ div#menu_main {
   /* background-color: #fff; */
   /* overflow: hidden; */
   background-color: var(--primary);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   min-height: 54.4px;
 }
 #menu_main > a {
@@ -28,8 +28,8 @@ div#menu_main {
 }
 #menu_main > a:not(:first-child):hover,
 div.nav-drop:hover .dropbtn {
-   background-color: #806ece;
-   border-bottom: 4px solid var(--link);
+  background-color: #806ece;
+  border-bottom: 4px solid var(--link);
 }
 img.logo {
   height: 22.4px;
@@ -58,8 +58,8 @@ div.nav-drop .drop-content {
   display: none;
   position: absolute;
   background-color: rgba(255, 255, 255, 0.8);
-  min-width: 370px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  min-width: 250px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 div.nav-drop .drop-content a {
@@ -89,7 +89,8 @@ div.search-container form.find button {
   font-size: 17px;
   padding: 10px 20px;
   margin-top: 7.2px;
-}div.search-container form.find input {
+}
+div.search-container form.find input {
   min-width: 300px;
 }
 div.search-container form.find button {
@@ -103,7 +104,8 @@ div.search-container form.find button {
 div.search-container form.find button:hover {
   background-color: #f7a97f;
 }
-div.login-container {
+div.login-container,
+div.member-container {
   float: right;
 }
 div.login-container a {
