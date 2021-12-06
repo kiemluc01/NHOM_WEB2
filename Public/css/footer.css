@@ -39,10 +39,17 @@ div.footer-item.logo img {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+div.footer .contact {
+  padding-left: 120px;
+}
 div.footer .contact h3 {
     font-size: 25px;
     color: var(--link);
 }
 div.footer .contact a {
     color: var(--link);
+}
+div.footer .slogan {
+  margin-top: 20px;
+  line-height: 1.5;
 }
