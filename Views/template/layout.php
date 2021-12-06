@@ -39,27 +39,13 @@
     <!-- load menu -->
     <?php loadMenu();
     ?>
-    <script>
-        window.onscroll = function() {
-            myFunction()
-        };
-        var menu = document.getElementById("menu_main");
-        var sticky = menu.offsetTop;
-
-        function myFunction() {
-            if (window.pageYOffset >= sticky) {
-                menu.classList.add("sticky")
-            } else {
-                menu.classList.remove("sticky")
-            }
-        }
-    </script>
     <div class="site-content">
         <!-- load component -->
         <?php loadComponent();    ?>
     </div>
     <?php loadModule('footer');     ?>
-
+    <script src="Public\javascript\sticky-bar.js"></script>
+    <script src="Public\javascript\banner-slide-show.js"></script>
 </body>
 
 </html>

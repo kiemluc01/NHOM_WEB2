@@ -1,32 +1,34 @@
 :root {
-    --light: #F0F7D4;
-    --link: #B2D732;
-    --linkhover: #6e8322;
-    --primary: #4424D6;
-    --icolor: #FC600A;
-    --dark: #110934;
+  --light: #f0f7d4;
+  --link: #b2d732;
+  --linkhover: #6e8322;
+  --primary: #4424d6;
+  --icolor: #fc600a;
+  --dark: #110934;
+}
+* {
+  box-sizing: border-box;
 }
 body {
-    background-color: var(--light);
-    /* top: 0; */
-    /* left: 0; */
-    /* right: 0; */
-    font-family: "roboto", serif;
-    box-sizing: border-box;
-    /* padding: 0; */
-    margin: 0;
+  background-color: var(--light);
+  /* top: 0; */
+  /* left: 0; */
+  /* right: 0; */
+  font-family: "roboto", serif;
+  /* padding: 0; */
+  margin: 0;
 }
 
 .sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    /* border-bottom: 1px #23a8a6 solid; */
-    /* background-color: #fff; */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  /* border-bottom: 1px #23a8a6 solid; */
+  /* background-color: #fff; */
 }
 .site-content {
-    padding-top: 16px;
+  padding-top: 0.2px;
 }
 .sticky + .site-content {
-    padding-top: 60px;
+  padding-top: 60px;
 }
