@@ -1,20 +1,9 @@
-:root {
-    --light: #F0F7D4;
-    --link: #B2D732;
-    --primary: #4424D6;
-    /* --primaryhover: #4424d6; */
-    --icolor: #FC600A;
-    --ihover: #fd894a;
-    --dark: #110934;
-}
 i.i-link {
     color: var(--icolor);
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin: 0 20px;
 }
-i.i-link:hover {
-    color: var(--ihover);
-}
+
 i.i-rate {
     color: var(--primary);
     font-size: 1.2rem;

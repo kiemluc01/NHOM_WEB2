@@ -13,7 +13,6 @@ div#menu_main {
   /* background-color: #fff; */
   /* overflow: hidden; */
   background-color: var(--primary);
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   min-height: 54.4px;
   z-index: 1;
 }

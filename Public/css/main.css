@@ -4,10 +4,12 @@
   --linkhover: #6e8322;
   --primary: #4424d6;
   --icolor: #fc600a;
+  --ihover: #fd894a;
   --dark: #110934;
 }
 * {
   box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 body {
   background-color: var(--light);
