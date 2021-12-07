@@ -64,13 +64,3 @@ a#read {
     text-align: center;
     line-height: 40px;
 }
-
-@font-face {
-    font-family: roboto_bold;
-    src: url(../fonts/Dancing_Script,Roboto/Roboto/Roboto-Bold.ttf);
-}
-
-@font-face {
-    font-family: roboto_regular;
-    src: url(../fonts/Dancing_Script,Roboto/Roboto/Roboto-Regular.ttf);
-}

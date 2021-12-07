@@ -1,72 +1,28 @@
-@font-face {
-    font-family: roboto_bold;
-    src: url('../fonts/Roboto/Roboto-Bold.ttf');
+div.member a {
+  padding: 7.6px 16px;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  color: var(--light);
 }
-
-ul.infor_member {
-    width: 35%;
-    height: 75px;
-    display: flex;
-    background-color: #fff;
-    padding: 0;
-    justify-content: space-between;
+.member a img {
+  height: 35.4px;
+  width: auto;
+  /* padding: 10px; */
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+  box-sizing: border-box;
 }
-
-ul.infor_member>li {
-    list-style-type: none;
-    text-align: center;
-    margin-left: 10px;
-    position: relative;
+div.member .drop-content a i {
+  margin-right: 20px;
 }
-
-ul.infor_member li:hover ul.personal {
-    display: block;
+div.member .drop-content {
+  right: 0;  
 }
-
-ul.infor_member>li>a {
-    text-decoration: none;
-    font-size: 15px;
-    font-family: roboto_bold;
-    color: #000;
-    line-height: 75px;
-    padding-left: 20px;
-    padding-right: 20px;
-    display: flex;
-}
-
-ul.infor_member>li>a img {
-    height: 50px;
-    width: 50px;
-    border-radius: 25px/25px;
-    margin: 12px;
-}
-
-ul.personal {
-    background-color: #fff;
-    padding: 0%;
-    display: none;
-    position: absolute;
-}
-
-ul.personal>li {
-    list-style-type: none;
-    float: left;
-    text-indent: 30px;
-    margin-right: 20px;
-    width: 100%;
-}
-
-ul.personal>li:hover {
-    background-color: #4EBA88;
-}
-
-ul.personal>li>a {
-    text-decoration: none;
-    line-height: 30px;
-    color: #000;
-    font-family: roboto_bold;
-}
-
-ul.infor_member>li.personal {
-    padding-right: 20px;
-}
+div.member:hover > a {
+    background-color: #806ece;
+}  
+div.member:hover > a img {
+    border: 2px solid var(--icolor);
+} 

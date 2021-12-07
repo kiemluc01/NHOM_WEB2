@@ -1,21 +1,25 @@
-<div id="footer" style="background-color: #35363B; height: 500px;">
-    <center  class="footer" >
-        <h1  class="footer" >Bạn cần giúp đỡ?</h1>
-        <pre class="footer" >Hãy liên hệ với chúng tôi
-book@gmail.com
-        </pre>
-        <pre class="footer" >
-Book là một dịch vụ đăng ký đọc kỹ thuật số. Đổi lại với một khoản phí nhỏ hàng tháng,
- bạn có thể tải xuống và thưởng thức việc đọc từ danh mục sách điện tử hoàn chỉnhcủa chúng tôi trên mọi thiết bị 
-(điện thoại di động, máy tính bảng, thiết bị đọc sách điện tử với trình điều hướng web hoặc PC). Danh mục của chúng tôi bao 
-gồm hơn 500.000 cuốn sáchbằng nhiều ngôn ngữ. Đăng ký này có thể được chấm dứt bất kỳ lúc nào trong phần "Đăng ký".
-        </pre>
-        <div id="icon"  style="padding-top: 2%;">
-            <img src="Public/images/icon_twitter.png" alt="twicter" class="img_icon">
-            <img src="Public/images/icon_fb.png" alt="facebook" class="img_icon" >
-            <img src="Public/images/icon_yt.png" alt="youtube" class="img_icon">
-            <img src="Public/images/icon_instagram.png" alt="intagram" class="img_icon">
-        </div>
-    </center>
-
+<div class="footer clear-fix">
+    <div class="footer-item logo">
+        <img src="Public\images\logo_light.png" alt="">
+    </div>
+    <div class="footer-item slogan">
+        <p><em>Three Owls Book</em> is something ...</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est recusandae sunt at reprehenderit
+            voluptates necessitatibus. Natus necessitatibus error cumque maxime.</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam, temporibus!</p>
+    </div>
+    <div class="footer-item contact">
+        <h3>Nhóm Three Owls</h3>
+        <p>Liên hệ với chúng tôi: </p>
+        <p>Email: </p>
+        <address><a href="mailto:threeowlsbooks@gmail.com">threeowlsbooks@gmail.com</a></address>
+        <p>Số điện thoại: </p>
+        <a href="tel:6156884511">615-688-4511</a>
+    </div>
+    <div class="footer-item" id="icon">
+        <a href="https://twitter.com/"><i class="fab fa-twitter-square i-link"></i></a><br>
+        <a href="https://facebook.com/"><i class="fab fa-facebook-square i-link"></i></a><br>
+        <a href="https://www.youtube.com/"><i class="fab fa-youtube-square i-link"></i></a><br>
+        <a href="https://www.instagram.com/"><i class="fab fa-instagram-square i-link"></i></a><br>
+    </div>
 </div>

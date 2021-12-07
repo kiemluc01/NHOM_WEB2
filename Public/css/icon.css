@@ -1,0 +1,10 @@
+i.i-link {
+    color: var(--icolor);
+    font-size: 3rem;
+    margin: 0 20px;
+}
+
+i.i-rate {
+    color: var(--primary);
+    font-size: 1.2rem;
+}

@@ -1,13 +1,36 @@
+:root {
+  --light: #f0f7d4;
+  --link: #b2d732;
+  --linkhover: #6e8322;
+  --primary: #4424d6;
+  --icolor: #fc600a;
+  --ihover: #fd894a;
+  --dark: #110934;
+}
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
 body {
-    background-color: #ececec;
-    top: 0;
-    left: 0;
-    right: 0;
+  background-color: var(--light);
+  /* top: 0; */
+  /* left: 0; */
+  /* right: 0; */
+  font-family: "roboto", serif;
+  /* padding: 0; */
+  margin: 0;
 }
 
 .sticky {
-    position: fixed;
-    top: 0;
-    border-bottom: 1px #23a8a6 solid;
-    background-color: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  /* border-bottom: 1px #23a8a6 solid; */
+  /* background-color: #fff; */
+}
+.site-content {
+  padding-top: 0.2px;
+}
+.sticky + .site-content {
+  padding-top: 54.4px;
 }

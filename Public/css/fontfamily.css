@@ -1,0 +1,27 @@
+@font-face {
+  font-family: roboto_bold;
+  src: url("../fonts/Roboto/Roboto-Bold.ttf");
+}
+
+@font-face {
+  font-family: roboto_bold;
+  src: url(../fonts/Dancing_ScriptRoboto/Roboto/Roboto-Bold.ttf);
+}
+
+@font-face {
+  font-family: roboto_regular;
+  src: url(../fonts/Dancing_ScriptRoboto/Roboto/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: roboto;
+  src: url(../fonts/Dancing_ScriptRoboto/Roboto/Roboto-Bold.ttf);
+}
+@font-face {
+  font-family: woff;
+  src: url(../fonts/fontawesome-webfont.woff);
+}
+@font-face {
+  font-family: Dancing;
+  src: url(../fonts/DancingScript-VariableFont_wght.ttf);
+}

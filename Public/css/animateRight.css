@@ -1,4 +1,4 @@
-@keyframes enimateRight {
+/* @keyframes enimateRight {
     10% {
         background-image: url('../images/banner7.png');
     }
@@ -29,11 +29,11 @@
     100% {
         background-image: url('../images/banner11.png');
     }
-}
+} */
 
 
 /* Áp dụng animation vào phần tử */
-
+/* 
 div#bannerRight {
     width: 50%;
     height: 438px;
@@ -52,15 +52,10 @@ div#bannerRight {
     font-weight: bold;
 }
 
-@font-face {
-    font-family: Dancing;
-    src: url(../fonts/DancingScript-VariableFont_wght.ttf);
-}
-
 .text {
     margin-left: 5%;
     font-family: Dancing;
     font-size: 45px;
     font-weight: bold;
     color: #fff;
-}
+} */
