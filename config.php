@@ -5,5 +5,6 @@ class WebConfig{
     public $pass = '';
     public $db = 'docsach';
     public $prefix = 'readbook_';
+    // web book
 }
 ?>
