@@ -1,66 +1,50 @@
 <?php
 $book = loadModel('book');
 $resultBook =  $book->Book_category($_SESSION['idDM']);
-if ($resultBook->num_rows > 0) { //_n mysqlum_rows
-    $d = 0; ?>
-    <table id="listbook">
-        <tr>
-            <h2 style="background-color: rgb(190, 225, 253); line-height: 50px; color: #000000; padding-left:1%;"><?php echo $_SESSION['rowDM']['Tendanhmuc']; ?></h2>
+if ($resultBook->num_rows > 0) { ?>
+    <div class="clear-fix list-book-container">
+        <h2 class="category-name"><?php echo $_SESSION['rowDM']['Tendanhmuc']; ?></h2>
+        <div class="list-item-container">
             <?php
-
             while ($rowBook = $resultBook->fetch_assoc()) {
-
-                $d++;
                 $idSach = $rowBook['idSach']; ?>
-                <td>
-
-                    <form method="GET" style="padding-left:50px;" method="get">
-                        <table id="container_listbook">
-                            <tr>
-                                <td id="book_container">
-                                    <center><a href="<?php loadHrefBook($rowBook['idSach']); ?>" class="listbook"><img id="book" src="<?php echo $rowBook['imgSach']; ?>" alt="image"></a></center>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th id="bookname">
-                                    <center><?php echo $rowBook["Tensach"]; ?></center>
-                                </th>
-                            </tr>
-                            <tr>
-                                <td id="writer">
-                                    <center><?php echo $rowBook["Tacgia"]; ?></center>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <center>
-                                        <div id="details_container">
-                                            <div class="details_container">
-                                                <a href=""><img src="Public/images/icon_view.png" alt="" class="details_container"></a>
-                                                <figcaption><?php echo $rowBook["Luotxem"]; ?></figcaption>
-                                            </div>
-                                            <div class="details_container">
-                                                <img src="Public/images/icon_cmt.png" alt="" class="details_container">
-                                                <figcaption><?php echo $rowBook["Feedback"]; ?></figcaption>
-                                            </div>
-                                            <div class="details_container">
-                                                <img src="Public/images/icon_favorite_false.png" alt="" class="details_container" id="favorite">
-                                                <figcaption><?php echo $rowBook["Favorite"]; ?></figcaption>
+                <div class="book-item">
+                    <form method="GET" method="get">
+                        <div class="book-container">
+                            <!-- note: remember to design the cover of the book -->
+                            <div class="book-cover-container">
+                                <div class="book-cover">
+                                    <a href="<?php loadHrefBook($rowBook['idSach']); ?>" class="listbook">
+                                        <div class="front">
+                                            <div class="cover">
+                                                <img class="book-cover-img" src="<?php echo $rowBook['imgSach']; ?>" alt="image">
                                             </div>
                                         </div>
-                                    </center>
-                                </td>
-                            </tr>
-                        </table>
+                                        <div class="left-side"></div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="book-title">
+                                <cite><?php echo $rowBook["Tensach"]; ?></cite>
+                            </div>
+                            <div class="book-author">
+                                <em><?php echo $rowBook["Tacgia"]; ?></em>
+                            </div>
+                            <div class="book-view">
+                                <div class="book-view-detail">
+                                    <i class="fas fa-eye"></i> <?php echo $rowBook["Luotxem"]; ?>
+                                </div>
+                                <div class="book-view-detail">
+                                    <i class="fas fa-comments"></i> <?php echo $rowBook["Feedback"]; ?>
+                                </div>
+                                <div class="book-view-detail">
+                                    <i class="fab fa-gratipay"></i> <?php echo $rowBook["Favorite"]; ?>
+                                </div>
+                            </div>
+                        </div>
                     </form>
-                </td>
-                <?php if ($d % 5 == 0)
-                    echo '</tr>'; ?>
-
-            <?php
-            }
-            if ($d % 5 != 0)
-                echo '</tr>'; ?>
-
-    </table>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
 <?php } ?>
