@@ -1,4 +1,4 @@
-/* div.member a {
+div.member a {
   padding: 7.6px 16px;
   text-decoration: none;
   text-align: center;
@@ -7,14 +7,14 @@
 }
 .member a img {
   height: 35.4px;
-  width: auto; */
+  width: auto;
   /* padding: 10px; */
-  /* border-radius: 50%;
+  border-radius: 50%;
   display: inline-block;
   margin-right: 10px;
   box-sizing: border-box;
-} */
-/* div.member .drop-content a i {
+}
+div.member .drop-content a i {
   margin-right: 20px;
 }
 div.member .drop-content {
@@ -25,4 +25,4 @@ div.member:hover > a {
 }  
 div.member:hover > a img {
     border: 2px solid var(--icolor);
-}  */
+} 

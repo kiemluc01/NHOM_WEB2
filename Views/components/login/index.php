@@ -28,11 +28,11 @@ if (isset($_POST['btnlogin'])) {
     <form action="" method="post" id="login">
         <div class="row">
             <label for="uname">Tên tài khoản: </label>
-            <input type="text" name="user_login" id="uname" class="login" placeholder="enter your user!">
+            <input type="text" name="user_login" id="uname" class="login">
         </div>
         <div class="row">
             <label for="pass">Mật khẩu: </label>
-            <input type="password" name="password_login" id="pass" class="login" placeholder="enter your password!">
+            <input type="password" name="password_login" id="pass" class="login">
         </div>
         <div class="row">
             <input type="submit" value="Đăng nhập" id="btnlogin">
