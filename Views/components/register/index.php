@@ -23,43 +23,30 @@ if (isset($_POST['user']) && isset($_POST['Email']) && isset($_POST['password'])
 if (isset($_POST['btnregister'])) {
 }
 ?>
-<center>
+<div class="card">
+    <h2>Đăng ký</h2>
     <form action="" method="post" id="register">
-        <table class="register">
-            <tr>
-                <td class="register">Email: </td>
-                <td class="register">
-                    <input type="text" name="Email" id="Email" class="register" placeholder="enter your email!">
-                </td>
-            </tr>
-            <tr>
-                <td class="register">Username: </td>
-                <td class="register">
-                    <input type="text" name="user" id="user" class="register" placeholder="enter your user!">
-                </td>
-            </tr>
-            <tr>
-                <td class="register">Password: </td>
-                <td class="register">
-                    <input type="password" name="password" id="password" class="register" placeholder="enter your password!">
-                </td>
-            </tr>
-            <tr>
-                <td class="register">Confirm Password: </td>
-                <td class="register">
-                    <input type="password" name="confirm_pass" id="confirm_pass" class="register" placeholder="confirm your password!">
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" class="register">
-                    <center><input type="submit" value="Đăng kí" id="btnregister"></center>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" class="register">
-                    <center style="color: #fff;">bạn đã có tài khoản? <a href="index.php?option=login" class="register">Đăng nhập</a></center>
-                </td>
-            </tr>
-        </table>
+        <div class="row">
+            <label for="email">Email:</label>
+            <input type="text" name="Email" id="email" class="register">
+        </div>
+        <div class="row">
+            <label for="uname">Tên tài khoản: </label>
+            <input type="text" name="user" id="uname" class="register">
+        </div>
+        <div class="row">
+            <label for="pass">Mật khẩu: </label>
+            <input type="password" name="password" id="pass" class="register">
+        </div>
+        <div class="row">
+            <label for="cpass">Nhập lại mật khẩu: </label>
+            <input type="password" name="confirm_pass" id="cpass" class="register">
+        </div>
+        <div class="row">
+            <input type="submit" value="Đăng kí" id="btnregister">
+        </div>
+        <div class="row">
+            <p>Bạn đã có tài khoản? <a href="index.php?option=login" class="register">Đăng nhập</a></p>
+        </div>
     </form>
-</center>
+</div>

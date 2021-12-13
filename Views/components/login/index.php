@@ -23,40 +23,22 @@ if (isset($_POST['user_login']) &&  isset($_POST['password_login'])) {
 if (isset($_POST['btnlogin'])) {
 }
 ?>
-<center>
+<div class="card">
+    <h2>Đăng nhập</h2>
     <form action="" method="post" id="login">
-        <table class="login">
-            <tr>
-                <td class="login">Username: </td>
-                <td class="login">
-                    <input type="text" name="user_login" id="user_login" class="login" placeholder="enter your user!">
-                </td>
-            </tr>
-            <tr>
-                <td class="login">Password: </td>
-                <td class="login">
-                    <input type="password" name="password_login" id="password_login" class="login" placeholder="enter your password!">
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" class="login">
-                    <center><input type="submit" value="Đăng nhập" id="btnlogin"></center>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <center style="color: blue;">Bạn chưa có tài khoản?</center>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" class="login">
-                    <center>
-                        <a href="index.php?option=register" id="btnlogin_register">
-                            Tạo tài khoản mới
-                        </a>
-                    </center>
-                </td>
-            </tr>
-        </table>
+        <div class="row">
+            <label for="uname">Tên tài khoản: </label>
+            <input type="text" name="user_login" id="uname" class="login" placeholder="enter your user!">
+        </div>
+        <div class="row">
+            <label for="pass">Mật khẩu: </label>
+            <input type="password" name="password_login" id="pass" class="login" placeholder="enter your password!">
+        </div>
+        <div class="row">
+            <input type="submit" value="Đăng nhập" id="btnlogin">
+        </div>
+        <div class="row">
+            <p>Bạn chưa có tài khoản? <a href="index.php?option=register" id="btnlogin_register">Tạo tài khoản mới</a></p>
+        </div>
     </form>
-</center>
+</div>

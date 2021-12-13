@@ -1,41 +1,59 @@
-form#login {
-    padding: 8%;
-    background-image: url('../images/logo.jpg');
+/* form#login {padding: 8%;background-image: url('../images/logo.jpg');} */
+/* table.login,td.login {align-items: center;font-family: roboto_bold;color: #ac0000;} */
+/* input.login {height: 25px;border-radius: 10px/10px;margin-bottom: 10px;padding: 5px;font-family: roboto_regular;font-size: 15px;} */
+/* input#btnlogin {height: 40px;width: 120px;border-radius: 10px/10px;background-color: #ac0000;margin: 5px;font-family: roboto_bold;color: #FFF;} */
+/* a#btnlogin_register {height: 60px;width: 200px;text-decoration: none;border-radius: 10px/10px;background-color: #009100;padding: 10px;margin-top: 10px;font-family: roboto_bold;color: #fff;} */
+.card {
+    width: 500px;
+    margin: 100px auto;
+    /* background-color: aqua; */
+    border: 2px solid var(--icolor);
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
 }
-table.login,
-td.login {
-    align-items: center;
-    font-family: roboto_bold;
-    color: #ac0000;
+.card::before {
+    display: block;
+    height: 103px;
+    width: 80%;
+    border-left: 20px solid var(--icolor);
+    border-right: 20px solid var(--icolor);
+    position: absolute;
+    content: "";
+    left: 50%;
+    top: -51px;
+    transform: translate(-50%, -50%);
 }
-
-input.login {
-    height: 25px;
-    border-radius: 10px/10px;
+.card h2 {
+    text-align: center;
+    font-weight: 300;
+    font-size: 40px;
+}
+.card .row {
+    margin: 20px 0;
+}
+.card label, .card input {
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+}
+.card label {
     margin-bottom: 10px;
-    padding: 5px;
-    font-family: roboto_regular;
-    font-size: 15px;
 }
-
-input#btnlogin {
-    height: 40px;
-    width: 120px;
-    border-radius: 10px/10px;
-    background-color: #ac0000;
-    margin: 5px;
-    font-family: roboto_bold;
-    color: #FFF;
+.card input {
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: none;
 }
-
-a#btnlogin_register {
-    height: 60px;
-    width: 200px;
-    text-decoration: none;
-    border-radius: 10px/10px;
-    background-color: #009100;
-    padding: 10px;
-    margin-top: 10px;
-    font-family: roboto_bold;
-    color: #fff;
+.card input:focus {
+    outline: var(--icolor) auto;
+}
+.card input[type="submit"] {
+    background: var(--icolor);
+    color: var(--light);
+    cursor: pointer;
+    transition: background .3s;
+}
+.card input[type="submit"]:hover {
+    background: var(--ihover);
 }
