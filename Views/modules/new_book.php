@@ -21,9 +21,9 @@ $resultBook =  $book->get_new_book($_REQUEST['idSach']);
                                     </a>
                                 </div>
                             </div>
-                            <div class="book-title">
+                            <!-- <div class="book-title">
                                 <cite><?php echo $newBook['Tensach']; ?></cite>
-                            </div>
+                            </div> -->
                             <div class="book-author">
                                 <em><?php echo $newBook['Tacgia']; ?></em>
                             </div>

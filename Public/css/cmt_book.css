@@ -1,38 +1,94 @@
+div.comment-container {
+  margin: 30px;
+  padding-left: 300px;
+  box-shadow: 5px 5px 0px 0px #fc8d52, 10px 10px 0px 0px #fca678,
+    15px 15px 0px 0px #fcc6a9, 20px 20px 0px 0px #fce1d3,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  -webkit-box-shadow: 5px 5px 0px 0px #fc8d52, 10px 10px 0px 0px #fca678,
+    15px 15px 0px 0px #fcc6a9, 20px 20px 0px 0px #fce1d3,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  border-bottom: 5px solid #fd894a;
+  border-right: 5px solid #fd894a;
+  background: url(../images/design/mmm.png);
+  background-size: 300px auto;
+  background-repeat: no-repeat;
+  background-position: top left;
+  display: grid;
+  grid-template-columns: 40% 60%;
+}
+div.make-comment {
+  padding: 0 30px 10px 0;
+}
+div.make-comment h4 {
+  font-weight: 300;
+  font-size: 30px;
+  padding-bottom: 10px;
+  display: inline-block;
+  border-bottom: 2px solid var(--icolor);
+  margin-bottom: 30px;
+}
+div.make-comment textarea {
+  height: 280px;
+  width: 100%;
+  border: none;
+  border-radius: 15px;
+  padding: 14px 16px;
+  font-size: 1rem;
+  resize: none;
+}
+div.make-comment textarea:focus {
+  outline: var(--primary) auto;
+  border: none;
+}
+div.make-comment input[type="submit"] {
+  color: var(--light);
+  background-color: var(--icolor);
+  padding: 14px 36px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 20px 0 10px;
+  transition: background-color .3s ease;
+}
+div.make-comment input[type="submit"]:hover {
+  background-color: var(--ihover);
+}
 div.infor_Member {
-    display: flex;
+  display: flex;
 }
 
 img.avt {
-    height: 50px;
-    width: 50px;
-    border-radius: 25px/25px;
+  height: 50px;
+  width: 50px;
+  border-radius: 25px/25px;
 }
 
 p.Member_name {
-    padding-top: 10px;
-    margin: 0%;
-    margin-left: 5px;
-    line-height: 5px;
-    font-size: 20px;
-    font-weight: bold;
-    font-family: roboroboto_boldto;
+  padding-top: 10px;
+  margin: 0%;
+  margin-left: 5px;
+  line-height: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: roboroboto_boldto;
 }
 
 p.time {
-    font-size: 13px;
-    font-family: roboto_light;
-    color: #595959;
+  font-size: 13px;
+  font-family: roboto_light;
+  color: #595959;
 }
 
 p.cmt_content {
-    margin-left: 10px;
-    font-family: roboto_light;
-    color: #595959;
+  margin-left: 10px;
+  font-family: roboto_light;
+  color: #595959;
 }
 
 h3#title_cmt {
-    font-family: roboto_bold;
-    color: #595959;
-    height: 30px;
-    line-height: 30px;
+  font-family: roboto_bold;
+  color: #595959;
+  height: 30px;
+  line-height: 30px;
 }

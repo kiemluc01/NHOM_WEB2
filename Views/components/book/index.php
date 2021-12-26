@@ -52,7 +52,8 @@ while ($row = $result->fetch_assoc()) {
     </div>
 </div>
 <div class="comment-container">
-    <h2 class="category-name">Bình luận</h3>
+    <!-- <h2>Cảm nhận sách</h3> -->
+    <?php loadModule('cmt_book'); ?>
 </div>
-<?php loadModule('cmt_book'); ?>
+
 <?php loadModule('new_book'); ?>

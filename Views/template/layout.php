@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo LoadTirtle(); ?></title>
     <link rel="icon" href="Public\images\logo_icon_2.png">
-    <link rel="stylesheet" href="Public/dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="Public/dist/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="Public/css/main.css">
     <link rel="stylesheet" href="Public/css/menu_home.css">
     <link rel="stylesheet" href="Public/css/menu_login.css">
@@ -48,7 +48,7 @@
     <script src="Public\javascript\sticky-bar.js"></script>
     <script src="Public\javascript\banner-slide-show.js"></script>
     <script src="Public\javascript\favour-check.js"></script>
-    <script src="Public\dist\js\bootstrap.bundle.min.js"></script>
+    <!-- <script src="Public\dist\js\bootstrap.bundle.min.js"></script> -->
 </body>
 
 </html>

@@ -14,16 +14,15 @@ class Member extends Database
         // $password = $_POST['password'];
         // $confirm_password = $_POST['confirm_pass'];
         if ($password == $confirm_password) {
-            $sql = "insert into tblaccount values(null,'" . $user . "','" . $password . "','" . $email . "',DEFAULT,null,null)";
+            $sql = "insert into tblaccount(username, password, email, IMG, Gioitinh, Ngaysinh, idQuyen) 
+                    values('" . $user . "','" . $password . "','" . $email . "', DEFAULT, null, null, 2)";
             $sqluser = mysqli_query($this->conn, "select * from tblaccount where username = '" . $user . "'");
             $sqlemail = mysqli_query($this->conn, "select * from tblaccount where email = '" . $email . "'");
             if ($sqluser->num_rows > 0) {
                 return '<script> alert ("user đã tồn tại") </script>';
-            } else
-                if ($sqlemail->num_rows > 0) {
+            } elseif ($sqlemail->num_rows > 0) {
                 return '<script> alert ("email đã tồn tại") </script>';
-            } else
-                if (mysqli_query($this->conn, $sql)) {
+            } elseif (mysqli_query($this->conn, $sql)) {
                 return true;
             }
         }

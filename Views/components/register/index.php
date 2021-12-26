@@ -9,13 +9,13 @@ if (isset($_POST['user']) && isset($_POST['Email']) && isset($_POST['password'])
         $Member = loadModel('Member');
         $register = $Member->register($email, $user, $pass, $confirm_pass);
         if ($register === true) {
-            echo '<script> alert("đăng kí thành công"); 
+            echo '<script> alert("Đăng kí thành công"); 
             location.assign("index.php?option=login");
         </script>';
         } else
             echo $register;
     } else
-        echo '<script> alert("không được bỏ trống các thuộc tính") </script>';
+        echo '<script> alert("Vui lòng điền đầy đủ các thông tin") </script>';
 }
 // }
 ?>

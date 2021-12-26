@@ -40,6 +40,8 @@ h2.category-name:hover {
 .list-item-container .book-item .book-view {
   display: grid;
   grid-template-columns: auto auto auto;
+  grid-gap: 25px;
+  justify-content: center;
 }
 
 .book-container {
@@ -105,7 +107,7 @@ h2.category-name:hover {
 .book-container .left-side {
   width: 40px;
   left: -20px;
-  height: 550px;
+  height: 300px;
   background-color: rgba(232, 229, 234);
   -webkit-transform: rotate3d(0, 1, 0, -90deg);
   -moz-transform: rotate3d(0, 1, 0, -90deg);
