@@ -9,7 +9,7 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
         <input type="submit" value="Gửi">
     </form>
 </div>
-<div class="cmt_book">
+<div class="cmt_book" id="cmtBook">
     <?php
     if (true) {
         while ($cmt_row = $cmt_book->fetch_assoc()) { ?>

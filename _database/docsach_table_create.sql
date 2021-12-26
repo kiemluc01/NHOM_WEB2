@@ -7,8 +7,8 @@ CREATE TABLE chitietsach (
     Favorite int(11) NOT NULL DEFAULT 0,
     CHECK (favorite >= 0),
     Feedback int(11) DEFAULT 0,
-    Sotrang int(11) NOT NULL,
-    CHECK (Sotrang > 0),
+    Sotrang int(11) NOT NULL DEFAULT 0,
+    CHECK (Sotrang >= 0),
     PRIMARY KEY (IdChitietsach)
 );
 
@@ -108,5 +108,9 @@ $$
 DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `delete_Favorite` AFTER DELETE ON `tblfavorite` FOR EACH ROW update chitietsach set Favorite = Favorite -1 where idSach = OLD.idSach
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER after_insert_chuong AFTER INSERT ON tblchuong FOR EACH ROW UPDATE chitietsach SET chitietsach.Sotrang = chitietsach.Sotrang + 1 WHERE chitietsach.idSach = NEW.idSach;
 $$
 DELIMITER ;
