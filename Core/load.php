@@ -69,7 +69,7 @@ function loadMenu()
     if (file_exists($pathMenu)) {
         include($pathMenu);
     } else {
-        echo 'cú tìm ra menu in rứa mô mà load cha';
+        echo 'Cú tìm ra menu in rứa mô mà load cha \f556';
     }
 }
 function loadHrefBook($idSach)
