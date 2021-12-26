@@ -24,9 +24,9 @@ if ($resultBook->num_rows > 0) { ?>
                                     </a>
                                 </div>
                             </div>
-                            <div class="book-title">
+                            <!-- <div class="book-title">
                                 <cite><?php echo $rowBook["Tensach"]; ?></cite>
-                            </div>
+                            </div> -->
                             <div class="book-author">
                                 <em><?php echo $rowBook["Tacgia"]; ?></em>
                             </div>

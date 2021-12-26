@@ -10,12 +10,13 @@
 /* a#read {display: block;text-decoration: none;height: 40px;width: 100px;border-radius: 10px/10px;background-color: #FF5454;stroke: #FFF;font-family: roboto_bold;color: #FFF;font-weight: bold;font-size: 20px;margin-left: 10%;margin-top: 5%;text-align: center;line-height: 40px;} */
 .book-detail-container {
     display: grid;
-    grid-template-columns: 35% 65%;
+    grid-template-columns: 30% 70%;
 }
 .book-detail-container > div {
     padding: 30px;
 }
 .book-detail-container .book-img-container img {
-    width: 100%;
+    /* width: 100%; */
+    width: 400px;
     height: auto;
 }

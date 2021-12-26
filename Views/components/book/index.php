@@ -51,8 +51,8 @@ while ($row = $result->fetch_assoc()) {
         </div>
     </div>
 </div>
-<?php loadModule('new_book'); ?>
 <div class="comment-container">
     <h2 class="category-name">Bình luận</h3>
 </div>
 <?php loadModule('cmt_book'); ?>
+<?php loadModule('new_book'); ?>
