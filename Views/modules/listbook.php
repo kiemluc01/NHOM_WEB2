@@ -9,7 +9,7 @@ if ($resultBook->num_rows > 0) { ?>
             while ($rowBook = $resultBook->fetch_assoc()) {
                 $idSach = $rowBook['idSach']; ?>
                 <div class="book-item">
-                    <form method="GET" method="get">
+                    <form method="get">
                         <div class="book-container">
                             <!-- note: remember to design the cover of the book -->
                             <div class="book-cover-container">

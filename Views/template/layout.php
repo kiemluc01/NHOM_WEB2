@@ -46,6 +46,7 @@
     <?php loadModule('footer');     ?>
     <script src="Public\javascript\sticky-bar.js"></script>
     <script src="Public\javascript\banner-slide-show.js"></script>
+    <script src="Public\javascript\favour-check.js"></script>
 </body>
 
 </html>

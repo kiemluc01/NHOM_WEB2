@@ -11,55 +11,48 @@ while ($row = $result->fetch_assoc()) {
 
 ?>
 <!-- Phần content -->
-<div id="current_book">
+<div class="book-detail-container">
     <!-- show infor curent book -->
-    <div id="img_book">
+    <div class="book-img-container">
         <!-- image book -->
-        <img src="<?php echo $imgSach; ?>" alt="image book" class="img_book">
+        <img src="<?php echo $imgSach; ?>" alt="image book" class="book-img">
     </div>
-    <form id="content_book">
-        <!-- content book -->
-        <div id="main_details">
-            <div id="main_details1">
-                <h2 id="bookname"><?php echo $Tensach; ?></h2>
-                <p id="writer"><?php echo $Tacgia; ?></p>
-                <div id="rating">
-                    <input type="radio" id="star5" name="rating" value="5">
-                    <label class="full" for="star5" title="Awesome - 5 stars"></label>
+    <div class="detail-container">
+        <h2 class="name"><?php echo $Tensach; ?></h2>
+        <p id="writer"><em><?php echo $Tacgia; ?></em></p>
+        <form action="#" method="post" class="clear-fix">
+            <div id="rating">
+                <input type="radio" id="star5" name="rating" value="5">
+                <label class="full" for="star5" title="Awesome - 5 stars"></label>
 
-                    <input type="radio" id="star4" name="rating" value="4">
-                    <label class="full" for="star4" title="Pretty good - 4 stars"></label>
+                <input type="radio" id="star4" name="rating" value="4">
+                <label class="full" for="star4" title="Pretty good - 4 stars"></label>
 
-                    <input type="radio" id="star3" name="rating" value="3">
-                    <label class="full" for="star3" title="Meh - 3 stars"></label>
+                <input type="radio" id="star3" name="rating" value="3">
+                <label class="full" for="star3" title="Meh - 3 stars"></label>
 
-                    <input type="radio" id="star2" name="rating" value="2">
-                    <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+                <input type="radio" id="star2" name="rating" value="2">
+                <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
 
-                    <input type="radio" id="star1" name="rating" value="1">
-                    <label class="full" for="star1" title="Sucks big time - 1 star"></label>
-                </div>
-                <!-- name book, writer and rate number star -->
+                <input type="radio" id="star1" name="rating" value="1">
+                <label class="full" for="star1" title="Sucks big time - 1 star"></label>
             </div>
-            <div id="main_details2">
-                <img src="Public/images/icon_favorite_false.jpg" alt="" class="details_container" id="favorite">
-                <figcaption>Thêm vào yêu thích</figcaption>
-                <!-- add in Favorite labrary -->
+            <div id="add-favourite">
+                <input type="checkbox" name="favourite" id="favour" value="1">
+                <label for="favour"></label>
+                <!-- <span>Thêm vào yêu thích</span>  -->
             </div>
+        </form>
+        <div class="intro">
+            <p><?php echo nl2br($nd) ?></p>
         </div>
-        <hr>
-        <div id="book_introduction">
-            <!-- introduct for curent book-->
-            <p id="nd"><?php echo $nd ?></p>
-            <!-- introduct for publishing company -->
-            <hr>
-
+        <div class="btn-read">
+            <a href="<?php loadHrefReadBook(); ?>" id="read">Đọc</a>
         </div>
-        <a href="<?php loadHrefReadBook(); ?>" id="read">Đọc</a>
-    </form>
+    </div>
 </div>
 <?php loadModule('new_book'); ?>
-<center>
-    <h3 id="title_cmt" style="background-color: #FFF;">Bài đánh giá của cộng đồng</h3>
-</center>
+<div class="comment-container">
+    <h2 class="category-name">Bình luận</h3>
+</div>
 <?php loadModule('cmt_book'); ?>

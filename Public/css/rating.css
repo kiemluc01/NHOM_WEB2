@@ -28,3 +28,53 @@
 #rating>input:checked~label:hover~label {
   color: #ffa26f;
 }
+#add-favourite > input {
+  display: none;
+}
+#add-favourite > label::before {
+  margin: 5px;
+  font-size: 1.5em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f004";
+  /* \f08a */
+}
+#add-favourite {
+  float: right;
+}
+#add-favourite > label {
+  color: #ddd;
+  /* float: right; */
+}
+#add-favourite > input:checked ~ label,
+#add-favourite:not(:checked) > label:hover,
+#add-favourite:not(:checked) > label:hover ~ label {
+  color: var(--icolor);
+}
+#add-favourite>input:checked+label:hover,
+#add-favourite>input:checked~label:hover,
+#add-favourite>label:hover~input:checked~label,
+#add-favourite>input:checked~label:hover~label {
+  color: #ffa26f;
+}
+.detail-container h2 {
+  font-weight: 300;
+  font-size: 50px;
+  color: var(--dark);
+}
+.detail-container .intro {
+  line-height: 1.6;
+}
+.btn-read {
+  margin-top: 50px;
+}
+.btn-read a {
+  color: var(--light);
+  background-color: var(--link);
+  text-decoration: none;
+  padding: 14px 36px;
+  transition: background-color .3s;
+}
+.btn-read a:hover {
+  background-color: var(--linkhover);
+}

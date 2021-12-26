@@ -2,70 +2,45 @@
 $book = loadModel('book');
 $resultBook =  $book->get_new_book($_REQUEST['idSach']);
 ?>
-<div id="new_book">
-    <center>
-        <h3 id="title_new_book">Những cuốn sách khác mà bạn có thể quan tâm</h3>
-    </center>
-    <div id="container_newbook">
-        <?php while ($newBook = $resultBook->fetch_assoc()) { ?>
-            <form action="" method="get">
-                <table id="new_book_container">
-                    <tr>
-                        <td>
-                            <center><img src="<?php echo $newBook['imgSach']; ?>" alt="ảnh của sách" id="book" class="new_book"></center>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th id="bookname">
-                            <center><?php echo $newBook['Tensach']; ?></center>
-                        </th>
-                    </tr>
-                    <tr>
-                        <td id="writer">
-                            <center><?php echo $newBook['Tacgia']; ?></center>
-                        </td>
-                    </tr>
-                    <tr>
-                        <center>
-                            <td>
-                                <div id="icon_quantity">
-                                    <div id="view_container" class="icon_quantity">
-                                        <img src="Public/images/icon_view.png" alt="icon view" class="icon_quantity">
-                                        <figcaption class="text"><?php echo $newBook['Luotxem']; ?></figcaption>
-                                    </div>
-                                    <div id="cmt_container" class="icon_quantity">
-                                        <img src="Public/images/icon_cmt.png" alt="icon cmt" class="icon_quantity">
-                                        <figcaption class="text"><?php echo $newBook['Feedback']; ?></figcaption>
-                                    </div>
-                                    <div id="favorite_container" class="icon_quantity">
-                                        <img src="Public/images/icon_favorite_false.png" alt="icon favorite" id="favorite" class="icon_quantity">
-                                        <figcaption class="text"><?php echo $newBook['Favorite']; ?></figcaption>
-                                    </div>
+<div class="list-book-container-2">
+    <h2 class="category-name">Đề xuất khác</h3>
+        <div class="list-item-container">
+            <?php while ($newBook = $resultBook->fetch_assoc()) { ?>
+                <div class="book-item">
+                    <form method="get">
+                        <div class="book-container">
+                            <div class="book-cover-container">
+                                <div class="book-cover">
+                                    <a href="<?php loadHrefBook($newBook['idSach']); ?>" class="listbook">
+                                        <div class="front">
+                                            <div class="cover">
+                                                <img src="<?php echo $newBook['imgSach']; ?>" alt="ảnh của sách" id="book" class="book-cover-img">
+                                            </div>
+                                        </div>
+                                        <div class="left-side"></div>
+                                    </a>
                                 </div>
-                            </td>
-                        </center>
-                    <tr>
-                        <td>
-                            <hr>
-                        </td>
-                    </tr>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div id="contruction">
-                                <p id="introduct"><?php echo $newBook['tomtatND']; ?></p>
                             </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <center>
-                                <a href="<?php loadHrefBook($newBook['idSach']); ?>" class="submit_chitiet">Xem chi tiết</a>
-                            </center>
-                        </td>
-                    </tr>
-                </table>
-            </form>
-        <?php } ?>
-    </div>
+                            <div class="book-title">
+                                <cite><?php echo $newBook['Tensach']; ?></cite>
+                            </div>
+                            <div class="book-author">
+                                <em><?php echo $newBook['Tacgia']; ?></em>
+                            </div>
+                            <div class="book-view">
+                                <div class="book-view-detail">
+                                    <i class="fas fa-eye"></i> <?php echo $newBook["Luotxem"]; ?>
+                                </div>
+                                <div class="book-view-detail">
+                                    <i class="fas fa-comments"></i> <?php echo $newBook["Feedback"]; ?>
+                                </div>
+                                <div class="book-view-detail">
+                                    <i class="fab fa-gratipay"></i> <?php echo $newBook["Favorite"]; ?>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            <?php } ?>
+        </div>
 </div>

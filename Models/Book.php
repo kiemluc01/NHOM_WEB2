@@ -77,4 +77,14 @@ class Book extends Database
     //         $ten = $row['Tensach'];
     //     return $ten;
     // }
+    function get_favour_by_book($idBook) {
+        $sql = "select * from tblfavourite where idsach = " . $idBook;
+        $result = mysqli_query($this->conn, $sql);
+        return $result;
+    }
+    function get_favour_by_user($idUser) {
+        $sql = "select * from tblfavourite where idMember = " . $idUser;
+        $result = mysqli_query($this->conn, $sql);
+        return $result;
+    }
 }

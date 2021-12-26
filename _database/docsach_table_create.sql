@@ -1,68 +1,69 @@
 CREATE TABLE chitietsach (
-    idchitietsach int(11) NOT NULL AUTO_INCREMENT,
-    idsach int(11) NOT NULL,
-    tomtatnd text(1000) NOT NULL,
-    luotxem int(11) NOT NULL DEFAULT 0,
+    IdChitietsach int(11) NOT NULL AUTO_INCREMENT,
+    idSach int(11) NOT NULL,
+    tomtatND text(1000) NOT NULL,
+    Luotxem int(11) NOT NULL DEFAULT 0,
     CHECK (luotxem >= 0),
-    favorite int(11) NOT NULL DEFAULT 0,
-    CHECK (favorite >= 0)
-    sotrang int(11) NOT NULL,
-    CHECK (sotrang > 0),
-    PRIMARY KEY (idchitietsach)
+    Favorite int(11) NOT NULL DEFAULT 0,
+    CHECK (favorite >= 0),
+    Feedback int(11) DEFAULT 0,
+    Sotrang int(11) NOT NULL,
+    CHECK (Sotrang > 0),
+    PRIMARY KEY (IdChitietsach)
 );
 
 CREATE TABLE tblaccount (
-    idmember int(11) NOT NULL AUTO_INCREMENT,
+    idMember int(11) NOT NULL AUTO_INCREMENT,
     username varchar(255) NOT NULL,
     password varchar(255) NOT NULL,
     email varchar(255) NOT NULL,
-    img varchar(255) DEFAULT 'https://dvdn247.net/wp-content/uploads/2020/07/avatar-mac-dinh-1.png',
-    gioitinh varchar(4),
-    CHECK gioitinh in ('Nam', 'Nữ'),
-    ngaysinh date DEFAULT CURRENT_DATE(),
-    idquyen int(11) NOT NULL DEFAULT 0, -- 0 là id quyền user, 1 là id quyền admin
-    PRIMARY KEY (idmember)
+    IMG varchar(255) DEFAULT 'https://dvdn247.net/wp-content/uploads/2020/07/avatar-mac-dinh-1.png',
+    Gioitinh varchar(4),
+    CHECK (Gioitinh in ('Nam', 'Nữ')),
+    Ngaysinh date,
+    idquyen int(11) NOT NULL DEFAULT 2, -- 2 là id quyền user, 1 là id quyền admin
+    PRIMARY KEY (idMember)
 );
 
 CREATE TABLE tblchuong (
-    idchuong int(11) NOT NULL AUTO_INCREMENT,
-    idsach int(11) NOT NULL,
-    tenchuong varchar(255) NOT NULL,
+    idChuong int(11) NOT NULL AUTO_INCREMENT,
+    idSach int(11) NOT NULL,
+    TenChuong varchar(255) NOT NULL,
     noidung longtext NOT NULL,
     PRIMARY KEY (idchuong)
 );
 
 CREATE TABLE tbldanhgia (
-    iddanhgia int(11) NOT NULL AUTO_INCREMENT,
-    idmember int(11) NOT NULL,
-    idsach int(11) NOT NULL,
-    noidung text(250) NOT NULL,
-    thoigian date NOT NULL DEFAULT CURRENT_DATE(),
+    idDanhgia int(11) NOT NULL AUTO_INCREMENT,
+    idMember int(11) NOT NULL,
+    idSach int(11) NOT NULL,
+    Noidung text(250) NOT NULL,
+    Thoigian date NOT NULL,
     PRIMARY KEY (iddanhgia)
 );
 
 CREATE TABLE tbldanhmuc (
-    iddanhmuc int(11) NOT NULL AUTO_INCREMENT,
-    tendanhmuc varchar(255) NOT NULL,
+    idDanhmuc int(11) NOT NULL AUTO_INCREMENT,
+    Tendanhmuc varchar(255) NOT NULL,
     PRIMARY KEY (iddanhmuc)
 );
 
 
 CREATE TABLE tblfavorite (
-    idsach int(11) NOT NULL,
-    idmember int(11) NOT NULL,
+    idSach int(11) NOT NULL,
+    idMember int(11) NOT NULL,
     PRIMARY KEY (idsach, idmember)
 );
 
 
 CREATE TABLE tblsach (
-    idsach int(11) NOT NULL AUTO_INCREMENT,
-    imgsach varchar(255) NOT NULL,
-    tensach varchar(255) NOT NULL,
-    tacgia varchar(255) NOT NULL,
-    nxb int(11) NOT NULL,
-    iddanhmuc int(11) NOT NULL,
-    ngaydang date NOT NULL DEFAULT CURRENT_DATE(),
+    idSach int(11) NOT NULL AUTO_INCREMENT,
+    imgSach varchar(255) NOT NULL,
+    Tensach varchar(255) NOT NULL,
+    Tacgia varchar(255) NOT NULL,
+    NXB int(11) NOT NULL,
+    idDanhmuc int(11) NOT NULL,
+    NgayDang date NOT NULL,
     PRIMARY KEY (idsach)
 );
 
@@ -81,11 +82,31 @@ CREATE TABLE phanquyen (
 );
 
 
-ALTER TABLE chitietsach ADD CONSTRAINT FK_chitietsach__idsach FOREIGN KEY (idsach) REFERENCES tblsach(idsach);
-ALTER TABLE tblaccount ADD CONSTRAINT FK_tblaccount__idquyen FOREIGN KEY (idquyen) REFERENCES phanquyen(idquyen);
-ALTER TABLE tblchuong ADD CONSTRAINT FK_tblchuong__idsach FOREIGN KEY (idsach) REFERENCES tblsach(idsach);
-ALTER TABLE tbldanhgia ADD CONSTRAINT FK_tbldanhgia__idmember FOREIGN KEY (idmember) REFERENCES tblaccount(idmember);
-ALTER TABLE tbldanhgia ADD CONSTRAINT FK_tbldanhgia__idsach FOREIGN KEY (idsach) REFERENCES tblsach(idsach);
-ALTER TABLE tblfavorite ADD CONSTRAINT FK_tblfavorite__idsach FOREIGN KEY (idsach) REFERENCES tblsach(idsach);
-ALTER TABLE tblfavorite ADD CONSTRAINT FK_tblfavorite__idmember FOREIGN KEY (idmember) REFERENCES  tblaccount(idmember);
-ALTER TABLE tblsach ADD CONSTRAINT FK_tblsach__iddanhmuc FOREIGN KEY (iddanhmuc) REFERENCES  tbldanhmuc(iddanhmuc);
+ALTER TABLE chitietsach ADD CONSTRAINT FK_chitietsach__idsach FOREIGN KEY (idsach) REFERENCES tblsach(idsach) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE tblaccount ADD CONSTRAINT FK_tblaccount__idquyen FOREIGN KEY (idquyen) REFERENCES phanquyen(idquyen) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE tblchuong ADD CONSTRAINT FK_tblchuong__idsach FOREIGN KEY (idsach) REFERENCES tblsach(idsach) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE tbldanhgia ADD CONSTRAINT FK_tbldanhgia__idmember FOREIGN KEY (idmember) REFERENCES tblaccount(idmember) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE tbldanhgia ADD CONSTRAINT FK_tbldanhgia__idsach FOREIGN KEY (idsach) REFERENCES tblsach(idsach) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE tblfavorite ADD CONSTRAINT FK_tblfavorite__idsach FOREIGN KEY (idsach) REFERENCES tblsach(idsach) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE tblfavorite ADD CONSTRAINT FK_tblfavorite__idmember FOREIGN KEY (idmember) REFERENCES  tblaccount(idmember) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE tblsach ADD CONSTRAINT FK_tblsach__iddanhmuc FOREIGN KEY (iddanhmuc) REFERENCES  tbldanhmuc(iddanhmuc) ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- Trigger
+
+DELIMITER $$
+CREATE TRIGGER `add_luotcmt` AFTER INSERT ON `tbldanhgia` FOR EACH ROW update chitietsach set Feedback = Feedback +1 where idSach = NEW.idSach
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `delete_luotcmt` AFTER DELETE ON `tbldanhgia` FOR EACH ROW update chitietsach set Feedback = Feedback -1 where idSach = OLD.idSach
+$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER `add_Favorite` AFTER INSERT ON `tblfavorite` FOR EACH ROW update chitietsach set Favorite = Favorite +1 where idSach = NEW.idSach
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `delete_Favorite` AFTER DELETE ON `tblfavorite` FOR EACH ROW update chitietsach set Favorite = Favorite -1 where idSach = OLD.idSach
+$$
+DELIMITER ;
