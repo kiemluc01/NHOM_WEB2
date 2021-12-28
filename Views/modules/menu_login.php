@@ -37,12 +37,7 @@ $category = $book->get_category_all();
             <a href="">Tiếng Anh</a>
         </div>
     </div>
-    <div class="search-container">
-        <form action="" class="find">
-            <input type="text" name="find" id="" placeholder="Tìm kiếm .." class="find">
-            <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
-    </div>
+    <?php require ("searchBook.php"); ?>
     <div class="member-container">
         <div class="nav-drop member">
             <a href=""><img src="<?php echo $IMG; ?>" alt="<?php echo $username; ?>"></a>

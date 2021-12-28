@@ -8,7 +8,6 @@ else
 if ($result->num_rows > 0) {
     while ($rowCtg = $result->fetch_assoc()) {  ?>
         <div id="category">
-
             <?php
             // session_start();
             $_SESSION['rowDM'] = $rowCtg;
@@ -18,6 +17,6 @@ if ($result->num_rows > 0) {
             ?>
         </div>
 
-<?php   }
+<?php }
 }
 ?>

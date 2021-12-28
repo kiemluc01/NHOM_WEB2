@@ -11,6 +11,12 @@ class Book extends Database
         $result = mysqli_query($this->conn, $sql);
         return $result;
     }
+    function getAllBook() {
+        $sql = "select * from tblsach";
+        $result = mysqli_query($this->conn, $sql);
+        mysqli_close($this->conn);
+        return $result;
+    }
     //tìm kiếm
     function find($string)
     {
