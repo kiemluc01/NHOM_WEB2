@@ -37,7 +37,7 @@ $category = $book->get_category_all();
             <a href="">Tiếng Anh</a>
         </div>
     </div>
-    <?php require ("searchBook.php"); ?>
+    <?php loadModule('searchBook'); ?>
     <div class="member-container">
         <div class="nav-drop member">
             <a href=""><img src="<?php echo $IMG; ?>" alt="<?php echo $username; ?>"></a>
