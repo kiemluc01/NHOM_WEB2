@@ -32,7 +32,11 @@ class Member extends Database
         $sql = "select * from tblaccount where username = '" . $user . "' and password ='" . $pass . "'";
         $login = mysqli_query($this->conn, "select * from tblaccount where username = '" . $user . "' and password ='" . $pass . "'");
         if (mysqli_num_rows($login) > 0)
+        {
             return true;
+        }
+           
+
         return false;
     }
 }

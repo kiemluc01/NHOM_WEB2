@@ -32,6 +32,7 @@ function loadTemplate($name)
 function loadComponent()
 {
     $pathcom = 'Views/components/';
+    
     if (isset($_REQUEST['option'])) {
         $pathcom = $pathcom . $_REQUEST['option'] . '/';
         if (isset($_REQUEST['chapter'])) {
@@ -42,6 +43,10 @@ function loadComponent()
     } else {
         $pathcom = $pathcom . 'home/index.php';
     }
+    if(isset($_REQUEST['condition']))
+    if($_REQUEST['condition'] == 'admin')
+    $pathcom = 'admin/index.php';
+
     if (file_exists($pathcom)) {
         include_once($pathcom);
     } else {
@@ -63,6 +68,7 @@ function loadMenu()
 {
     $pathMenu = 'Views/modules/';
     if (isset($_REQUEST['condition']))
+        
         $pathMenu = $pathMenu . 'menu_login.php';
     else
         $pathMenu = $pathMenu . 'menu_home.php';
@@ -105,4 +111,14 @@ function LoadTirtle()
 }
 function loadUserBoard() {
     
+}
+
+
+// load modules admin
+function loadModuleAdmin($name)
+{
+    $pathModule = 'Views/admin/bar' . $name . '.php';
+    if (file_exists($pathModule)) {
+        include($pathModule);
+    }
 }

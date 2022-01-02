@@ -20,7 +20,7 @@ class Book extends Database
     //tìm kiếm
     function find($string)
     {
-        $sql = "select a.*,Sotrang,Luotxem,Feedback,Favorite 
+        $sql = "select a.*,sochuong,Luotxem,Feedback,Favorite 
             from tblsach as a,chitietsach as b,tbldanhmuc as c 
             where a.idSach like N'%" . $string . "%'and Tensach like N'%" . $string . "%'and a.idDanhmuc like N'%" . $string . "%' and Tendanhmuc like N'%" . $string . "%' and a.idSach = b.idSach and a.idDanhmuc = c.idDanhmuc 
             order by NgayDang desc";
@@ -44,7 +44,7 @@ class Book extends Database
     //lấy sách theo danh mục
     function Book_category($category)
     {
-        $sql = "select a.*,Sotrang,Luotxem,Feedback,Favorite 
+        $sql = "select a.*,sochuong,Luotxem,Feedback,Favorite 
             from tblsach as a,chitietsach as b 
             where idDanhmuc = " . $category . " and a.idSach = b.idSach 
             order by NgayDang desc";
@@ -54,7 +54,7 @@ class Book extends Database
     // lấy ra sách hiện tại 
     function get_bookcurrent($idBook)
     {
-        $sql = "select a.*, Sotrang,tomtatND from tblsach as a, chitietsach as b where a.idSach = b.idSach and a.idSach = " . $idBook;
+        $sql = "select a.*, sochuong,TomtatND from tblsach as a, chitietsach as b where a.idSach = b.idSach and a.idSach = " . $idBook;
         $result = mysqli_query($this->conn, $sql);
         return $result;
     }
@@ -62,7 +62,7 @@ class Book extends Database
     function get_new_book($idsach_cur)
     {
 
-        $sql = "select a.* from (select a.*, Sotrang,Luotxem,Feedback,Favorite,tomtatND from tblsach as a, chitietsach as b where a.idSach = b.idSach and a.idSach != " . $idsach_cur . " ) as a order by a.Favorite desc limit 5";
+        $sql = "select a.* from (select a.*, sochuong,Luotxem,Feedback,Favorite,TomtatND from tblsach as a, chitietsach as b where a.idSach = b.idSach and a.idSach != " . $idsach_cur . " ) as a order by a.Favorite desc limit 5";
         $result = mysqli_query($this->conn, $sql);
         return $result;
     }
@@ -84,12 +84,12 @@ class Book extends Database
     //     return $ten;
     // }
     function get_favour_by_book($idBook) {
-        $sql = "select * from tblfavourite where idsach = " . $idBook;
+        $sql = "select * from tblfavorite where idsach = " . $idBook;
         $result = mysqli_query($this->conn, $sql);
         return $result;
     }
     function get_favour_by_user($idUser) {
-        $sql = "select * from tblfavourite where idMember = " . $idUser;
+        $sql = "select * from tblfavorite where idMember = " . $idUser;
         $result = mysqli_query($this->conn, $sql);
         return $result;
     }

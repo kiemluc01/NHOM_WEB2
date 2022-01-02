@@ -1,5 +1,5 @@
 <?php
-// if (isset($_POST['btnregister'])) {
+
 if (isset($_POST['user_login']) &&  isset($_POST['password_login'])) {
     $user = $_POST['user_login'];
     $pass = $_POST['password_login'];
@@ -32,7 +32,7 @@ if (isset($_POST['btnlogin'])) {
         </div>
         <div class="row">
             <label for="pass">Mật khẩu: </label>
-            <input type="password" name="password_login" id="pass" class="login">
+            <input type="password" name="password_login" id="pass" class   login">
         </div>
         <div class="row">
             <input type="submit" value="Đăng nhập" id="btnlogin">

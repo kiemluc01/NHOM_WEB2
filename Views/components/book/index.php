@@ -6,7 +6,7 @@ while ($row = $result->fetch_assoc()) {
     $imgSach = $row['imgSach'];
     $Tensach = $row['Tensach'];
     $Tacgia = $row['Tacgia'];
-    $nd = $row['tomtatND'];
+    $nd = $row['TomtatND'];
 }
 
 ?>

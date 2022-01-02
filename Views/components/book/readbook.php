@@ -4,7 +4,7 @@ $book = loadModel('Book');
 $sotrang = 0;
 $result = $book->get_bookcurrent($_REQUEST['idSach']);
 while ($row = $result->fetch_assoc()) {
-    $sotrang = $row['Sotrang'];
+    $sotrang = $row['sochuong'];
 }
 ?>
 <h1><?php echo 'Trang số ' . $_REQUEST['page']; ?></h1>

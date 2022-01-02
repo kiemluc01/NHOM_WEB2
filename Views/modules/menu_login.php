@@ -5,9 +5,10 @@ $result = $member->get_member($_REQUEST['condition']);
 while ($rowmember = $result->fetch_assoc()) {
     $idMember = $rowmember['idMember'];
     $username = $rowmember['username'];
+    $username = $rowmember['MemberName'];
     $password = $rowmember['password'];
     $email = $rowmember['email'];
-    $IMG = $rowmember['IMG'];
+    $IMG = $rowmember['ImgAvatar'];
     $Ngaysinh = $rowmember['Ngaysinh'];
     $Gioitinh = $rowmember['Gioitinh'];
 }
@@ -46,7 +47,7 @@ $category = $book->get_category_all();
                 <a href=""><i class="fas fa-book"></i> Thư viện</a>
                 <a href=""><i class="fas fa-bell"></i> Thông báo</a>
                 <a href=""><i class="fas fa-key"></i> Đổi mật khẩu</a>
-                <a href="index.php"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+                <a href="index.php?option=login"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
             </div>
         </div>
     </div>
