@@ -107,6 +107,7 @@
 	<script src="Public/vendors/starrr/dist/starrr.js"></script>
 	<!-- Custom Theme Scripts -->
 	<script src="Public/build/js/custom.min.js"></script>
+	<script src="Public/build/js/select_book.js"></script>
     <link href="Public/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Font Awesome -->
 	<link href="Public/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -153,6 +154,7 @@
     <script src="Public\javascript\banner-slide-show.js"></script>
     <script src="Public\javascript\searchBook.js"></script>
     <script src="Public\javascript\somepiece.js"></script>
+    
     <!-- <script src="Public\dist\js\bootstrap.bundle.min.js"></script> -->
 </body>
 

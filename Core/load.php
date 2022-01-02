@@ -43,10 +43,7 @@ function loadComponent()
     } else {
         $pathcom = $pathcom . 'home/index.php';
     }
-    if(isset($_REQUEST['condition']))
-    if($_REQUEST['condition'] == 'admin')
-    $pathcom = 'admin/index.php';
-
+    
     if (file_exists($pathcom)) {
         include_once($pathcom);
     } else {

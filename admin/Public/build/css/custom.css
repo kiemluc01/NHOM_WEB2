@@ -4955,6 +4955,7 @@ ul.notifications {
 .calendar-exibit .show-calendar {
   float: none;
   display: block;
+  
   position: relative;
   background-color: #fff;
   border: 1px solid #ccc;

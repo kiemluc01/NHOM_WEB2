@@ -44,18 +44,18 @@
                       <li><a href="">Dashboard</a></li>
                     </ul>
                   </li>
-                  <li><a href="index.php?option=forms"><i class="fa fa-edit"></i> Quản lý sách <span class="fa fa-chevron-down"></span></a>
+                  <li><a href="index.php?option=quanlysach"><i class="fa fa-edit"></i> Quản lý sách <span class="fa fa-chevron-down"></span></a>
                    
                   </li>
-                  <li><a><i class="fa fa-desktop"></i>Quản lý danh mục <span class="fa fa-chevron-down"></span></a>
+                  <li><a href="index.php?option=quanlydanhmuc"><i class="fa fa-desktop"></i>Quản lý danh mục <span class="fa fa-chevron-down"></span></a>
                    
                   </li>
-                  <li><a><i class="fa fa-table"></i> Thống kê <span class="fa fa-chevron-down"></span></a>
+                  <li><a href="index.php?option=thongke"><i class="fa fa-table"></i> Thống kê <span class="fa fa-chevron-down"></span></a>
                    
                   </li>
                   <li><a><i class="fa fa-bar-chart-o"></i> Quản lý người dùng <span class="fa fa-chevron-down"></span></a>
                   </li>
-                  <li><a><i class="fas fa-images"></i> Quản lý banner <span class="fa fa-chevron-down"></span></a>
+                  <li><a href =""><i class="fas fa-images"></i> Quản lý banner <span class="fa fa-chevron-down"></span></a>
                   </li>
                   <li><a><i class="fa fa-bar-chart-o"></i> Tương tác <span class="fa fa-chevron-down"></span></a>
                   </li>

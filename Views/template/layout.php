@@ -127,6 +127,7 @@
 	<script src="Public/admin/vendors/starrr/dist/starrr.js"></script>
 	<!-- Custom Theme Scripts -->
 	<script src="Public/admin/build/js/custom.min.js"></script>
+	<script src="Public/admin/build/js/select_book.js"></script>
     <link href="Public/admin/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Font Awesome -->
 	<link href="Public/admin/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -151,10 +152,12 @@
 </head>
 
 <body>
+<?php 
+    
+
+?>
     <!-- load menu -->
     <?php 
-    if(isset($_REQUEST['condition']))
-    if($_REQUEST['condition'] !='admin')
     
         loadMenu();
     
@@ -164,12 +167,8 @@
         <?php loadComponent();    ?>
     </div>
     <?php
-    if(isset($_REQUEST['condition']))
-    if($_REQUEST['condition'] !='admin')
-    {
-
+    
         loadModule('footer');
-    }
         ?>
     <script src="Public\javascript\sticky-bar.js"></script>
     <script src="Public\javascript\banner-slide-show.js"></script>

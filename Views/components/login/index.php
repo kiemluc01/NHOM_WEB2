@@ -7,6 +7,9 @@ if (isset($_POST['user_login']) &&  isset($_POST['password_login'])) {
         $Member = loadModel('Member');
         $login = $Member->login($user, $pass);
         if ($login === true) {
+            if($user == 'admin')
+            echo '<script> location.href="admin/index.php" </script>';
+            else
             echo '<script> alert("đăng nhập thành công"); 
             location.assign("index.php?condition=' . $user . '");
         </script>';
