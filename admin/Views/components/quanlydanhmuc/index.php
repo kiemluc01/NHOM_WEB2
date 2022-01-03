@@ -13,7 +13,7 @@
                 </div>
                 <div class="filter-ft__ev" >
                     <select>
-                        <option value="tất cả">----Tất cả----</option>
+                        <option value="tất cả">Tìm kiếm theo danh muc</option>
                     </select>
             </div>
         </div>
