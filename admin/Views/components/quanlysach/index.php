@@ -1,11 +1,26 @@
 
 
 </div> <!-- page content -->
+<<<<<<< HEAD
 <div class="right_col" role="main">
     <div class="btn" style="width:80%">
         <form action="" method="post">
             <div class = "filter "id="filter" style="display:flex;justify-content:space-between!important ;">
                 <div style="display: flex;"  class = "filter-ft">
+=======
+    <div class="right_col" role="main">
+        <div class="row" style="display:inline-block;">
+            
+        </div>
+        <div class="row">
+    
+        </div>
+        <div class="btn" style="width:100%">
+            <form action="" method="post">
+            <div id="filter" style="display:flex;justify-content:space-between!important ;">
+
+                <div style="display: flex;">
+>>>>>>> 2d7ec9e706a66abd6bf3131adee6ad9c23257712
                     <div class="filter-ft__ev">
                         <input type="text" placeholder="Nhập tên sách" name="namebook" id="namebook" />
                     </div>

@@ -15,7 +15,7 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
         while ($cmt_row = $cmt_book->fetch_assoc()) { ?>
             <div class="cmt_member">
                 <div class="infor_Member">
-                    <img src="<?php echo $cmt_row['IMG'] ?>" alt="Avt" class="avt">
+                    <img src="<?php echo $cmt_row['ImgAvatar'] ?>" alt="Avt" class="avt">
                     <div class="name_Member_time">
                         <p class="Member_name" class="text"><?php echo $cmt_row['email'] ?></p>
                         <p class="time" class="text"><?php echo $cmt_row['Thoigian'] ?></p>
