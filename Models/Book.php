@@ -93,4 +93,112 @@ class Book extends Database
         $result = mysqli_query($this->conn, $sql);
         return $result;
     }
+    function TachPage($idSach, $idchuong)
+    {
+        $sql = "select * from tblchuong where idSach =" . $idSach . " and idChuong= " . $idchuong;
+        $text = "chưa cha ơi";
+        $content = "";
+        $kitutrang = 0;
+        $sokitudaduyet = 0;
+        $st = $_REQUEST['kitu'];
+        $row = array();
+        $result = mysqli_query($this->conn, $sql);
+        if (
+            $result->num_rows > 0
+        ) {
+            while ($row = $result->fetch_assoc()) {
+                $content = $row['noidung'];
+            }
+
+            while (
+                $kitutrang <= 1000 && $sokitudaduyet <= strlen($content)
+            ) {
+
+                if (substr($content, $st + $sokitudaduyet, 1) == " ") {
+                    $kitutrang++;
+                }
+                $sokitudaduyet++;
+            }
+            $text = substr($content, $st, $sokitudaduyet);
+        }
+
+        return $text;
+    }
+    function loadkitu(
+        $i,
+        $idSach,
+        $idchuong
+    ) {
+        $sql = "select * from tblchuong where idSach =" . $idSach . " and idChuong= " . $idchuong;
+        $content = "";
+        $kitutrang = 0;
+        $sokitudaduyet = 0;
+        $row = array();
+        $result = mysqli_query($this->conn, $sql);
+        if (
+            $result->num_rows > 0
+        ) {
+            while ($row = $result->fetch_assoc()) {
+                $content = $row['noidung'];
+            }
+
+            while (
+                $kitutrang <= ($i - 1) * 1000 && $sokitudaduyet <= strlen($content)
+            ) {
+
+                if (substr($content, $sokitudaduyet, 1) == " ") {
+                    $kitutrang++;
+                }
+                $sokitudaduyet++;
+            }
+        }
+        return $sokitudaduyet;
+    }
+    function loadSotrang($idSach, $idchuong)
+    {
+        $sql = "select * from tblchuong where idSach =" . $idSach . " and idChuong= " . $idchuong;
+        $content = "";
+        $kitutrang = 0;
+        $sokitudaduyet = 0;
+        $row = array();
+        $result = mysqli_query($this->conn, $sql);
+        if (
+            $result->num_rows > 0
+        ) {
+            while ($row = $result->fetch_assoc()) {
+                $content = $row['noidung'];
+            }
+
+            while ($sokitudaduyet <= strlen($content)) {
+
+                if (substr($content, $sokitudaduyet, 1) == " ") {
+                    $kitutrang++;
+                }
+                $sokitudaduyet++;
+            }
+        }
+        return ceil($kitutrang / 1000);
+    }
+    function convert_text($text)
+    {
+        $str = '';
+        $kitu = 0;
+        $vt = 0;
+        while ($vt + $kitu <= strlen($text)) {
+            $kitu++;
+            if (substr($text, $vt + $kitu, 1) == '\n') {
+                $str .= substr($text, $vt, $kitu);
+                $vt += $kitu;
+                $kitu = 0;
+            }
+            if (
+                $kitu >= 200 && substr($text, $vt + $kitu, 1) == ' '
+            ) {
+                $str .= substr($text, $vt, $kitu) . '<br>';
+                $vt += $kitu;
+                $kitu = 0;
+            }
+        }
+        return $str;
+    }
 }
