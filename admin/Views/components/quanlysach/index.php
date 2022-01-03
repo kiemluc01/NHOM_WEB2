@@ -1,6 +1,12 @@
 </div> <!-- page content -->
     <div class="right_col" role="main">
-        <div class="btn" style"width:100%">
+        <div class="row" style="display:inline-block;">
+            
+        </div>
+        <div class="row">
+    
+        </div>
+        <div class="btn" style="width:100%">
             <form action="" method="post">
             <div id="filter" style="display:flex;justify-content:space-between!important ;">
                 
