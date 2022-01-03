@@ -13,8 +13,9 @@
                     </div>
                 </div>
                 <div class="filter-ft__ev">
+                    <label for="">Tên danh mục :</label>
                     <select name="category" id="category">
-                        <option value="category">----Tất cả----</option>
+                        <option value="category">Tìm kiếm theo danh mục</option>
                         <?php
                         $cat = loadModel('Listcategories');
                         $result = $cat->getAll();
