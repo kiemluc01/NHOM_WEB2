@@ -136,7 +136,6 @@
     <!-- iCheck -->
     <script src="Public/vendors/iCheck/icheck.min.js"></script>
     <!-- bootstrap-daterangepicker -->
-<<<<<<< HEAD
     <script src="Public/vendors/moment/min/moment.min.js"></script>
     <script src="Public/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
     <!-- bootstrap-wysiwyg -->
@@ -160,7 +159,6 @@
     <!-- Custom Theme Scripts -->
     <script src="Public/build/js/custom.min.js"></script>
     <script src="Public/build/js/select_book.js"></script>
-=======
     <link href="Public/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
@@ -252,7 +250,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     
     <!-- <script src="Public\dist\js\bootstrap.bundle.min.js"></script> -->
->>>>>>> b0b3481a1d781d8d43d2e67da8437988b6db0ec1
 </body>
 
 </html>
