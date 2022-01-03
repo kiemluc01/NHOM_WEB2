@@ -5,7 +5,7 @@ if (isset($_POST['user']) && isset($_POST['Email']) && isset($_POST['password'])
     $user = $_POST['user'];
     $pass = $_POST['password'];
     $confirm_pass = $_POST['confirm_pass'];
-    if ($email != null &&  $user != null && $user != null && $confirm_pass != null) {
+    if ($email != null &&  $user != null && $pass != null && $confirm_pass != null) {
         $Member = loadModel('Member');
         $register = $Member->register($email, $user, $pass, $confirm_pass);
         if ($register === true) {

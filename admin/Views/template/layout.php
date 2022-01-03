@@ -199,6 +199,7 @@
 	<!-- Custom Theme Scripts -->
 	<script src="Public/build/js/custom.min.js"></script>
 	<script src="Public/build/js/select_book.js"></script>
+	<script src="Public/build/js/select_category.js"></script>
     <link href="Public/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Font Awesome -->
 	<link href="Public/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">

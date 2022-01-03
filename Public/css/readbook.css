@@ -15,3 +15,8 @@ div.container_page {
     display: flex;
     margin-left: 20%;
 }
+
+.content_chapter {
+    width: 80%;
+    margin-left: 10%;
+}

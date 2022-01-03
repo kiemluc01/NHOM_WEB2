@@ -96,7 +96,7 @@ function loadHrefCategory($idDanhmuc)
 function loadHrefReadBook()
 {
     if (isset($_REQUEST['condition']))
-        echo 'index.php?condition=' . $_REQUEST['condition'] . '&option=book&idSach=' . $_REQUEST['idSach'] . '&chapter=1&page=1';
+    echo 'index.php?condition=' . $_REQUEST['condition'] . '&option=book&idSach=' . $_REQUEST['idSach'] . '&chapter=1&page=1&kitu=0';
     else
         echo '';
 }

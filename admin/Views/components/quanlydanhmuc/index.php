@@ -1,26 +1,33 @@
 </div> <!-- page content -->
     <div class="right_col" role="main">
-        <div class="btn">
-            <div id="filter">
+        <div class="btn"style="width:50%">
+            <div id="filter"style="display:flex;justify-content:space-between!important ;">
                 <div class="filter-ft__ev >
                     <input type="submit" value="Thêm" name="add" id="add">
                 </div>
                  <div class="filter-ft__ev" >
                     <input type="text" placeholder="Nhập tên sách" name = "namebook" id="namebook"/>
-                </div>
-                 <div class="filter-ft__ev" >
                     <input type="submit" value="Tìm Kiếm" name="search" id="search">
                 </div>
+                 
                 <div class="filter-ft__ev" >
                     <select>
                         <option value="tất cả">Tìm kiếm theo danh muc</option>
+                        <?php
+                        $cat = loadModel('Listcategories');
+                        $result = $cat->getAll();
+                        if ($result->num_rows > 0)
+                            while ($row = $result->fetch_assoc()) { ?>
+                            <option value="<?php echo $row['idDanhmuc'] ?>"><?php echo $row['Tendanhmuc'] ?></option>
+                        <?php }
+                        ?>
                     </select>
             </div>
         </div>
     </div>
            
-        <div class="tb table">
-    <table>
+        <div class="tb table" style="width = 100%">
+    <table >
         <tr>
             <th>STT</th>
             <th>Tên danh mục</th>

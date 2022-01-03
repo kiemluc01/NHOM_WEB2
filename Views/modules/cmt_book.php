@@ -1,10 +1,14 @@
 <?php
 $book = loadModel('Book');
+
+if (isset($_REQUEST['Noidung'])) {
+    $book->cmt($_REQUEST['Noidung'], $_REQUEST['condition'], $_REQUEST['idSach']);
+}
 $cmt_book = $book->get_cmt($_REQUEST['idSach']);
 ?>
 <div class="make-comment">
-    <h4>Cảm nhận của bạn</h4>   
-    <form action="#">
+    <h4>Cảm nhận của bạn</h4>
+    <form action="#" method="post">
         <textarea name="Noidung" cols="30" rows="10" placeholder="Cảm nhận của bạn ..."></textarea>
         <input type="submit" value="Gửi">
     </form>

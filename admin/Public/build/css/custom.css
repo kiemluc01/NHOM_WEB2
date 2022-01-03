@@ -1683,13 +1683,17 @@ h2 {
 
 .x_title span {
   color: #BDBDBD; }
-
+.filter {
+  display:flex;
+  justify-content:space-between!important ;
+}
 .x_content {
   padding: 0 3px 6px;
   position: relative;
   width: 100%;
   float: left;
   clear: both;
+  display : flex;
   margin-top: 5px; }
 
 .x_content h4 {
@@ -4969,3 +4973,14 @@ ul.notifications {
 
 .calendar-exibit .calendar-table {
   padding: 0 0 4px 0; }
+
+
+  .btn .filter .filter-ft .filter-ft__ev {
+    width: 55%;
+    float: left;
+    display: block; }
+  
+  /* .btn .title_right .pull-right {
+    margin: 10px 0;
+    float: right; }
+   */
