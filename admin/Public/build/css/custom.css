@@ -1649,6 +1649,7 @@ h2 {
 .x_panel {
   position: relative;
   width: 100%;
+ height: 100%;
   margin-bottom: 10px;
   padding: 10px 17px;
   display: inline-block;
@@ -1688,18 +1689,31 @@ h2 {
   justify-content:space-between!important ;
 }
 .x_content {
+
+  padding:  20px;
   padding: 0 3px 6px;
   position: relative;
   width: 100%;
   float: left;
   clear: both;
-  display : flex;
+  display : block;
   margin-top: 5px; }
 
 .x_content h4 {
   font-size: 16px;
   font-weight: 500; }
-
+.form-horizontal__form-label-left1{
+  
+    margin-top:20px;
+    padding: 20px;
+}
+.y-content{
+  margin-top:20px;
+  padding: 20px;
+}
+.date-picker form-control{
+  padding:10px;
+}
 legend {
   padding-bottom: 7px; }
 
@@ -2744,7 +2758,8 @@ span.section {
   border-bottom: 1px solid #e5e5e5; }
 
 .form-control {
-  border-radius: 0;
+  padding : 10px;
+  border-radius: 5;
   width: 100%; }
 
 .form-horizontal .control-label {
@@ -4984,3 +4999,13 @@ ul.notifications {
     margin: 10px 0;
     float: right; }
    */
+   .filter-ft__ev{
+     
+     
+   }
+   .filter-ft{
+   
+   }
+   .filter{
+    display:flex;justify-content:space-between!important;
+   }
