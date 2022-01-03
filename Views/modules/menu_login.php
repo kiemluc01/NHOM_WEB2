@@ -1,11 +1,21 @@
 <?php
 $rowmember = array();
 $member = loadModel('Member');
+// $idMember = '';
+// $username = '';
+// $username = '';
+// $password = '';
+// $email = '';
+// $IMG = '';
+// $Ngaysinh = '';
+// $Gioitinh = '';
 $result = $member->get_member($_REQUEST['condition']);
 while ($rowmember = $result->fetch_assoc()) {
     $idMember = $rowmember['idMember'];
-    $username = $rowmember['username'];
-    $username = $rowmember['MemberName'];
+    if ($rowmember['MemberName'] == null)
+        $username = $rowmember['username'];
+    else
+        $username = $rowmember['MemberName'];
     $password = $rowmember['password'];
     $email = $rowmember['email'];
     $IMG = $rowmember['ImgAvatar'];
@@ -41,7 +51,7 @@ $category = $book->get_category_all();
     <?php loadModule('searchBook'); ?>
     <div class="member-container">
         <div class="nav-drop member">
-            <a href=""><img src="<?php echo $IMG; ?>" alt="<?php echo $username; ?>"></a>
+            <a href=""><img src="<?php echo $IMG; ?>" alt=""></a>
             <div class="drop-content">
                 <a href=""><i class="fas fa-user-cog"></i> <?php echo $username; ?></a>
                 <a href=""><i class="fas fa-book"></i> Thư viện</a>
@@ -54,7 +64,9 @@ $category = $book->get_category_all();
     <!-- <ul class="infor_member">
         <li class="library"><a href=""><img src="Public/images/icon_thuvien.png" alt="thư viện"></a></li>
         <li class="notification"><a href=""><img src="Public/images/icon_tb.png" alt="thông báo"></a></li>
-        <li class="personal"><a href=""><img src="<?php echo $IMG; ?>" alt="<?php echo $username; ?>"><?php echo $username; ?></a>
+        <li class="personal"><a href=""><img src="<?php //echo $IMG; 
+                                                    ?>" alt="<?php //echo $username; 
+                                                                ?>"><?php echo $username; ?></a>
             <ul class="personal">
                 <li><a href="">thông tin cá nhân</a></li>
                 <li><a href="">Đổi mật khẩu</a></li>

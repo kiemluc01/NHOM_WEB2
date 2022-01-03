@@ -69,7 +69,7 @@ class Book extends Database
     //lấy ra đánh giá về sách hiện tại
     function get_cmt($idBook)
     {
-        $sql = "select a.*,b.* from tbldanhgia as a, tblaccount as b where a.idMember = b.idMember and idSach = " . $idBook;
+        $sql = "select a.*,b.* from tbldanhgia as a, tblaccount as b where a.idMember = b.idMember and idSach = " . $idBook . " order by Thoigian desc";
         $result = mysqli_query($this->conn, $sql);
         return $result;
     }
@@ -200,5 +200,12 @@ class Book extends Database
             }
         }
         return $str;
+    }
+    function cmt($noidung, $idND, $idSach)
+    {
+        $member = loadModel('Member');
+        $time = date('y-m-d');
+        $sql = "insert into tbldanhgia values(" . $member->getID() . ", " . $idSach . ",null,N'" . $noidung . "','" . $time . "');";
+        mysqli_query($this->conn, $sql);
     }
 }

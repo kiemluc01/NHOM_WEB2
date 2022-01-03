@@ -39,4 +39,14 @@ class Member extends Database
 
         return false;
     }
+    function getID()
+    {
+        $sql = "select * from tblaccount where username = '" . $_REQUEST['condition'] . "'";
+        $result = mysqli_query($this->conn, $sql);
+        if ($result->num_rows > 0)
+            while ($row = $result->fetch_assoc()) {
+                return $row['idMember'];
+            }
+        return null;
+    }
 }
