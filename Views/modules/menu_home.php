@@ -1,34 +1,52 @@
 <?php
 $book = loadModel('Book');
 $category = $book->get_category_all();
-
 ?>
-<div class="header-top">
-    <div class="header-img">
-        <img src="Public\images\logo_main.png" alt="">
-    </div>
-</div>
-<div id="menu_main">
-    <a href="."><img src="Public\images\logo_light.png" alt="" class="logo"></a>
-    <a href="index.php">Trang chủ</a>
-    <div class="nav-drop">
-        <button class="dropbtn">Thể loại <i class="fa fa-caret-down"></i></button>
-        <div class="drop-content">
-            <?php while ($result = $category->fetch_assoc()) { ?>
-                <a href="<?php loadHrefCategory($result['idDanhmuc']); ?>"><?php echo $result['Tendanhmuc']; ?></a>
-            <?php } ?>
+
+<nav class="navbar navbar-expand-md fixed-top bg-dark">
+    <div class="container-fluid">
+        <a href="." class="navbar-brand">
+            <img src="Public\images\logo_light.png" alt="Logo Owl" width="40">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.php">Trang chủ</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" href="#">
+                        Thể loại
+                    </a>
+                    <ul class="dropdown-menu">
+                        <?php while ($result = $category->fetch_assoc()) { ?>
+                            <li>
+                                <a class="dropdown-item" href="<?php loadHrefCategory($result['idDanhmuc']); ?>"><?php echo $result['Tendanhmuc']; ?></a>
+                            </li>
+                        <?php } ?>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" href="#">
+                        Ngôn ngữ
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="">Tiếng Việt</a></li>
+                        <li><a class="dropdown-item" href="">Tiếng Anh</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <?php require("searchBook.php"); ?>
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php?option=login">Đăng nhập</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php?option=register">Đăng ký</a>
+                </li>
+            </ul>
         </div>
     </div>
-    <div class="nav-drop">
-        <button class="dropbtn">Ngôn ngữ <i class="fa fa-caret-down"></i></button>
-        <div class="drop-content">
-            <a href="">Tiếng Việt</a>
-            <a href="">Tiếng Anh</a>
-        </div>
-    </div>
-    <?php require("searchBook.php"); ?>
-    <div class="login-container">
-        <a href="index.php?option=login">Đăng nhập</a>
-        <a href="index.php?option=register">Đăng ký</a>
-    </div>
-</div>
+</nav>
