@@ -1,15 +1,16 @@
+
+
 </div> <!-- page content -->
 <div class="right_col" role="main">
     <div class="btn" style="width:80%">
         <form action="" method="post">
-            <div id="filter" style="display:flex;justify-content:space-between!important ;">
-
-                <div style="display: flex;">
+            <div class = "filter "id="filter" style="display:flex;justify-content:space-between!important ;">
+                <div style="display: flex;"  class = "filter-ft">
                     <div class="filter-ft__ev">
                         <input type="text" placeholder="Nhập tên sách" name="namebook" id="namebook" />
                     </div>
                     <div class="filter-ft__ev">
-                        <input type="submit" value="Tìm Kiếm" name="search" id="search">
+                        <input type="submit" value="Tìm Kiếm" name="search" id="search" class = "btn btn-dark">
                     </div>
                 </div>
                 <div class="filter-ft__ev">
@@ -27,7 +28,7 @@
                     </select>
                 </div>
                 <div class="filter-ft__ev">
-                    <input type="submit" value="Thêm" name="add" id="add">
+                   <input type="button" value="Thêm" name="add" id="add" class="btn btn-success" onclick="newDoc()">
                 </div>
             </div>
         </form>
@@ -72,36 +73,13 @@
         </table>
     </div>
 </div>
+
 <!-- /page content -->
 
 <!-- footer content -->
 <!-- /footer content -->
 <script>
-    $(document).ready(function() {
-        $('#category').chage(function() {
-            // var iddm = document.getElementById('category').value
-            alert("có nghe")
-            $.ajax({
-                url: "Models/DataCategory.php",
-                dataType: 'json',
-                success: function(data) {
-
-                    var str = '<table><tr> <th>STT</th><th>Tên sách</th><th>Tên tác giả</th><th>Năm xuất bản</th><th>Ngày Đăng</th><th>Hình ảnh sách</th> <th>Danh Mục</th><th>Thao tác</th></tr>'
-                    var stt = 1
-                    for (i = 0; i < data.length; i++) {
-                        var book = data[i]
-                        var dm = book['idDanhmuc']
-                        if (iddm == dm) {
-                            str = str + '<tr><td>' + stt + '</td><td>' + book['Tensach'] + '</td><td>' + book['Tacgia'] + '</td><td>' + book['NXB'] + '</td><td>' + book['NgayDang'] + '</td><td>' + book['imgSach'] + '</td><td>' + book['Tendanhmuc'] + '</td><td><input type="submit" value="Xóa" name="' + book['idSach'] + '" id="' + book['idSach'] + '"><input type="submit" value="sửa" name="' + book['idSach'] + '" id="' + book['idSach'] + '"></td></tr>'
-                            stt++
-                        }
-                    }
-                    str = str + '</table>'
-                    document.getElementById('data_table').innerHTML = ""
-                    document.getElementById('data_table').innerHTML = str
-
-                }
-            });
-        })
-    });
+function newDoc() {
+  window.location.assign("index.php?option=addbook");
+}
 </script>

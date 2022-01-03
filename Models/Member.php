@@ -14,7 +14,7 @@ class Member extends Database
         // $password = $_POST['password'];
         // $confirm_password = $_POST['confirm_pass'];
         if ($password == $confirm_password) {
-            $sql = "insert into tblaccount(username, password, email, IMG, Gioitinh, Ngaysinh, idQuyen) 
+            $sql = "insert into tblaccount(username, password, email, ImgAvatar, Gioitinh, Ngaysinh, idquyen) 
                     values('" . $user . "','" . $password . "','" . $email . "', DEFAULT, null, null, 2)";
             $sqluser = mysqli_query($this->conn, "select * from tblaccount where username = '" . $user . "'");
             $sqlemail = mysqli_query($this->conn, "select * from tblaccount where email = '" . $email . "'");
