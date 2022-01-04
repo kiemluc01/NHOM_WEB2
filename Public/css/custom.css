@@ -1,0 +1,5 @@
+#sticky-bar {
+  position: sticky;
+  top: 66px;
+  z-index: 100;
+}
