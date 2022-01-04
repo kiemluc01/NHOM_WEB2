@@ -2,8 +2,8 @@
 $book = loadModel('book');
 $resultBook =  $book->Book_category($_SESSION['idDM']);
 if ($resultBook->num_rows > 0) { ?>
+    <h2 id="sticky-bar" class="py-3 ps-5 bg-info rounded-bottom"><?php echo $_SESSION['rowDM']['Tendanhmuc']; ?></h2>
     <div class="clear-fix list-book-container">
-        <h2 class="category-name"><?php echo $_SESSION['rowDM']['Tendanhmuc']; ?></h2>
         <div class="list-item-container">
             <?php
             while ($rowBook = $resultBook->fetch_assoc()) {

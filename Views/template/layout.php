@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="Public/css/footer.css">
     <!-- <link rel="stylesheet" href="Public/css/details_book.css"> -->
     <!-- <link rel="stylesheet" href="Public/css/content.css"> -->
-    <!-- <link rel="stylesheet" href="Public/css/animate-banner.css"> -->
+    <link rel="stylesheet" href="Public\css\custom.css">
     <!-- <link rel="stylesheet" href="Public/css/new_book.css"> -->
     <!-- <link rel="stylesheet" href="Public/css/cmt_book.css"> -->
     <!-- <link rel="stylesheet" href="Public/css/login.css"> -->
@@ -46,7 +46,7 @@
     <script src='https://tympanus.net/Development/ElasticSVGElements/js/classie.js'></script>
     <script src='https://tympanus.net/Development/ElasticSVGElements/js/snap.svg-min.js'></script>
     <script src="Public\javascript\listcategory-dropdown.js"></script>
-    <!-- <script src="Public\javascript\banner-slide-show.js"></script> -->
+    <script src="Public\javascript\form-validation.js"></script>
     <script src="Public\javascript\searchBook.js"></script>
     <!-- <script src="Public\javascript\somepiece.js"></script> -->
 

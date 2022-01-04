@@ -7,18 +7,19 @@ if (isset($_POST['user_login']) &&  isset($_POST['password_login'])) {
         $Member = loadModel('Member');
         $login = $Member->login($user, $pass);
         if ($login === true) {
-            if($user == 'admin')
-            echo '<script> location.href="admin/index.php" </script>';
+            if ($user == 'admin')
+                echo '<script> location.href="admin/index.php" </script>';
             else
-            echo '<script> alert("đăng nhập thành công"); 
+                echo '<script> alert("đăng nhập thành công"); 
             location.assign("index.php?condition=' . $user . '");
         </script>';
         } else
             echo '<script> alert("sai tài khoản hoặc mật khẩu");
             return false; 
             </script>';
-    } else
-        echo '<script> alert("không được bỏ trống các thuộc tính") </script>';
+    }
+    //  else
+    //     echo '<script> alert("không được bỏ trống các thuộc tính") </script>';
 }
 // }
 ?>
@@ -26,22 +27,32 @@ if (isset($_POST['user_login']) &&  isset($_POST['password_login'])) {
 if (isset($_POST['btnlogin'])) {
 }
 ?>
-<div class="card">
-    <h2>Đăng nhập</h2>
-    <form action="" method="post" id="login">
-        <div class="row">
-            <label for="uname">Tên tài khoản: </label>
-            <input type="text" name="user_login" id="uname" class="login">
+<div class="container mt-5 text-center">
+    <div class="row">
+        <div class="col-12">
+            <div class="card w-50 mx-auto p-4">
+                <div class="card-header">
+                    <h1 class="display-5">Đăng nhập</h1>
+                </div>
+                <div class="card-body">
+                    <form action="" method="POST" novalidate class="needs-validation" id="login">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="user_login" required>
+                            <label for="uname">Tên tài khoản</label>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" name="password_login" required>
+                            <label for="pass">Mật khẩu</label>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+
+                        <button class="w-100 btn btn-lg text-light btn-secondary fw-bold border-dark bg-dark" type="submit">Đăng nhập</button>
+                    </form>
+                </div>
+                <div class="card-footer"><p>Bạn chưa có tài khoản? <a href="index.php?option=register" id="btnlogin_register">Tạo tài khoản mới</a></p></div> 
+                </div>
+            </div>
         </div>
-        <div class="row">
-            <label for="pass">Mật khẩu: </label>
-            <input type="password" name="password_login" id="pass" class   login">
-        </div>
-        <div class="row">
-            <input type="submit" value="Đăng nhập" id="btnlogin">
-        </div>
-        <div class="row">
-            <p>Bạn chưa có tài khoản? <a href="index.php?option=register" id="btnlogin_register">Tạo tài khoản mới</a></p>
-        </div>
-    </form>
+    </div>
 </div>

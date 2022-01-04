@@ -18,7 +18,7 @@ if (typeof (listcategoryDropdown) != undefined && listcategoryDropdown != null) 
                 open: this.shapeEl.getAttribute('data-morph-open')
             };
 
-            this.isOpen = false;
+            this.isOpen = false; //false
 
             this.initEvents();
         };

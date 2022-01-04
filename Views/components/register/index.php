@@ -23,30 +23,45 @@ if (isset($_POST['user']) && isset($_POST['Email']) && isset($_POST['password'])
 if (isset($_POST['btnregister'])) {
 }
 ?>
-<div class="card">
-    <h2>Đăng ký</h2>
-    <form action="" method="post" id="register">
-        <div class="row">
-            <label for="email">Email:</label>
-            <input type="text" name="Email" id="email" class="register">
+<div class="container mt-5 text-center">
+    <div class="row">
+        <div class="col-12">
+            <div class="card w-50 mx-auto p-4">
+                <div class="card-header">
+                    <h1 class="display-5">Đăng ký</h1>
+                </div>
+                <div class="card-body">
+                    <form action="" method="post" novalidate class="needs-validation" id="register">
+                        <div class="mt-3 mb-3">
+                            <div class="form-floating mb-3">
+                                <input type="text" name="Email" required class="form-control">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" name="user" required class="form-control">
+                            <label for="uname">Tên tài khoản</label>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" name="password" required class="form-control">
+                            <label for="pass">Mật khẩu</label>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" name="confirm_pass" required class="form-control">
+                            <label for="cpass">Nhập lại mật khẩu</label>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <button class="w-100 btn btn-lg text-light btn-secondary fw-bold border-dark bg-dark" type="submit">Đăng nhập</button>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <p>Bạn đã có tài khoản? <a href="index.php?option=login" class="register">Đăng nhập</a></p>
+                </div>
+            </div>
         </div>
-        <div class="row">
-            <label for="uname">Tên tài khoản: </label>
-            <input type="text" name="user" id="uname" class="register">
-        </div>
-        <div class="row">
-            <label for="pass">Mật khẩu: </label>
-            <input type="password" name="password" id="pass" class="register">
-        </div>
-        <div class="row">
-            <label for="cpass">Nhập lại mật khẩu: </label>
-            <input type="password" name="confirm_pass" id="cpass" class="register">
-        </div>
-        <div class="row">
-            <input type="submit" value="Đăng kí" id="btnregister">
-        </div>
-        <div class="row">
-            <p>Bạn đã có tài khoản? <a href="index.php?option=login" class="register">Đăng nhập</a></p>
-        </div>
-    </form>
+    </div>
 </div>

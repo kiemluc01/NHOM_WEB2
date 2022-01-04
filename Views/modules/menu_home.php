@@ -13,10 +13,10 @@ $category = $book->get_category_all();
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                <li class="nav-item">
+                <li class="nav-item px-3">
                     <a class="nav-link active" href="index.php">Trang chủ</a>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown px-3">
                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" href="#">
                         Thể loại
                     </a>
@@ -28,7 +28,7 @@ $category = $book->get_category_all();
                         <?php } ?>
                     </ul>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown px-3">
                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" href="#">
                         Ngôn ngữ
                     </a>
@@ -39,11 +39,11 @@ $category = $book->get_category_all();
                 </li>
             </ul>
             <?php require("searchBook.php"); ?>
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                <li class="nav-item">
+            <ul class="navbar-nav me-5 mb-2 mb-md-0">
+                <li class="nav-item ms-5 px-3">
                     <a class="nav-link" href="index.php?option=login">Đăng nhập</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item px-3">
                     <a class="nav-link" href="index.php?option=register">Đăng ký</a>
                 </li>
             </ul>
