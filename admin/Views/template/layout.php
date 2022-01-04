@@ -7,17 +7,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo LoadTirtle(); ?></title>
     <link rel="icon" href="Public\images\logo_icon_2.png">
-    <!-- <link rel="stylesheet" href="Public/dist/css/bootstrap.min.css"> -->
-
-    <!-- Font Awesome Icons -->
-
-    <!-- bootrap collapse -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
-    <!-- jQuery -->
-
     <!-- Bootstrap -->
+   <!-- thong ke -->
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="Public/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="Public/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="Public/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="Public/plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="Public/dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="Public/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="Public/plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="Public/summernote/summernote-bs4.min.css">
+   <!-- thong ke -->
+    <link href="Public/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
     <link href="Public/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="Public/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -25,28 +38,19 @@
     <link href="Public/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="Public/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-
     <!-- bootstrap-progressbar -->
     <link href="Public/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- JQVMap -->
     <link href="Public/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
     <!-- bootstrap-daterangepicker -->
     <link href="Public/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-
     <!-- Custom Theme Style -->
     <link href="Public/build/css/custom.min.css" rel="stylesheet">
     <link href="Public/build/css/custom.css" rel="stylesheet">
     <!-- jQuery -->
-
-    <link href="Public/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="Public/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="Public/vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- iCheck -->
-    <link href="Public/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
     <!-- bootstrap-wysiwyg -->
-    <link href="admin/Public/vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
+    <link href="Public/vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
     <!-- Select2 -->
     <link href="Public/vendors/select2/dist/css/select2.min.css" rel="stylesheet">
     <!-- Switchery -->
@@ -56,39 +60,85 @@
     <!-- bootstrap-daterangepicker -->
     <link href="Public/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
-    <!-- Custom Theme Style -->
-    <link href="Public/build/css/custom.min.css" rel="stylesheet">
+	<link href="Public/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+	<!-- bootstrap-wysiwyg -->
+	<link href="Public/vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
+	<!-- Select2 -->
+	<link href="Public/vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+	<!-- Switchery -->
+	<link href="Public/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+	<!-- starrr -->
+	<link href="Public/vendors/starrr/dist/starrr.css" rel="stylesheet">
+	<!-- bootstrap-daterangepicker -->
+	<link href="Public/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+	<!-- Custom Theme Style -->
+	<link href="Public/build/css/custom.min.css" rel="stylesheet">
     <link rel="icon" href="images/favicon.ico" type="image/ico" />
 </head>
-
 <body>
-    <!-- top navigation -->
-    <?php
-    loadModule("slidebar")
-    ?>
-    <!-- /top navigation -->
-    <?php
-    loadModule("header_admin")
-    ?>
-    <!-- page content -->
-    <?php loadComponent()
-    ?>
-    <!-- /page content -->
-    <?php
-    loadModule("footer_admin")
-    ?>
-    <!-- footer content -->
+        <!-- top navigation -->
+        <?php 
+            loadModule("slidebar")
+            ?>
+        <!-- /top navigation -->
+        <?php 
+            loadModule("header_admin")
+            ?>
+         
+        <!-- page content -->
+       <?php loadComponent()
+       ?>
+          <!-- /page content -->
+          <?php 
+        loadModule("footer_admin")
+        ?>
+          <!-- footer content -->
 
-    <!-- /footer content -->
+<!-- /footer content -->
     <script src="Public\javascript\sticky-bar.js"></script>
     <script src="Public\javascript\banner-slide-show.js"></script>
     <script src="Public\javascript\searchBook.js"></script>
     <script src="Public\javascript\somepiece.js"></script>
-
-    <!-- <script src="Public\dist\js\bootstrap.bundle.min.js"></script> -->
-    <script src="Public/vendors/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="Public/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+     <!-- jQuery -->
+	<script src="Public/vendors/jquery/dist/jquery.min.js"></script>
+	<!-- Bootstrap -->
+	<script src="Public/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- FastClick -->
+	<script src="Public/vendors/fastclick/lib/fastclick.js"></script>
+	<!-- NProgress -->
+	<script src="Public/vendors/nprogress/nprogress.js"></script>
+	<!-- bootstrap-progressbar -->
+	<script src="Public/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+	<!-- iCheck -->
+	<script src="Public/vendors/iCheck/icheck.min.js"></script>
+	<!-- bootstrap-daterangepicker -->
+	<script src="Public/vendors/moment/min/moment.min.js"></script>
+	<script src="Public/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+	<!-- bootstrap-wysiwyg -->
+	<script src="Public/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
+	<script src="Public/vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
+	<script src="Public/vendors/google-code-prettify/src/prettify.js"></script>
+	<!-- jQuery Tags Input -->
+	<script src="Public/vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
+	<!-- Switchery -->
+	<script src="Public/vendors/switchery/dist/switchery.min.js"></script>
+	<!-- Select2 -->
+	<script src="Public/vendors/select2/dist/js/select2.full.min.js"></script>
+	<!-- Parsley -->
+	<script src="Public/vendors/parsleyjs/dist/parsley.min.js"></script>
+	<!-- Autosize -->
+	<script src="Public/vendors/autosize/dist/autosize.min.js"></script>
+	<!-- jQuery autocomplete -->
+	<script src="Public/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
+	<!-- starrr -->
+	<script src="Public/vendors/starrr/dist/starrr.js"></script>
+	   <!-- Custom Theme Scripts -->
+	<script src="Public/build/js/custom.min.js"></script>
+	<script src="Public/build/js/select_book.js"></script>
+	<script src="Public/build/js/select_category.js"></script>
+	<script src="Public/build/js/upload_image.js"></script>
+     <!-- Bootstrap -->
+     <script src="Public/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- FastClick -->
     <script src="Public/vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
@@ -160,102 +210,46 @@
     <!-- Custom Theme Scripts -->
     <script src="Public/build/js/custom.min.js"></script>
     <script src="Public/build/js/select_book.js"></script>
-<<<<<<< HEAD
-    <script src="Public/build/js/upload_image.js"></script>
-=======
-    <link href="Public/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-
-    <!-- Custom Theme Style -->
-    <link href="Public/build/css/custom.min.css" rel="stylesheet">
-    <!-- jQuery -->
-	<script src="Public/vendors/jquery/dist/jquery.min.js"></script>
-	<!-- Bootstrap -->
-	<script src="Public/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-	<!-- FastClick -->
-	<script src="Public/vendors/fastclick/lib/fastclick.js"></script>
-	<!-- NProgress -->
-	<script src="Public/vendors/nprogress/nprogress.js"></script>
-	<!-- bootstrap-progressbar -->
-	<script src="Public/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-	<!-- iCheck -->
-	<script src="Public/vendors/iCheck/icheck.min.js"></script>
-	<!-- bootstrap-daterangepicker -->
-	<script src="Public/vendors/moment/min/moment.min.js"></script>
-	<script src="Public/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-	<!-- bootstrap-wysiwyg -->
-	<script src="Public/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
-	<script src="Public/vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
-	<script src="Public/vendors/google-code-prettify/src/prettify.js"></script>
-	<!-- jQuery Tags Input -->
-	<script src="Public/vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
-	<!-- Switchery -->
-	<script src="Public/vendors/switchery/dist/switchery.min.js"></script>
-	<!-- Select2 -->
-	<script src="Public/vendors/select2/dist/js/select2.full.min.js"></script>
-	<!-- Parsley -->
-	<script src="Public/vendors/parsleyjs/dist/parsley.min.js"></script>
-	<!-- Autosize -->
-	<script src="Public/vendors/autosize/dist/autosize.min.js"></script>
-	<!-- jQuery autocomplete -->
-	<script src="Public/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
-	<!-- starrr -->
-	<script src="Public/vendors/starrr/dist/starrr.js"></script>
-	<!-- Custom Theme Scripts -->
-	<script src="Public/build/js/custom.min.js"></script>
-	<script src="Public/build/js/select_book.js"></script>
-	<script src="Public/build/js/select_category.js"></script>
-    <link href="Public/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-	<!-- Font Awesome -->
-	<link href="Public/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-	<!-- NProgress -->
-	<link href="Public/vendors/nprogress/nprogress.css" rel="stylesheet">
-	<!-- iCheck -->
-	<link href="Public/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-	<!-- bootstrap-wysiwyg -->
-	<link href="admin/Public/vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
-	<!-- Select2 -->
-	<link href="Public/vendors/select2/dist/css/select2.min.css" rel="stylesheet">
-	<!-- Switchery -->
-	<link href="Public/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
-	<!-- starrr -->
-	<link href="Public/vendors/starrr/dist/starrr.css" rel="stylesheet">
-	<!-- bootstrap-daterangepicker -->
-	<link href="Public/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-
-	<!-- Custom Theme Style -->
-	<link href="Public/build/css/custom.min.css" rel="stylesheet">
-    <link rel="icon" href="images/favicon.ico" type="image/ico" />
-</head>
-
-<body>
-        <!-- top navigation -->
-        <?php 
-            loadModule("slidebar")
-            ?>
-        <!-- /top navigation -->
-        <?php 
-            loadModule("header_admin")
-            ?>
-        <!-- page content -->
-       <?php loadComponent()
-       ?>
-          <!-- /page content -->
-          <?php 
-        loadModule("footer_admin")
-        ?>
-          <!-- footer content -->
-
-<!-- /footer content -->
-    <script src="Public\javascript\sticky-bar.js"></script>
-    <script src="Public\javascript\banner-slide-show.js"></script>
-    <script src="Public\javascript\searchBook.js"></script>
-    <script src="Public\javascript\somepiece.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     
     <!-- <script src="Public\dist\js\bootstrap.bundle.min.js"></script> -->
->>>>>>> 015fb72d1a752b3eb0dc0f33d9535dc88fe7a3c4
+    <!-- crp thống kê -->
+    <!-- jQuery -->
+<script src="Public/plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="Public/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="Public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="Public/plugins/chart.js/Chart.min.js"></script>
+<!-- Sparkline -->
+<script src="Public/plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<script src="Public/plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="Public/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="Public/plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="Public/plugins/moment/moment.min.js"></script>
+<script src="Public/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="Public/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+<script src="Public/plugins/summernote/summernote-bs4.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="Public/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="Public/dist/js/adminlte.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="Public/dist/js/demo.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="Public/dist/js/pages/dashboard.js"></script>
+    <!-- crp thống kê -->
 </body>
-
 </html>

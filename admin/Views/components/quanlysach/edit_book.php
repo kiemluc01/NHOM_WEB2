@@ -114,8 +114,16 @@ while ($row = $book->fetch_assoc()){
                          
                             <div class="col-md-6 col-sm-6 ">
                               <input type="file" id="file" name="file" value = "<?php echo $imgSach ;?>"class="date-picker form-control"  required="required">
-                              <span id="upload_image" value = "<?php echo $imgSach ;?>" ></span>
-                              <img src="<?php echo $imgSach ?>" height = "150" width="225" class = "img-thumbnail"/>
+                              <span class = "upload_image" id="upload_image" value = "" ></span>
+                              <div class = "form-group__image">
+                                  <label>Ảnh cũ</label>
+                                  <img src="<?php echo $imgSach ?>" height = "100" width="150" class = "img-thumbnail"/>
+                                
+                          
+                                  <label>Ảnh mới</label>
+                                  <img src="<?php echo $imgSach ?>" height = "100" width="150" class = "img-thumbnail"/>
+                               
+                              </div>
                             </div>
                             
                           </div>
@@ -131,12 +139,10 @@ while ($row = $book->fetch_assoc()){
                       </div>
 
                     <!-- End SmartWizard Content -->
-
-            
                     <!-- End SmartWizard Content -->
                   </div>
                 </div>
               </div>
             </div>
           </div>
-  
+

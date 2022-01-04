@@ -1,89 +1,38 @@
-$('.dandev_insert_attach').click(function() {
-    if ($('.list_attach').hasClass('show-btn') === false) {
-        $('.list_attach').addClass('show-btn');
-    }
-    var _lastimg = jQuery('.dandev_attach_view li').last().find('input[type="file"]').val();
-
-    if (_lastimg != '') {
-        var d = new Date();
-        var _time = d.getTime();
-        var _html = '<li id="li_files_' + _time + '" class="li_file_hide">';
-        _html += '<div class="img-wrap">';
-        _html += '<span class="close" onclick="DelImg(this)">×</span>';
-        _html += ' <div class="img-wrap-box"></div>';
-        _html += '</div>';
-        _html += '<div class="' + _time + '">';
-        _html += '<input type="file" class="hidden"  onchange="uploadImg(this)" id="files_' + _time + '"   />';
-        _html += '</div>';
-        _html += '</li>';
-        jQuery('.dandev_attach_view').append(_html);
-        jQuery('.dandev_attach_view li').last().find('input[type="file"]').click();
-    } else {
-        if (_lastimg == '') {
-            jQuery('.dandev_attach_view li').last().find('input[type="file"]').click();
-        } else {
-            if ($('.list_attach').hasClass('show-btn') === true) {
-                $('.list_attach').removeClass('show-btn');
-            }
-        }
-    }
-});
-
-function uploadImg(el) {
-    var file_data = $(el).prop('files')[0];
-    var type = file_data.type;
-    //Xét kiểu file được upload
-    var match = ["image/gif", "image/png", "image/jpg", "image/jpeg"];
-
-    if (type == match[0] || type == match[1] || type == match[2] || type == match[3]) {
-
-        var fileToLoad = file_data;
-
-        var fileReader = new FileReader();
-
-        fileReader.onload = function(fileLoadedEvent) {
-            var srcData = fileLoadedEvent.target.result;
-
-            var newImage = document.createElement('img');
-            newImage.src = srcData;
-            var _li = $(el).closest('li');
-            if (_li.hasClass('li_file_hide')) {
-                _li.removeClass('li_file_hide');
-            }
-            _li.find('.img-wrap-box').append(newImage.outerHTML);
-
-
-        }
-        fileReader.readAsDataURL(fileToLoad);
-
-        //khởi tạo đối tượng form data
-        var form_data = new FormData();
-        //thêm files vào trong form data
-        form_data.append('file', file_data);
-        //sử dụng ajax post
-        $.ajax({
-            url: 'Views/components/addbook/upload_image.php', // gửi đến file upload.php 
-            dataType: 'text',
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: form_data,
-            type: 'post',
-            success: function(res) {
-                alert(res);
-            }
-        });
-    } else {
-        alert('Chỉ được upload file ảnh');
-
-    }
-    return false;
-
-
-
-}
-
-function DelImg(el) {
-    jQuery(el).closest('li').remove();
-
-}
+$(document).ready(function(){
+    $(document).on('change', '#file', function(){
+     var name = document.getElementById("file").files[0].name;
+     var form_data = new FormData();
+     var ext = name.split('.').pop().toLowerCase();
+     if(jQuery.inArray(ext, ['gif','png','jpg','jpeg']) == -1) 
+     {
+      alert("Invalid Image File");
+     }
+     var oFReader = new FileReader();
+     oFReader.readAsDataURL(document.getElementById("file").files[0]);
+     var f = document.getElementById("file").files[0];
+     var fsize = f.size||f.fileSize;
+     if(fsize > 2000000)
+     {
+      alert("Image File Size is very big");
+     }
+     else
+     {
+      form_data.append("file", document.getElementById('file').files[0]);
+      $.ajax({
+       url:loadModel("upload_image"),
+       method:"POST",
+       data: form_data,
+       contentType: false,
+       cache: false,
+       processData: false,
+       beforeSend:function(){
+        $('#upload_image').html("<label class='text-success'>Image Uploading...</label>");
+       },   
+       success:function(data)
+       {
+        $('#upload_image').html(data);
+       }
+      });
+     }
+    });
+   });
