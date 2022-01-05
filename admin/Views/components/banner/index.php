@@ -2,7 +2,6 @@
 
 </div> <!-- page content -->
 <?php 
-
 if(isset($_REQUEST['action']))
 {
     $Listbook = loadModel("Listbook");
@@ -15,15 +14,10 @@ if(isset($_REQUEST['action']))
     
 }
 ?>
-    <div class="right_col" role="main">
-        <div class="row" style="display:inline-block;">
-        </div>
-        <div class="row">
-        </div>
+    <div class="right_col">
         <div class="btn" style="width:100%">
             <form action="" method="post">
-            <div id="filter" class="filter" style=" ;">
-
+            <div id="filter" class="filter" style="display: flex;">
                 <div class= "filter-ft" style="display: flex;">
                     <div class="filter-ft__ev">
                         <input type="text" placeholder="Nhập tên sách" name="namebook" id="namebook" />
@@ -53,7 +47,6 @@ if(isset($_REQUEST['action']))
             </div>
         </form>
     </div>
-
     <div class="tb table" id="data_table">
         <table class = "table"  style = "border:1px solid black">
             <tr>
@@ -83,6 +76,27 @@ if(isset($_REQUEST['action']))
             <?php }
             ?>
         </table>
+        <!-- modal -->
+        <div class="modal">
+            <div class="modal__overlay"></div>
+            <div class="modal__body">
+                <div class="modal_inner">
+                <!-- authen form -->
+                    <div class="add_banner" id = "add_banner">
+                        <div class="add_banner__header">
+                            <h3 class="add_banner__heading">Thêm banner</h3>
+                        </div>
+                        <div class="add_banner__foem">
+                            <div class="add_banner__group">
+                                <input type="file" class="add_banner__image" placeholder="Chọn hình ảnh">
+                            </div>
+                        </div>
+                    </div>
+         <!-- authen form -->
+                </div>
+            </div>
+        </div>
+              <!-- modal -->  
     </div>
 </div>
 
@@ -92,6 +106,6 @@ if(isset($_REQUEST['action']))
 <!-- /footer content -->
 <script>
 function newDoc() {
-  window.location.assign("index.php?option=addbook");
+    document.getElementById('add_banner').style.display = "flex";
 }
 </script>

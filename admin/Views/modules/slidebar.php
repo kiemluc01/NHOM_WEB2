@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <!-- Meta, title, CSS, favicons, etc. -->
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="images/favicon.ico" type="image/ico" />
-  <title>Gentelella Alela! | </title>
-</head>
 
-<body class="nav-md">
   <div class="container body">
     <div class="main_container">
       <div class="col-md-3 left_col">
@@ -32,9 +20,7 @@
             </div>
           </div>
           <!-- /menu profile quick info -->
-
           <br />
-
           <!-- sidebar menu -->
           <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">

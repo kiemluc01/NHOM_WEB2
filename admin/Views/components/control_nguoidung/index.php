@@ -61,6 +61,7 @@ if(isset($_REQUEST['action']))
                 <th>Giới tính</th>
                 <th>Ngày sinh</th>
                 <th>Ành đại diện</th>
+                <th>Quyền</th>
                 <th>Thao tác</th>
             </tr>
             <?php
@@ -84,9 +85,10 @@ if(isset($_REQUEST['action']))
                     <?php }else{?>
                     <td><img src="<?php echo $row['ImgAvatar']; ?>" alt="" style="width:100px;height:auto;"></td>
                     <?php }?>
+                    <td><?php echo $row['tenquyen']; ?></td>
                     <td>
                     <a href="<?php echo '?option=control_nguoidung&action=delete&idMember='.$row['idMember']; ?>" class="btn btn-danger">Xóa</a>
-                    <a href="<?php echo '?option=control_nguoidung&sub_option=edit_book&idMember='.$row['idMember']; ?>" class="btn btn-warning">Sửa</a>
+                    <a href="<?php echo '?option=control_nguoidung&sub_option=edit_user&idMember='.$row['idMember']; ?>" class="btn btn-warning">Sửa</a>
         
                     </td>
                 </tr>

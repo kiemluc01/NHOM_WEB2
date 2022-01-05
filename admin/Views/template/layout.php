@@ -27,7 +27,6 @@
   <!-- Daterange picker -->
   <link rel="stylesheet" href="Public/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
-  <link rel="stylesheet" href="Public/summernote/summernote-bs4.min.css">
    <!-- thong ke -->
     <link href="Public/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
     <!-- Custom Theme Style -->
@@ -47,6 +46,7 @@
     <!-- Custom Theme Style -->
     <link href="Public/build/css/custom.min.css" rel="stylesheet">
     <link href="Public/build/css/custom.css" rel="stylesheet">
+    <link href="Public/css/admin.css" rel="stylesheet">
     <!-- jQuery -->
     <!-- Font Awesome -->
     <!-- bootstrap-wysiwyg -->
@@ -75,7 +75,7 @@
 	<link href="Public/build/css/custom.min.css" rel="stylesheet">
     <link rel="icon" href="images/favicon.ico" type="image/ico" />
 </head>
-<body>
+<body class = "nav-md">
         <!-- top navigation -->
         <?php 
             loadModule("slidebar")
@@ -92,12 +92,10 @@
           <?php 
         loadModule("footer_admin")
         ?>
-          <!-- footer content -->
+        </body>
+</html>  <!-- footer content -->
 <!-- /footer content -->
-    <script src="Public\javascript\sticky-bar.js"></script>
-    <script src="Public\javascript\banner-slide-show.js"></script>
-    <script src="Public\javascript\searchBook.js"></script>
-    <script src="Public\javascript\somepiece.js"></script>
+  
      <!-- jQuery -->
 	<script src="Public/vendors/jquery/dist/jquery.min.js"></script>
 	<!-- Bootstrap -->
@@ -135,7 +133,7 @@
 	<script src="Public/build/js/custom.min.js"></script>
 	<script src="Public/build/js/select_book.js"></script>
 	<script src="Public/build/js/select_category.js"></script>
-	<script src="Public/build/js/upload_image.js"></script>
+	<script src="Public/js/upload_image.js"></script>
      <!-- Bootstrap -->
      <script src="Public/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- FastClick -->
@@ -207,8 +205,6 @@
     <!-- starrr -->
     <script src="Public/vendors/starrr/dist/starrr.js"></script>
     <!-- Custom Theme Scripts -->
-    <script src="Public/build/js/custom.min.js"></script>
-    <script src="Public/build/js/select_book.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -218,11 +214,9 @@
     <!-- jQuery -->
 <script src="Public/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="Public/jquery-ui/jquery-ui.min.js"></script>
+<script src="Public/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
+
 <!-- Bootstrap 4 -->
 <script src="Public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- ChartJS -->
@@ -240,7 +234,7 @@
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="Public/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- Summernote -->
-<script src="Public/plugins/summernote/summernote-bs4.min.js"></script>
+
 <!-- overlayScrollbars -->
 <script src="Public/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
@@ -251,10 +245,8 @@
 <script src="Public/dist/js/pages/dashboard.js"></script>
     <!-- crp thống kê -->
     <!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
+<script src="Public/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="Public/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 
-</body>
-</html>
