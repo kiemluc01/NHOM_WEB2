@@ -93,7 +93,6 @@
         loadModule("footer_admin")
         ?>
           <!-- footer content -->
-
 <!-- /footer content -->
     <script src="Public\javascript\sticky-bar.js"></script>
     <script src="Public\javascript\banner-slide-show.js"></script>
@@ -251,5 +250,11 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="Public/dist/js/pages/dashboard.js"></script>
     <!-- crp thống kê -->
+    <!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+
 </body>
 </html>

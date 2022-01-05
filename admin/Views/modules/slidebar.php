@@ -44,9 +44,9 @@
                 <li><a href="index.php?option=quanlysach"><i class="fa fa-book"></i> Quản lý sách</a></li>
                 <li><a href="index.php?option=quanlydanhmuc"><i class="fa fa-bookmark"></i>Quản lý danh mục</a></li>
                 <li><a href="index.php?option=thongke"><i class="fa fa-bar-chart-o"></i>Thống kê</a></li>
-                <li><a><i class="fa fa-user"></i> Quản lý người dùng</a></li>
-                <li><a><i class="fa fa-image"></i> Quản lý banner</a></li>
-                <li><a><i class="fa fa-comments"></i> Tương tác</a>
+                <li><a href="index.php?option=control_nguoidung"><i class="fa fa-user"></i> Quản lý người dùng</a></li>
+                <li><a href="index.php?option=banner"><i class="fa fa-image"></i> Quản lý banner</a></li>
+                <li><a href="index.php?option=feedback"><i class="fa fa-comments"></i> Tương tác</a>
                 </li>
 
               </ul>

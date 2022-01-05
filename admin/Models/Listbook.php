@@ -81,5 +81,26 @@ class Listbook extends Database{
         $result = mysqli_query($this->conn, $sql);
         return $result;
     }
-    
+    // feedback
+    function Select_Feedback(){
+        $sql = "SELECT tblaccount.ImgAvatar , tblaccount.MemberName , tblsach.Tensach , tbldanhgia.* FROM tblaccount , tblsach , tbldanhgia WHERE tblsach.idSach = tbldanhgia.idSach and tblaccount.idMember = tbldanhgia.idMember";
+        $result = mysqli_query($this->conn, $sql);
+        return $result;
+    }
+    function Find_feeback($str){
+        $sql = "SELECT tblaccount.ImgAvatar , tblaccount.MemberName , tblsach.Tensach , tbldanhgia.* FROM tblaccount , tblsach , tbldanhgia WHERE tblsach.idSach = tbldanhgia.idSach and tblaccount.idMember = tbldanhgia.idMember and (Tensach like N'%".$str."%')";
+        $result = mysqli_query($this->conn, $sql);
+        return $result;
+    }
+    function Delete_feedback($idDanhgia)
+    {
+        $sql = "delete from tbldanhgia where idDanhgia = '".$idDanhgia."'";
+        
+        if( mysqli_query($this->conn, $sql))
+        {
+            
+            return true;
+        }
+            return false;
+    }
 }

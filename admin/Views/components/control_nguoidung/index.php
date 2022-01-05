@@ -46,9 +46,7 @@ if(isset($_REQUEST['action']))
                         ?>
                     </select>
                 </div>
-                <div class="filter-ft__ev">
-                   <input type="button" value="Thêm" name="add" id="add" class="btn btn-success" onclick="newDoc()">
-                </div>
+              
             </div>
         </form>
     </div>
@@ -57,16 +55,16 @@ if(isset($_REQUEST['action']))
         <table class = "table"  style = "border:1px solid black">
             <tr>
                 <th>STT</th>
-                <th>Tên sách</th>
-                <th>Tên tác giả</th>
-                <th>Năm xuất bản</th>
-                <th>Ngày Đăng</th>
-                <th>Hình ảnh sách</th>
-                <th>Danh Mục</th>
+                <th>Tên đăng nhập</th>
+                <th>Tên người dùng</th>
+                <th>Email</th>
+                <th>Giới tính</th>
+                <th>Ngày sinh</th>
+                <th>Ành đại diện</th>
                 <th>Thao tác</th>
             </tr>
             <?php
-            $book = loadModel('Listbook');
+            $book = loadModel('Account');
             if (isset($_REQUEST['namebook']))
                 $result = $book->Find_book($_REQUEST['namebook']);
             else
@@ -76,15 +74,19 @@ if(isset($_REQUEST['action']))
                 while ($row = $result->fetch_assoc()) { ?>
                 <tr>
                     <td><?php echo $i++; ?></td>
-                    <td><?php echo $row['Tensach']; ?></td>
-                    <td><?php echo $row['Tacgia']; ?></td>
-                    <td><?php echo $row['NXB']; ?></td>
-                    <td><?php echo $row['NgayDang']; ?></td>
-                    <td><img src="<?php echo $row['imgSach']; ?>" alt="" style="width:100px;height:auto;"></td>
-                    <td><?php echo $row['Tendanhmuc']; ?></td>
+                    <td><?php echo $row['username']; ?></td>
+                    <td><?php echo $row['MemberName']; ?></td>
+                    <td><?php echo $row['email']; ?></td>
+                    <td><?php echo $row['Gioitinh']; ?></td>
+                    <td><?php echo $row['Ngaysinh']; ?></td>
+                    <?php if($row['ImgAvatar'] == "Chưa thiết lập" || $row['ImgAvatar'] == null ){?>
+                    <td><h5>Chưa có hình ảnh</h5></td>
+                    <?php }else{?>
+                    <td><img src="<?php echo $row['ImgAvatar']; ?>" alt="" style="width:100px;height:auto;"></td>
+                    <?php }?>
                     <td>
-                    <a href="<?php echo '?option=quanlysach&action=delete&idSach='.$row['idSach']; ?>" class="btn btn-danger">Xóa</a>
-                    <a href="<?php echo '?option=quanlysach&sub_option=edit_book&idSach='.$row['idSach']; ?>" class="btn btn-warning">Sửa</a>
+                    <a href="<?php echo '?option=control_nguoidung&action=delete&idMember='.$row['idMember']; ?>" class="btn btn-danger">Xóa</a>
+                    <a href="<?php echo '?option=control_nguoidung&sub_option=edit_book&idMember='.$row['idMember']; ?>" class="btn btn-warning">Sửa</a>
         
                     </td>
                 </tr>
@@ -101,10 +103,5 @@ if(isset($_REQUEST['action']))
 <script>
 function newDoc() {
   window.location.assign("index.php?option=addbook");
-}
-function select_book(){
-    var iddm = $('#category').val();
-    console.log("dksao:",iddm)
-});
 }
 </script>
