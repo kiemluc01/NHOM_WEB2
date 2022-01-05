@@ -4,6 +4,16 @@
  <?php 
     $Listbook = loadModel("Listbook");
     $soSach = $Listbook->Count_book();
+    $Select = $Listbook->Select_Chitiet();
+    $chart_data = '';
+    if($Select->num_rows > 0)
+    {
+      while($row = $Select->fetch_assoc())
+      {
+        $chart_data .= "{ Tensach:'".$row["Tensach"]."', Luotxem:".$row["Luotxem"].", Favorite:".$row["Favorite"].", Feedback:".$row["Feedback"]."}, ";
+      }
+    }
+    $chart_data = substr($chart_data, 0, -2);
   ?>
         <!-- page content -->
         <div class="right_col" role="main" style=" height: 100vh!important;
@@ -107,32 +117,18 @@
               <div class="card-header">
                 <h3 class="card-title">
                   <i class="fas fa-chart-pie mr-1"></i>
-                  Sales
+                  Thống kê sách
                 </h3>
-                <div class="card-tools">
-                  <ul class="nav nav-pills ml-auto">
-                    <li class="nav-item">
-                      <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Ngày</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#sales-chart" data-toggle="tab">Tháng</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#sales-chart" data-toggle="tab">Năm</a>
-                    </li>
-                  </ul>
-                </div>
               </div><!-- /.card-header -->
               <div class="card-body">
                 <div class="tab-content p-0">
                   <!-- Morris chart - Sales -->
-                  <div class="chart tab-pane active" id="revenue-chart"
-                       style="position: relative; height: 300px;">
-                      <canvas id="revenue-chart-canvas" height="300" style="height: 300px;"></canvas>
-                   </div>
-                  <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
-                    <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>
-                  </div>
+                    <div class="container" style="width:auto;">
+                        <h2 align="center">Web đọc sách online</h2>
+                        <h3 align="center">Thống kê số lượt tương tác </h3>   
+                        <br /><br />
+                        <div id="chart"></div>
+                    </div>
                 </div>
               </div><!-- /.card-body -->
             </div>
@@ -149,3 +145,14 @@
             <div class="row">
             </div>
           </div>
+          <script>
+Morris.Bar({
+ element : 'chart',
+ data:[<?php echo $chart_data; ?>],
+ xkey:'Tensach',
+ ykeys:['Luotxem', 'Favorite', 'Feedback'],
+ labels:['Luotxem', 'Favorite', 'Feedback'],
+ hideHover:'auto',
+ stacked:true
+});
+</script>

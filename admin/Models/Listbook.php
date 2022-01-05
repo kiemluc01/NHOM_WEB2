@@ -103,4 +103,11 @@ class Listbook extends Database{
         }
             return false;
     }
+    //select chi tiet sach
+    function Select_Chitiet()
+    {
+        $sql = "SELECT tblsach.idSach , tblsach.Tensach , chitietsach.Luotxem , chitietsach.Favorite , chitietsach.Feedback FROM tblsach , chitietsach WHERE tblsach.idSach = chitietsach.idSach";
+        $result = mysqli_query($this->conn, $sql);
+        return $result;
+    }
 }
