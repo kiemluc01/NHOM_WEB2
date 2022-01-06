@@ -3,26 +3,6 @@
 </div>
 <?php
 $Listbook = loadModel('Listbook');
-if(isset($_REQUEST['btn_add'])){
-  $tensach = $_POST['Tensach'];
-  $tacgia = $_POST['Tacgia'];
-  $nxb = $_POST['NXB'];
-  $danhmucsach = $_POST['idDanhmuc'];
-  $file = $_FILES['file']['tmp_name'];
-  $imgSach = 'Public/images/' . $_FILES['file']['name'];
-  $tomtatND = $_POST['tomtatND'];
-  move_uploaded_file($file, $imgSach);
-  echo '<img src="'.$imgSach.'" height = "150" width="225" class = "img-thumbnail"/>';
-  $insert = $Listbook->Update_book($_REQUEST['idSach'] ,$imgSach , $tensach, $tacgia , $nxb , $danhmucsach , $tomtatND);
-  if($insert>0)
-  {
-    echo '<script>alert("Update Thành Công");
-    location.assign("index.php?option=quanlysach");</script>';
-  }else{
-    echo '<script>alert("Update Không Thành Công");</script>';
-  }
-}
-
 $book = $Listbook->getBook($_REQUEST['idSach']);
 if($book->num_rows > 0)
 
@@ -36,6 +16,7 @@ while ($row = $book->fetch_assoc()){
   $tomtatND = $row['tomtatND'];
 }
 ?>
+
 <div class="right_col" role="main">
           <div class="">
             <div class="page-title">
@@ -61,7 +42,7 @@ while ($row = $book->fetch_assoc()){
                   <div class="x_content">
                     <!-- Smart Wizard -->
                       <div id="step-1">
-                        <form class="form-horizontal form-label-left"  method="post" enctype="multipart/form-data">
+                        <form action="admin/upload_image.php" id="form_file_upload" class="form-horizontal form-label-left"  method="post" enctype="multipart/form-data">
 
                           <div class="form-group row">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Tên sách <span class="required">*</span>
@@ -111,13 +92,15 @@ while ($row = $book->fetch_assoc()){
                           <div class="form-group row">
                             <label class="col-form-label col-md-3 col-sm-3 label-align">Hình Ảnh Sách <span class="required">*</span>
                             </label>
-                         
                             <div class="col-md-6 col-sm-6 ">
-                              <input type="file" id="file" name="file" value = "<?php echo $imgSach ;?>"class="date-picker form-control"  required="required">
-                              <span id="upload_image" value = "<?php echo $imgSach ;?>" ></span>
-                              <img src="<?php echo $imgSach ?>" height = "150" width="225" class = "img-thumbnail"/>
+                              <input type="file" id="file" name="file" class="date-picker form-control" required>
+                              <div class = "form-group__image">
+                                  <label>Ảnh cũ</label>
+                                  <img src="<?php echo $imgSach ?>" height = "100" width="150" class = "img-thumbnail"/>
+                                  <label>Ảnh mới</label>
+                                  <img src="" height = "100" width="150" id = "img_new" class = "img-thumbnail"/>
+                              </div>
                             </div>
-                            
                           </div>
                           <div class="form-group row">
                             <label class="col-form-label col-md-3 col-sm-3 label-align">Tóm tắt nội dung <span class="required">*</span>
@@ -126,17 +109,13 @@ while ($row = $book->fetch_assoc()){
                               <input id="tomtatND" class="date-picker form-control" value="<?php echo $tomtatND ;?>" name = "tomtatND" required="required" type="text">
                             </div>
                           </div>
-                          <input type="submit" name = "btn_add" class="btn btn-success" value = "Update">
+                          <input type="submit" name = "submit" id = "submit" class="btn btn-success submit" value = "Update">
                         </form>
                       </div>
-
                     <!-- End SmartWizard Content -->
-
-            
                     <!-- End SmartWizard Content -->
                   </div>
                 </div>
               </div>
             </div>
           </div>
-  

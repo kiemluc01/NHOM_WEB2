@@ -1,4 +1,3 @@
-
 function select_book(){
     var iddm = $('#category').val();
         $.ajax({
@@ -20,5 +19,5 @@ function select_book(){
                 document.getElementById('data_table').innerHTML = str
 
             }
-})
+});
 }

@@ -5,7 +5,8 @@ if(isset($_REQUEST['action']))
 
 }
 ?>
-    <div class="right_col" role="main">
+    <div class="right_col" role="main" style=" height: 100vh!important;
+    overflow: auto!important;">
         <div class="btn"style="width:100%">
         <form action="" method="post">
             <div id="filter" style="display:flex;justify-content:space-between!important ;">
@@ -68,12 +69,30 @@ if(isset($_REQUEST['action']))
                 ?>
             </table>
         </div>
-</div>
-          <!-- /page content -->
-          <script>
+        <div class="dialog_DM" style="display: none;  border-radius:10px/10px;position:absolute ; top: 15%;left: 30%; width:  50%; height: 200px; background-color:rgba(0, 0, 0, 0.5);" id="add_cat">
+            <form action="" method="post" style="width:99% ; margin-top:30px" >
+                <div class="form-group row">
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nhập tên danh mục <span class="required">*</span></label>
+                    <div class="col-md-6 col-sm-6 ">
+                        <input type="text" id="Tendanhmuc" name = "Tendanhmuc" required="required" class="form-control">
+                    </div>
+                </div>
+                <center>
+                <input type="submit" name = "btn_add" class="btn btn-success" value = "Thêm">
+                </center>
+            </form>
+            <input type="button"  src="" alt="X" id="close" onclick="close()" style="width:40px;height:40px; border-radius:50%/50%; background-color:red;">
+        </div>
+    </div>
+            <!-- /page content -->
+            <script>
 function newDoc() {
-  window.location.assign("index.php?option=addcategory");
+  document.getElementById('add_cat').style.display = "flex";
 }
+function close() {
+  document.getElementById('add_cat').style.display = "none";
+}
+
 </script>         
           <!-- footer content -->
 <!-- /footer content -->

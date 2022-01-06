@@ -102,4 +102,9 @@ if(isset($_REQUEST['action']))
 function newDoc() {
   window.location.assign("index.php?option=addbook");
 }
+function select_book(){
+    var iddm = $('#category').val();
+    console.log("dksao:",iddm)
+});
+}
 </script>

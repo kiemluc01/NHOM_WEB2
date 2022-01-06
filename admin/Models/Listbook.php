@@ -70,5 +70,44 @@ class Listbook extends Database{
         return false;
         
     }
-    
+    // Thống kê
+    function Count_book(){
+        $sql = "SELECT COUNT(idSach) as tongsosach FROM tblsach";
+        $result = mysqli_query($this->conn, $sql);
+        return $result;
+    }
+    function Select_view(){
+        $sql = "SELECT sum(Luotxem) as Luotxem, sum(Favorite) as Favorite , sum(Feedback) as Feedback FROM chitietsach";
+        $result = mysqli_query($this->conn, $sql);
+        return $result;
+    }
+    // feedback
+    function Select_Feedback(){
+        $sql = "SELECT tblaccount.ImgAvatar , tblaccount.MemberName , tblsach.Tensach , tbldanhgia.* FROM tblaccount , tblsach , tbldanhgia WHERE tblsach.idSach = tbldanhgia.idSach and tblaccount.idMember = tbldanhgia.idMember";
+        $result = mysqli_query($this->conn, $sql);
+        return $result;
+    }
+    function Find_feeback($str){
+        $sql = "SELECT tblaccount.ImgAvatar , tblaccount.MemberName , tblsach.Tensach , tbldanhgia.* FROM tblaccount , tblsach , tbldanhgia WHERE tblsach.idSach = tbldanhgia.idSach and tblaccount.idMember = tbldanhgia.idMember and (Tensach like N'%".$str."%')";
+        $result = mysqli_query($this->conn, $sql);
+        return $result;
+    }
+    function Delete_feedback($idDanhgia)
+    {
+        $sql = "delete from tbldanhgia where idDanhgia = '".$idDanhgia."'";
+        
+        if( mysqli_query($this->conn, $sql))
+        {
+            
+            return true;
+        }
+            return false;
+    }
+    //select chi tiet sach
+    function Select_Chitiet()
+    {
+        $sql = "SELECT tblsach.idSach , tblsach.Tensach , chitietsach.Luotxem , chitietsach.Favorite , chitietsach.Feedback FROM tblsach , chitietsach WHERE tblsach.idSach = chitietsach.idSach";
+        $result = mysqli_query($this->conn, $sql);
+        return $result;
+    }
 }
