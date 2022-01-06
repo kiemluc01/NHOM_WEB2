@@ -50,3 +50,6 @@ if ($resultBook->num_rows > 0) { ?>
         </div>
     </div>
 <?php } ?>
+<div class="row">
+    <?php loadModule('new_book'); ?>
+</div>
