@@ -44,6 +44,8 @@ while ($row = $result->fetch_assoc()) {
                             </div>
                             <button class="menu__label"><i class="fa fa-fw fa-bars"></i><span>Menu</span></button>
                             <ul class="menu__inner">
+
+
                                 <li><a href="#"><i class="fa fa-fw fa-bookmark"></i><span>Danh sách đọc</span></a></li>
                                 <li><a href="#"><i class="fa fa-fw fa-heart"></i><span>Yêu thích</span></a></li>
                                 <li><a href="#"><i class="fa fa-fw fa-image"></i><span>Gì gì đó</span></a></li>
@@ -95,6 +97,12 @@ while ($row = $result->fetch_assoc()) {
                 <a class="btn btn-lg text-light btn-info fw-bold border-info bg-info" href="<?php loadHrefReadBook(); ?>" id="read">Đọc từ đầu</a>
             </div>
         </div>
+        <?php $result = $book->getChapter($_REQUEST['idSach']);
+        if ($result->num_rows > 0)
+            while ($row = $result->fetch_assoc()) { ?>
+            <a href="<?php if (isset($_REQUEST['condition'])) echo  'index.php?condition=' . $_REQUEST['condition'] . '&option=book&idSach=' . $_REQUEST['idSach'] . '&chapter=' . $row['TenChuong'] . '&page=1&kitu=0'; ?>"><span> <?php echo $row['TenChuong']; ?></span></a>
+        <?php        }
+        ?>
     </div>
     <div class="row">
         <?php loadModule('cmt_book'); ?>
