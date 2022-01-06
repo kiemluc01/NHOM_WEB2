@@ -65,14 +65,14 @@ $category = $book->get_category_all();
             <ul class="navbar-nav me-5 mb-2 mb-md-0">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" href="#">
-                        <img height="40" src="<?php echo $IMG; ?>" alt="<?php echo $username; ?>">
+                        <img height="35" class="ms-5 rounded-3" src="<?php echo $IMG; ?>" alt="<?php echo $username; ?>">
                     </a>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu dropdown-menu-end">
                         <li>
                             <a class="dropdown-item" href=""><i class="fas fa-user-cog"></i> <?php echo $username; ?></a>
                         </li>
                         <li>
-                            <a href=""><i class="fas fa-book"></i> Thư viện</a>
+                            <a class="dropdown-item" href=""><i class="fas fa-book"></i> Thư viện</a>
                         </li>
                         <li>
                             <a class="dropdown-item" href=""><i class="fas fa-bell"></i> Thông báo</a>

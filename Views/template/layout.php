@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="Public/css/book.css">
     <link rel="stylesheet" href="Public/css/main.css">
     <link rel="stylesheet" href="Public\css\listcategory-dropdown.css">
-    <!-- <link rel="stylesheet" href="Public/css/menu_login.css"> -->
-    <!-- <link rel="stylesheet" href="Public/css/menu_main.css"> -->
+    <link rel="stylesheet" href="Public\css\wrapper-custom-3d-book.css">
+    <link rel="stylesheet" href="Public\css\custom-book-info.css">
     <link rel="stylesheet" href="Public/css/footer.css">
     <!-- <link rel="stylesheet" href="Public/css/details_book.css"> -->
     <!-- <link rel="stylesheet" href="Public/css/content.css"> -->

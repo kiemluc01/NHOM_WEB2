@@ -6,8 +6,8 @@ if (isset($_REQUEST['Noidung'])) {
 }
 $cmt_book = $book->get_cmt($_REQUEST['idSach']);
 ?>
-<div class="make-comment">
-    <h4>Cảm nhận của bạn</h4>
+<div class="col-sm-5 col-md-6 col-12 pb-4">
+    <h1>Cảm nhận của bạn</h1>
     <form action="#" method="post">
         <textarea name="Noidung" cols="30" rows="10" placeholder="Cảm nhận của bạn ..."></textarea>
         <input type="submit" value="Gửi">

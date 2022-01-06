@@ -1,7 +1,11 @@
 .listcate {
 	position: -webkit-sticky;
 	position: sticky;
-	top: 66px;
+	top: 4rem;
+}
+.fixed-listcate {
+	top: 2.2rem;
+	right: -81%;
 }
 .menu {
 	width: 300px;

@@ -40,10 +40,10 @@ $category = $book->get_category_all();
             </ul>
             <?php require("searchBook.php"); ?>
             <ul class="navbar-nav me-5 mb-2 mb-md-0">
-                <li class="nav-item ms-5 px-3">
+                <li class="nav-item ms-5">
                     <a class="nav-link" href="index.php?option=login">Đăng nhập</a>
                 </li>
-                <li class="nav-item px-3">
+                <li class="nav-item">
                     <a class="nav-link" href="index.php?option=register">Đăng ký</a>
                 </li>
             </ul>
