@@ -3,9 +3,30 @@
 </div>
 <?php
 $Listbook = loadModel('Listbook');
+if(isset($_REQUEST['btn_add'])){
+  $tacgia = $_REQUEST['Tacgia'];
+  if(isset($_REQUEST['Tensach']) && isset($_REQUEST['Tensach'])  && isset($_REQUEST['NXB'])  && isset($_REQUEST['idDanhmuc']) && isset($_REQUEST['tomtatND'])){
+  $tensach = $_REQUEST['Tensach'];
+  $tacgia = $_REQUEST['Tacgia'];
+  $nxb = $_REQUEST['NXB'];
+  $danhmucsach = $_REQUEST['idDanhmuc'];
+  $target_dir = "Public/images/bookcover/";
+  $target_file = $target_dir.basename($_FILES['file']['name']);
+  move_uploaded_file($_FILES['file']['tmp_name'],$target_file);
+  $tomtatND = $_REQUEST['tomtatND'];
+  $book_update = $Listbook->Update_book($_REQUEST['idSach'] ,$target_file, $tensach, $tacgia, $nxb, $danhmucsach,$tomtatND );
+  if($book_update)
+    {
+      echo '<script>alert("Update Thành Công");
+      </script>';
+    }else{
+      echo '<script>alert("Update Không Thành Công");</script>';
+    }
+    }
+  }
 $book = $Listbook->getBook($_REQUEST['idSach']);
 if($book->num_rows > 0)
-
+{
 while ($row = $book->fetch_assoc()){
   $tensach = $row['Tensach'];
   $tacgia = $row['Tacgia'];
@@ -14,7 +35,7 @@ while ($row = $book->fetch_assoc()){
   // $file = $_FILES['imgSach']['tmp_name'];
   $imgSach = $row['imgSach'];
   $tomtatND = $row['tomtatND'];
-}
+
 ?>
 
 <div class="right_col" role="main">
@@ -42,7 +63,7 @@ while ($row = $book->fetch_assoc()){
                   <div class="x_content">
                     <!-- Smart Wizard -->
                       <div id="step-1">
-                        <form action="admin/upload_image.php" id="form_file_upload" class="form-horizontal form-label-left"  method="post" enctype="multipart/form-data">
+                        <form id = "form_edit_book "class="form-horizontal form-label-left"  method="post" enctype="multipart/form-data">
 
                           <div class="form-group row">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Tên sách <span class="required">*</span>
@@ -98,7 +119,7 @@ while ($row = $book->fetch_assoc()){
                                   <label>Ảnh cũ</label>
                                   <img src="<?php echo $imgSach ?>" height = "100" width="150" class = "img-thumbnail"/>
                                   <label>Ảnh mới</label>
-                                  <img src="" height = "100" width="150" id = "img_new" class = "img-thumbnail"/>
+                                  <img src="" height = "100" width="150" id = "img_new" name = "img_new"class = "img-thumbnail"/>
                               </div>
                             </div>
                           </div>
@@ -109,7 +130,11 @@ while ($row = $book->fetch_assoc()){
                               <input id="tomtatND" class="date-picker form-control" value="<?php echo $tomtatND ;?>" name = "tomtatND" required="required" type="text">
                             </div>
                           </div>
-                          <input type="submit" name = "submit" id = "submit" class="btn btn-success submit" value = "Update">
+                          <?php 
+                          }
+                        }
+                          ?>
+                          <input type="submit" name = "btn_add" id = "btn_add" class="btn btn-success submit" value = "Update">
                         </form>
                       </div>
                     <!-- End SmartWizard Content -->

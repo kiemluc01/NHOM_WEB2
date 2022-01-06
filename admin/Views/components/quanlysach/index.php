@@ -2,7 +2,6 @@
 
 </div> <!-- page content -->
 <?php 
-
 if(isset($_REQUEST['action']))
 {
     $Listbook = loadModel("Listbook");
@@ -53,7 +52,7 @@ if(isset($_REQUEST['action']))
         </form>
     </div>
 
-    <div class="tb table" id="data_table">
+    <div class="data_table" id="data_table">
         <table class = "table"  style = "border:1px solid black">
             <tr>
                 <th>STT</th>
@@ -100,11 +99,22 @@ if(isset($_REQUEST['action']))
 <!-- /footer content -->
 <script>
 function newDoc() {
-  window.location.assign("index.php?option=addbook");
+  window.location.assign("index.php?option=addbook")
 }
-function select_book(){
-    var iddm = $('#category').val();
-    console.log("dksao:",iddm)
-});
-}
+$(document).ready(function() {
+    $("#category").on('change',function(){
+        var value = $(this).val();
+        $.ajax({
+            url:"Models/select_book.php",
+            type:"POST",
+            data:'idDanhmuc='+ value,
+            beforeSend:function() {
+                $(".data_table").html("<span>Working....</span>");
+            },
+            success:function(data){
+                $(".data_table").html(data);    
+            }
+        })
+    })
+})
 </script>

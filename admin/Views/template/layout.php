@@ -136,9 +136,9 @@
 	<script src="Public/vendors/starrr/dist/starrr.js"></script>
 	   <!-- Custom Theme Scripts -->
 	<script src="Public/build/js/custom.min.js"></script>
-	<script src="Public/build/js/select_book.js"></script>
 	<script src="Public/build/js/select_category.js"></script>
 	<script src="Public/js/upload_image.js"></script>
+	<script src="Public/js/find_book.js"></script>
      <!-- Bootstrap -->
      <script src="Public/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- FastClick -->

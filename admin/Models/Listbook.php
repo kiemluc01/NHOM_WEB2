@@ -5,6 +5,11 @@ class Listbook extends Database{
         $result = mysqli_query($this->conn, $sql);
         return $result;
     }
+    function getAllBook($danhmuc){
+        $sql = "select a.*,b.Tendanhmuc from tblsach as a, tbldanhmuc as b where a.idDanhmuc = b.idDanhmuc and a.idDanhmuc = '".$danhmuc."'";
+        $result = mysqli_query($this->conn, $sql);
+        return $result;
+    }
     function Find_book($str){
         $sql = "select a.*,b.Tendanhmuc from tblsach as a, tbldanhmuc as b where a.idDanhmuc = b.idDanhmuc and ( Tensach like N'%".$str."%' or Tendanhmuc like N'%".$str."%' or Tacgia like N'%".$str."%' )";
         $result = mysqli_query($this->conn, $sql);
