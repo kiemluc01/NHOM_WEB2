@@ -27,7 +27,7 @@
     <!-- <link rel="stylesheet" href="Public/css/register.css"> -->
     <!-- <link rel="stylesheet" href="Public/css/readbook.css"> -->
     <!-- <link rel="stylesheet" href="Public/css/fontfamily.css"> -->
-    
+
     <link rel="icon" href="images/favicon.ico" type="image/ico" />
 </head>
 
@@ -37,7 +37,11 @@
     </header>
 
     <main>
-        <?php loadComponent(); ?>
+        <?php
+        if (isset($_REQUEST['findbook']))
+            loadModule('result_find');
+        else
+            loadComponent(); ?>
     </main>
 
     <footer>

@@ -228,4 +228,10 @@ class Book extends Database
         }
         return $ten;
     }
+    function Find_book($str)
+    {
+        $sql = "select a.*,b.Tendanhmuc,Luotxem,Feedback,Favorite from tblsach as a, tbldanhmuc as b,chitietsach as c where a.idSach = c.idSach and a.idDanhmuc = b.idDanhmuc and ( Tensach like N'%" . $str . "%' or Tendanhmuc like N'%" . $str . "%' or Tacgia like N'%" . $str . "%' )";
+        $result = mysqli_query($this->conn, $sql);
+        return $result;
+    }
 }
