@@ -18,7 +18,7 @@ if(isset($_REQUEST['btn_add'])){
   if($book_update)
     {
       echo '<script>alert("Update Thành Công");
-      </script>';
+      location.assign("index.php?option=quanlysach");</script>';
     }else{
       echo '<script>alert("Update Không Thành Công");</script>';
     }
@@ -127,7 +127,7 @@ while ($row = $book->fetch_assoc()){
                             <label class="col-form-label col-md-3 col-sm-3 label-align">Tóm tắt nội dung <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 ">
-                              <input id="tomtatND" class="date-picker form-control" value="<?php echo $tomtatND ;?>" name = "tomtatND" required="required" type="text">
+                              <textarea id="tomtatND" class="date-picker form-control" value="" name = "tomtatND"><?php echo $tomtatND ;?></textarea></br>
                             </div>
                           </div>
                           <?php 
@@ -135,6 +135,7 @@ while ($row = $book->fetch_assoc()){
                         }
                           ?>
                           <input type="submit" name = "btn_add" id = "btn_add" class="btn btn-success submit" value = "Update">
+                          <a href="<?php echo '?option=quanlysach&sub_option=edit_content_book&idSach='.$_REQUEST['idSach']; ?>" class="btn btn-warning">Sửa nội dung sách</a>
                         </form>
                       </div>
                     <!-- End SmartWizard Content -->
@@ -143,4 +144,5 @@ while ($row = $book->fetch_assoc()){
                 </div>
               </div>
             </div>
+         
           </div>

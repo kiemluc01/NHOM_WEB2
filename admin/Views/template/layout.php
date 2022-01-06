@@ -130,6 +130,7 @@
 	<script src="Public/vendors/parsleyjs/dist/parsley.min.js"></script>
 	<!-- Autosize -->
 	<script src="Public/vendors/autosize/dist/autosize.min.js"></script>
+	<script src="Public/ckeditor/ckeditor.js"></script>
 	<!-- jQuery autocomplete -->
 	<script src="Public/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
 	<!-- starrr -->
@@ -254,4 +255,8 @@
 <!-- jQuery UI 1.11.4 -->
 <script src="Public/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+    CKEDITOR.replace('tomtatND');
+    CKEDITOR.replace('noidung');
+</script>
 

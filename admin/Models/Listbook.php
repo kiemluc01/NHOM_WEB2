@@ -115,4 +115,39 @@ class Listbook extends Database{
         $result = mysqli_query($this->conn, $sql);
         return $result;
     }
+    //select chapters
+    function Select_Chapters($idSach)
+    {
+        $sql = "SELECT * FROM tblchuong WHERE idSach = '".$idSach."'";
+        $result = mysqli_query($this->conn, $sql);
+        return $result;
+    }
+    function Select_ChildChapters($idChuong)
+    {
+        $sql = "SELECT * FROM tblchuong WHERE idChuong = '".$idChuong."'";
+        $result = mysqli_query($this->conn, $sql);
+        return $result;
+    }
+    //update chapters
+    function Update_Chapters($idChuong,$Tenchuong , $noidung)
+    {
+        $sql = "UPDATE tblchuong SET TenChuong = N'".$Tenchuong."' , noidung = N'".$noidung."' where idChuong = '".$idChuong."'";
+        $data = mysqli_query($this->conn, $sql);
+        if($data)
+        {
+            return true;
+        }
+        return false;
+    }
+    //insert chapters
+    function Insert_chapter($idSach , $Tenchuong , $noidung)
+    {
+        $sql = "INSERT into tblchuong (idSach, TenChuong , noidung) VALUES ('".$idSach."',N'".$Tenchuong."' ,N'".$noidung."')";
+        $data = mysqli_query($this->conn, $sql);
+        if($data)
+        {
+            return true;
+        }
+        return false;
+    }
 }

@@ -37,7 +37,11 @@ function loadComponent()
         $pathcom = $pathcom . $_REQUEST['option'] . '/';
         if (isset($_REQUEST['sub_option'])) {
             $pathcom = $pathcom . $_REQUEST['sub_option'].'.php';
-        } else {
+        
+        } else if (isset($_REQUEST['child_option'])) {
+            $pathcom = $pathcom . $_REQUEST['child_option'].'.php';
+        
+        }else{
             $pathcom = $pathcom . 'index.php';
         }
     } else {

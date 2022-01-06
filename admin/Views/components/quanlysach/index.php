@@ -83,7 +83,8 @@ if(isset($_REQUEST['action']))
                     <td><?php echo $row['Tendanhmuc']; ?></td>
                     <td>
                     <a href="<?php echo '?option=quanlysach&action=delete&idSach='.$row['idSach']; ?>" class="btn btn-danger">Xóa</a>
-                    <a href="<?php echo '?option=quanlysach&sub_option=edit_book&idSach='.$row['idSach']; ?>" class="btn btn-warning">Sửa</a>
+                    <a  href="<?php echo '?option=quanlysach&sub_option=edit_book&idSach='.$row['idSach']; ?>" class="btn btn-warning">Sửa thông tin sách</a>
+                   
         
                     </td>
                 </tr>
