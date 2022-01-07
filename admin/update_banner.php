@@ -1,5 +1,7 @@
 <?php 
-
+if(isset($_REQUEST['action']) == 'edit' && $_REQUEST['idbanner'])
+{
+  $banner = loadModel('banner');
 $target_dir = "Public/images/banner/";
 $target_file = $target_dir.basename($_FILES['file']['name']);
 $uploadError = 0;
@@ -37,6 +39,15 @@ if(isset($_FILES['file']['name']))
       echo json_encode(['success'=>true,'error'=>"Fild upload faild</br>"]);
     }
   }
+}
+$insert = $banner->Update_banner($_REQUEST['idbanner'] , $target_file);
+if($insert>0)
+{
+  echo '<script>alert("Update Thành Công");
+  location.assign("index.php?option=banner");</script>';
+}else{
+  echo '<script>alert("Update Không Thành Công");</script>';
+}
 }
 
 ?>

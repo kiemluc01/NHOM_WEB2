@@ -26,23 +26,12 @@ if(isset($_REQUEST['btn_add'])){
               <div class="title_left">
                 <h3>Sửa Nội Dung Sách</h3>
               </div>
-              <div class="title_right">
-                <div class="col-md-5 col-sm-5  form-group row pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                              <button class="btn btn-secondary" type="button">Go!</button>
-                          </span>
-                  </div>
-                </div>
-              </div>
-            </div>
           
             <div class="clearfix"></div>
             <div class="row">
               <div class="col-md-12 col-sm-12 ">
                 <div class="x_panel">
-                    <h2>Chương</h2>
+                  <h2>Danh Sách Chương</h2>
                   <div class="x_title">
                   <div class="x_content">
                     <!-- Smart Wizard -->
@@ -65,6 +54,12 @@ if(isset($_REQUEST['btn_add'])){
                           <?php 
                           }
                           ?>
+                        
+                          <div class="x_title">
+                            <div class="title">
+                              <h4>Thêm mới một chương</h4>
+                            </div>
+                          </div>
                           <div id="form_add" >
                             <div class="form-group row">
                                 <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Tên Chương</label>
@@ -80,7 +75,7 @@ if(isset($_REQUEST['btn_add'])){
                                 </div>
                             </div>
                         </div>
-                            <input type="submit" name = "btn_add" id = "btn_add" class="btn btn-success submit" value = "Thêm Mới Chương" onclick="newDoc()">
+                            <input type="submit" name = "btn_add" id = "btn_add" class="btn btn-success submit" value = "Thêm Mới Chương" >
                             <?php 
                         }else{
                             ?>
@@ -97,7 +92,7 @@ if(isset($_REQUEST['btn_add'])){
                               <textarea id="noidung" class="date-picker form-control" value="" name = "noidung"></textarea></br>
                             </div>
                           </div>
-                          <input type="submit" name = "btn_add_" id = "btn_add_" class="btn btn-success submit" value = "Thêm">
+                          <input type="submit" name = "btn_add" id = "btn_add" class="btn btn-success submit" value = "Thêm Mới Chương" >
                           <?php
                         }
                           ?>
