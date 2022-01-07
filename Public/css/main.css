@@ -15,6 +15,9 @@ body {
   background-color: var(--light);
   padding-top: 3rem;
 }
+textarea {
+  resize: none;
+}
 
 #liveSearch {
   width: 356px;

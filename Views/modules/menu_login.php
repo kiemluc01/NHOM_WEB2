@@ -69,16 +69,16 @@ $category = $book->get_category_all();
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li>
-                            <a class="dropdown-item" href=""><i class="fas fa-user-cog"></i> <?php echo $username; ?></a>
+                            <a class="dropdown-item" href="#"><i class="fas fa-user-cog"></i> <?php echo $username; ?></a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href=""><i class="fas fa-book"></i> Thư viện</a>
+                            <a class="dropdown-item" href="#"><i class="fas fa-book"></i> Thư viện</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href=""><i class="fas fa-bell"></i> Thông báo</a>
+                            <a class="dropdown-item" href="#"><i class="fas fa-bell"></i> Thông báo</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href=""><i class="fas fa-key"></i> Đổi mật khẩu</a>
+                            <a class="dropdown-item" href="#"><i class="fas fa-key"></i> Đổi mật khẩu</a>
                         </li>
                         <li>
                             <a class="dropdown-item" href="index.php?option=login"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
