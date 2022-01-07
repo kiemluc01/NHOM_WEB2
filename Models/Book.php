@@ -93,9 +93,9 @@ class Book extends Database
         $result = mysqli_query($this->conn, $sql);
         return $result;
     }
-    function TachPage($idSach, $idchuong)
+    function TachPage($idSach, $tenchuong)
     {
-        $sql = "select * from tblchuong where idSach =" . $idSach . " and idChuong= " . $idchuong;
+        $sql = "select * from tblchuong where idSach =" . $idSach . " and TenChuong= N'" . $tenchuong . "'";
         $text = "chưa cha ơi";
         $content = "";
         $kitutrang = 0;
@@ -127,9 +127,9 @@ class Book extends Database
     function loadkitu(
         $i,
         $idSach,
-        $idchuong
+        $tenchuong
     ) {
-        $sql = "select * from tblchuong where idSach =" . $idSach . " and idChuong= " . $idchuong;
+        $sql = "select * from tblchuong where idSach =" . $idSach . " and TenChuong= N'" . $tenchuong . "'";
         $content = "";
         $kitutrang = 0;
         $sokitudaduyet = 0;
@@ -154,9 +154,9 @@ class Book extends Database
         }
         return $sokitudaduyet;
     }
-    function loadSotrang($idSach, $idchuong)
+    function loadSotrang($idSach, $tenchuong)
     {
-        $sql = "select * from tblchuong where idSach =" . $idSach . " and idChuong= " . $idchuong;
+        $sql = "select * from tblchuong where idSach =" . $idSach . " and TenChuong= N'" . $tenchuong . "'";
         $content = "";
         $kitutrang = 0;
         $sokitudaduyet = 0;
@@ -207,5 +207,31 @@ class Book extends Database
         $time = date('y-m-d');
         $sql = "insert into tbldanhgia values(" . $member->getID() . ", " . $idSach . ",null,N'" . $noidung . "','" . $time . "');";
         mysqli_query($this->conn, $sql);
+    }
+    function getChapter($idBook)
+    {
+        $sql = "select * from tblchuong where idSach = " . $idBook;
+        return mysqli_query($this->conn, $sql);
+    }
+    function FirstChapter($idBook)
+    {
+        $sql = "select * from tblchuong where idSach = " . $idBook;
+        $ten = '';
+        $result = mysqli_query($this->conn, $sql);
+        if (
+            $result->num_rows > 0
+        )
+        while ($row = $result->fetch_assoc()
+        ) {
+            $ten = $row['TenChuong'];
+            break;
+        }
+        return $ten;
+    }
+    function Find_book($str)
+    {
+        $sql = "select a.*,b.Tendanhmuc,Luotxem,Feedback,Favorite from tblsach as a, tbldanhmuc as b,chitietsach as c where a.idSach = c.idSach and a.idDanhmuc = b.idDanhmuc and ( Tensach like N'%" . $str . "%' or Tendanhmuc like N'%" . $str . "%' or Tacgia like N'%" . $str . "%' )";
+        $result = mysqli_query($this->conn, $sql);
+        return $result;
     }
 }

@@ -130,15 +130,16 @@
 	<script src="Public/vendors/parsleyjs/dist/parsley.min.js"></script>
 	<!-- Autosize -->
 	<script src="Public/vendors/autosize/dist/autosize.min.js"></script>
+	<script src="Public/ckeditor/ckeditor.js"></script>
 	<!-- jQuery autocomplete -->
 	<script src="Public/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
 	<!-- starrr -->
 	<script src="Public/vendors/starrr/dist/starrr.js"></script>
 	   <!-- Custom Theme Scripts -->
 	<script src="Public/build/js/custom.min.js"></script>
-	<script src="Public/build/js/select_book.js"></script>
 	<script src="Public/build/js/select_category.js"></script>
 	<script src="Public/js/upload_image.js"></script>
+	<script src="Public/js/find_book.js"></script>
      <!-- Bootstrap -->
      <script src="Public/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- FastClick -->
@@ -254,4 +255,8 @@
 <!-- jQuery UI 1.11.4 -->
 <script src="Public/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+    CKEDITOR.replace('tomtatND');
+    CKEDITOR.replace('noidung');
+</script>
 

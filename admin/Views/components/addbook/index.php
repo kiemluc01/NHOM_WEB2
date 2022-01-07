@@ -20,9 +20,6 @@ if(isset($_REQUEST['btn_add'])){
   }else{
     echo '<script>alert("Có lỗi");</script>';
   }
-    
-
-
 }
 ?>
 <div class="right_col" role="main">

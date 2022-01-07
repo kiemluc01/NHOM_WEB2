@@ -17,7 +17,6 @@ function select_book(){
                 str = str + '</table>'
                 document.getElementById('data_table').innerHTML = ""
                 document.getElementById('data_table').innerHTML = str
-
             }
-});
+})
 }

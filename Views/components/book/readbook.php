@@ -38,4 +38,37 @@ $result = $book->get_bookcurrent($_REQUEST['idSach']);
                         <a href="<?php echo 'index.php?condition=kiemlucnguyen&option=book&idSach=1&chapter=1&page=' . $sotrang . '&kitu=' . $book->loadkitu($sotrang, $_REQUEST['idSach'], $_REQUEST['chapter']); ?>" class="page">
                             >> </a>
     </div>
+
 </center>
+<div class="Chapters">
+    <p>Danh Sách Chương</p>
+    <div style="display:flex; width:40%;justify-content: space-between;">
+        <div>
+            <?php $result = $book->getChapter($_REQUEST['idSach']);
+            if ($result->num_rows > 0) {
+                $i = 1;
+                while ($row = $result->fetch_assoc()) {
+                    if ($i % 2 == 1) { ?>
+                        <a style="display:block;" href="<?php if (isset($_REQUEST['condition'])) echo  'index.php?condition=' . $_REQUEST['condition'] . '&option=book&idSach=' . $_REQUEST['idSach'] . '&chapter=' . $row['TenChuong'] . '&page=1&kitu=0'; ?>"><span> <?php echo $row['TenChuong']; ?></span></a>
+            <?php }
+                    $i++;
+                }
+            }
+            ?>
+        </div>
+        <div>
+            <?php $result = $book->getChapter($_REQUEST['idSach']);
+            if ($result->num_rows > 0) {
+                $i = 1;
+                while ($row = $result->fetch_assoc()) {
+                    if ($i % 2 != 1) { ?>
+                        <a style="display:block;" href="<?php if (isset($_REQUEST['condition'])) echo  'index.php?condition=' . $_REQUEST['condition'] . '&option=book&idSach=' . $_REQUEST['idSach'] . '&chapter=' . $row['TenChuong'] . '&page=1&kitu=0'; ?>"><span> <?php echo $row['TenChuong']; ?></span></a>
+            <?php }
+                    $i++;
+                }
+            }
+            ?>
+        </div>
+    </div>
+
+</div>
