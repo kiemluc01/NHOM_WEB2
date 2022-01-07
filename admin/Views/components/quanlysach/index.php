@@ -21,7 +21,7 @@ if(isset($_REQUEST['action']))
         </div>
         <div class="btn" style="width:100%">
             <form action="" method="post">
-            <div id="filter" class="filter" style=" ;">
+            <div id="filter" class="filter">
 
                 <div class= "filter-ft" style="display: flex;">
                     <div class="filter-ft__ev">
@@ -72,9 +72,10 @@ if(isset($_REQUEST['action']))
                 $result = $book->getAll();
             $i = 1;
             if ($result->num_rows > 0)
-                while ($row = $result->fetch_assoc()) { ?>
+                while ($row = $result->fetch_assoc()) {
+                    if($i > (int)($_REQUEST['page']*6) - 6 ){ ?>
                 <tr>
-                    <td><?php echo $i++; ?></td>
+                    <td><?php echo $i; ?></td>
                     <td><?php echo $row['Tensach']; ?></td>
                     <td><?php echo $row['Tacgia']; ?></td>
                     <td><?php echo $row['NXB']; ?></td>
@@ -85,12 +86,37 @@ if(isset($_REQUEST['action']))
                     <a href="<?php echo '?option=quanlysach&action=delete&idSach='.$row['idSach']; ?>" class="btn btn-danger">Xóa</a>
                     <a  href="<?php echo '?option=quanlysach&sub_option=edit_book&idSach='.$row['idSach']; ?>" class="btn btn-warning">Sửa thông tin sách</a>
                    
-        
                     </td>
                 </tr>
-            <?php }
+                <?php }
+                if($i%6 ==0 && $i > ($_REQUEST['page']*6) - 6)
+                    break;
+                    $i++;
+                ?>
+       
+        <?php }
+              $Listbook = loadModel("Listbook");
+              $soSach = $Listbook->Count_book();
+            $sopage = ceil($soSach / (6.0));
             ?>
         </table>
+    </div>
+    <div class="page_number">
+        <?php
+        if($_REQUEST['page'] > 1){ ?>
+            <a href="index.php?option=quanlysach&page=1"> << </a>
+            <a href="index.php?option=quanlysach&page=<?php echo $_REQUEST['page']-1;?>"> < </a>
+        <?php  }
+        $d =1;
+       for($i = $_REQUEST['page'] +1 ; $i<=$sopage; $i++){ $d++; ?>
+           <a href="index.php?option=quanlysach&page=<?php echo $i;?>"> <?php echo $i; ?></a>
+     <?php 
+     if($d ==3) break;  }
+        
+        if($_REQUEST['page'] != $sopage ){ ?>
+            <a href="index.php?option=quanlysach&page=<?php echo $_REQUEST['page']+1;?>"> > </a>
+            <a href="index.php?option=quanlysach&page=<?php echo $sopage; ?>"> >> </a>
+        <?php  } ?>
     </div>
 </div>
 

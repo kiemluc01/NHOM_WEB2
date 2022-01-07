@@ -111,9 +111,9 @@ if(isset($_REQUEST['action']))
             <?php 
               $book = loadModel('banner');
               if(isset($_REQUEST['action']) == 'edit')
-              {
+            {
               if (isset($_REQUEST['idbanner']))
-              {
+                {
 
                     echo '<script>
                     $(document).ready(function() {
@@ -126,36 +126,39 @@ if(isset($_REQUEST['action']))
                         {
                             $img = $row['img'];
                     
-            ?>
-            <!-- modal -->  
-            <div id = "modal_inner" class="modal_inner">
-                <div class="modal__overlay"></div>
-                    <div class="modal__body">
-                        <div class="modal__main">
-                            <!-- authen form -->
-                                <div class="add_banner" id = "add_banner">
-                                    <div class="add_banner__header">
-                                        <h3 class="add_banner__heading">Sửa banner</h3>
-                                    </div>
-                                    <div class="add_banner__form">
-                                        <div class="add_banner__group">
-                                        <input type="file" id="file_update" name="file_update" class="date-picker form-control" required>
-                                        </div>
-                                        <img src="<?php echo  $img ;?>" height = "150px" width="100px" id = "img_update" class = "img-thumbnail"/>
+                        ?>
+                        <!-- modal sửa-->  
+                        <div id = "modal_inner" class="modal_inner">
+                            <div class="modal__overlay"></div>
+                                <div class="modal__body">
+                                    <div class="modal__main">
+                                        <!-- authen form -->
+                                            <form action="" method="post">
+                                            <div class="add_banner" id = "add_banner">
+                                                <div class="add_banner__header">
+                                                    <h3 class="add_banner__heading">Sửa banner</h3>
+                                                </div>
+                                                <div class="add_banner__form">
+                                                    <div class="add_banner__group">
+                                                    <input type="file" id="file_update" name="file_update" class="date-picker form-control" required>
+                                                    </div>
+                                                    <img src="<?php echo  $img ;?>" height = "150px" width="100px" id = "img_update" class = "img-thumbnail"/>
+                                                </div>
+                                            </div>
+                                            <input type="submit"  name = "btn_update" class="btn btn-success update" value = "Sửa">
+                                            </form>
+                                <!-- authen form -->
                                     </div>
                                 </div>
-                                <input type="submit"  name = "btn_update" class="btn btn-success update" value = "Sửa">
-                    <!-- authen form -->
                         </div>
-                    </div>
-            </div>
-        <!-- modal -->
-        <?php 
+                    <!-- modal sửa-->
+                         <?php 
+                         }
+                     }
+                }
             }
-            }
-        }
-    }
        ?>
+       <!-- modal thêm-->
         <div id = "modal_inner" class="modal_inner">
                 <div class="modal__overlay"></div>
                     <div class="modal__body">
@@ -177,7 +180,7 @@ if(isset($_REQUEST['action']))
                         </div>
                     </div>
             </div>
-        <!-- modal -->
+        <!-- modal thêm-->
         </form>
     </div>
 </div>

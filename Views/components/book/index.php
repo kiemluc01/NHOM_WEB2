@@ -55,8 +55,6 @@ while ($row = $result->fetch_assoc()) {
             </div>
         </div>
         <div class="col-lg-9 col-md-12 px-sm-0 px-lg-5">
-<<<<<<< HEAD
-=======
             <div class="fixed-listcate fixed-top" id="listcategoryDropdown">
                 <div class="main">
                     <div class="content">
@@ -81,7 +79,6 @@ while ($row = $result->fetch_assoc()) {
                     </div>
                 </div>
             </div>
->>>>>>> 3f12840da2af50b046cb9588ac53ea025e222ca0
             <div class="row">
                 <div class="wrapper-custom-book-info">
                     <div class="custom-book-info-box">

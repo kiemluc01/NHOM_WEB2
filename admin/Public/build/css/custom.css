@@ -1047,10 +1047,10 @@ body .container.body .right_col {
     width: 100%;
     
     padding-right: 0; }
-  .right_col {
+  /* .right_col {
     height: 100vh!important;
     overflow: auto!important;
-    padding: 10px !important; }
+    padding: 10px !important; } */
   .item {
     display: block; } }
 

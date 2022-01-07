@@ -6,7 +6,7 @@ $category = $book->get_category_all();
 <nav class="navbar navbar-expand-md fixed-top bg-dark">
     <div class="container-fluid">
         <a href="." class="navbar-brand">
-            <img src="Public\images\logo_light.png" alt="Logo Owl" width="40">
+            <img src="admin/Public/images/logo_light.png" alt="Logo Owl" width="40">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

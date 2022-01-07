@@ -24,8 +24,8 @@
             <div class="menu_section">
               <h3>General</h3>
               <ul class="nav side-menu">
-                <li><a href="index.php"><i class="fa fa-home"></i> Trang Chủ </a></li>
-                <li><a href="index.php?option=quanlysach"><i class="fa fa-book"></i> Quản lý sách</a></li>
+                <li><a href="index.php?option=admin_home"><i class="fa fa-home"></i> Trang Chủ </a></li>
+                <li><a href="index.php?option=quanlysach&page=1"><i class="fa fa-book"></i> Quản lý sách</a></li>
                 <li><a href="index.php?option=quanlydanhmuc"><i class="fa fa-bookmark"></i>Quản lý danh mục</a></li>
                 <li><a href="index.php?option=thongke"><i class="fa fa-bar-chart-o"></i>Thống kê</a></li>
                 <li><a href="index.php?option=control_nguoidung"><i class="fa fa-user"></i> Quản lý người dùng</a></li>
