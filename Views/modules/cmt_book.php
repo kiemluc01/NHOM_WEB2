@@ -6,29 +6,36 @@ if (isset($_REQUEST['Noidung'])) {
 }
 $cmt_book = $book->get_cmt($_REQUEST['idSach']);
 ?>
-<div class="col-sm-5 col-md-6 col-12 pb-4">
-    <h1>Cảm nhận của bạn</h1>
-    <form action="#" method="post">
-        <textarea name="Noidung" cols="30" rows="10" placeholder="Cảm nhận của bạn ..."></textarea>
-        <input type="submit" value="Gửi">
-    </form>
-</div>
-<div class="cmt_book" id="cmtBook">
+<div class="col-md-7 pb-4 pe-5">
+    <h4>Cảm nhận của bạn</h4>
     <?php
     if (true) {
-        while ($cmt_row = $cmt_book->fetch_assoc()) { ?>
-            <div class="cmt_member">
-                <div class="infor_Member">
-                    <img src="<?php echo $cmt_row['ImgAvatar'] ?>" alt="Avt" class="avt">
-                    <div class="name_Member_time">
-                        <p class="Member_name" class="text"><?php echo $cmt_row['email'] ?></p>
-                        <p class="time" class="text"><?php echo $cmt_row['Thoigian'] ?></p>
-                    </div>
+        while ($cmt_row = $cmt_book->fetch_assoc()) {
+            $dateCmt = strtotime($cmt_row['Thoigian']);
+            $parts = getdate($dateCmt); ?>
+            <div class="custom-card p-3 mt-4 text-justify d-flex">
+                <div class="me-3">
+                    <img src="<?php echo $cmt_row['ImgAvatar'] ?>" alt="Avt" class="rounded-3" width="50" height="50">
                 </div>
-                <div class="cmt_content">
-                    <p class="cmt_content" class="text"><?php echo $cmt_row['Noidung'] ?></p>
+                <div class="flex-grow-1">
+                    <div>
+                        <span class="float-end"><?php echo $parts['mday'] . "-" . $parts['mon'] . "-" . $parts['year']; ?></span>
+                        <h4><?php echo $cmt_row['username'] ?></h4>
+                    </div>
+                    <p class="mt-3"><?php echo $cmt_row['Noidung'] ?></p>
                 </div>
             </div>
     <?php }
     } ?>
+</div>
+<div class="col-md-5 mt-4">
+    <h4>Cho chúng tôi biết cảm nhận của bạn</h4>
+    <form action="#" method="post">
+        <div class="mb-3 mt-3">
+            <textarea name="Noidung" cols="30" rows="10" class="custom-card p-3 w-100" placeholder="Cảm nhận của bạn ..."></textarea>
+        </div>
+        <div class="mb-3 mt-3 text-end">
+            <button type="submit" class="btn btn-lg text-light btn-info fw-bold border-info bg-info">Gửi</button>
+        </div>
+    </form>
 </div>

@@ -4,8 +4,10 @@
 	top: 4rem;
 }
 .fixed-listcate {
+	position: fixed;
 	top: 2.2rem;
-	right: -81%;
+	left: 0;
+	z-index: 1000;
 }
 .menu {
 	width: 300px;
@@ -14,7 +16,7 @@
 	position: relative;
 	text-align: left;
 	cursor: pointer;
-	z-index: 100;
+	/* z-index: 100; */
 }
 
 .menu__label {

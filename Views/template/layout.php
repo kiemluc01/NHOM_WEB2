@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="Public\css\wrapper-custom-3d-book.css">
     <link rel="stylesheet" href="Public\css\custom-book-info.css">
     <link rel="stylesheet" href="Public/css/footer.css">
-    <!-- <link rel="stylesheet" href="Public/css/details_book.css"> -->
+    <link rel="stylesheet" href="Public\css\custom-comment-threads.css">
     <!-- <link rel="stylesheet" href="Public/css/content.css"> -->
     <link rel="stylesheet" href="Public\css\custom.css">
     <!-- <link rel="stylesheet" href="Public/css/new_book.css"> -->
