@@ -16,6 +16,21 @@ location.assign("index.php?option=banner");</script>';
 echo '<script>alert("Thêm Không Thành Công");</script>';
 }
 
+}else
+if(isset($_REQUEST['btn_update']) && isset($_REQUEST['idbanner']))
+{
+  $target_dir = "Public/images/banner/";
+  $target_file = $target_dir.basename($_FILES['file_update']['name']);
+  move_uploaded_file($_FILES['file_update']['tmp_name'],$target_file);
+  $edit = $banner->Update_banner($_REQUEST['idbanner'] , $target_file);
+  if($edit)
+  {
+    echo '<script>alert("Update Thành Công");
+    location.assign("index.php?option=banner");</script>';
+    }else{
+    echo '<script>alert("Update Không Thành Công");
+    location.assign("?option=banner&action=edit&idbanner='.$_REQUEST['idbanner'].'");</script>'; 
+  }
 }
 ?>
 <?php
@@ -23,7 +38,8 @@ if(isset($_REQUEST['action']))
 {
     if($_REQUEST['action'] == 'delete'){
         if($banner->Delete_banner($_REQUEST['idbanner'])){
-            echo '<script>alert("Xóa Thành Công")</script>';
+            echo '<script>alert("Xóa Thành Công");
+            location.assign("index.php?option=banner");</script>';
         }else
         {
             echo '<script>alert("Xóa Không Thành Công")</script>';
@@ -32,7 +48,7 @@ if(isset($_REQUEST['action']))
 }
 ?>
     <div class="right_col">
-        <form action="#" method = "post">
+        <form action="" method = "post">
             <div class="btn" >
                 <div id="filter" class="filter">
                     <div class= "filter-ft" >
@@ -82,7 +98,7 @@ if(isset($_REQUEST['action']))
                                 <td><img src="<?php echo $row['img']; ?>" alt="" style="width:300px;height:200px;"></td>
                                 <td>
                                 <a href="<?php echo '?option=banner&action=delete&idbanner='.$row['idbanner']; ?>" class="btn btn-danger">Xóa</a>
-                                <a href="<?php echo '?option=banner&sub_option=edit_book&idbanner='.$row['idbanner']; ?>" class="btn btn-warning">Sửa</a>
+                                <a id = "btn_edit"href="<?php echo '?option=banner&action=edit&idbanner='.$row['idbanner']; ?>" class="btn btn-warning">Sửa</a>
                                 </td>
                             </tr>
                         <?php }
@@ -92,8 +108,55 @@ if(isset($_REQUEST['action']))
             </div>
         </form>
         <form id ="form_modal" method="post" enctype="multipart/form-data">
+            <?php 
+              $book = loadModel('banner');
+              if(isset($_REQUEST['action']) == 'edit')
+              {
+              if (isset($_REQUEST['idbanner']))
+              {
+
+                    echo '<script>
+                    $(document).ready(function() {
+                        document.getElementById("modal_inner").style.display = "flex" });
+                    </script>';
+                  $result = $book->getIdBanner($_REQUEST['idbanner']);
+                    if($result->num_rows > 0)
+                    {
+                        while ($row = $result->fetch_assoc())
+                        {
+                            $img = $row['img'];
+                    
+            ?>
             <!-- modal -->  
             <div id = "modal_inner" class="modal_inner">
+                <div class="modal__overlay"></div>
+                    <div class="modal__body">
+                        <div class="modal__main">
+                            <!-- authen form -->
+                                <div class="add_banner" id = "add_banner">
+                                    <div class="add_banner__header">
+                                        <h3 class="add_banner__heading">Sửa banner</h3>
+                                    </div>
+                                    <div class="add_banner__form">
+                                        <div class="add_banner__group">
+                                        <input type="file" id="file_update" name="file_update" class="date-picker form-control" required>
+                                        </div>
+                                        <img src="<?php echo  $img ;?>" height = "150px" width="100px" id = "img_update" class = "img-thumbnail"/>
+                                    </div>
+                                </div>
+                                <input type="submit"  name = "btn_update" class="btn btn-success update" value = "Sửa">
+                    <!-- authen form -->
+                        </div>
+                    </div>
+            </div>
+        <!-- modal -->
+        <?php 
+            }
+            }
+        }
+    }
+       ?>
+        <div id = "modal_inner" class="modal_inner">
                 <div class="modal__overlay"></div>
                     <div class="modal__body">
                         <div class="modal__main">
@@ -124,6 +187,6 @@ if(isset($_REQUEST['action']))
 <!-- /footer content -->
 <script>
 function newDoc() {
-    document.getElementById('modal_inner').style.display = "flex";
+        document.getElementById('modal_inner').style.display = "flex";
 }
 </script>

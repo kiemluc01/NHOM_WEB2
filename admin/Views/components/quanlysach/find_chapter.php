@@ -72,29 +72,10 @@ if(isset($_REQUEST['btn_add']) && isset($_REQUEST['idChuong'])){
                           <?php 
                           }
                           ?>
-                        
                             <input type="submit" name = "btn_add" id = "btn_add" class="btn btn-success submit" value = "Update"> 
                             <?php 
-                        }else{
-                            ?>
-                            <div class="form-group row">
-                            <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Tên Chương</label>
-                            <div class="col-md-6 col-sm-6 ">
-                              <input id="TenChuong" class="form-control col" type="text" placeholder="Thêm tên chương" name="TenChuong">
-                            </div>
-                          </div>  
-                          <div class="form-group row">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align">Nội dung chương <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 ">
-                              <textarea id="noidung" class="date-picker form-control" value="" name = "noidung"></textarea></br>
-                            </div>
-                          </div>
-                          <input type="submit" name = "btn_add" id = "btn_add" class="btn btn-success submit" value = "Thêm" >
-                          <?php
                         }
                           ?>
-                         
                         </form>
                       </div>
                     <!-- End SmartWizard Content -->
