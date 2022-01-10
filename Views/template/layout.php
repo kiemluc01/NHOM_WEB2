@@ -15,9 +15,8 @@
     <link rel="stylesheet" href="Public\css\custom-book-info.css">
     <link rel="stylesheet" href="Public/css/footer.css">
     <link rel="stylesheet" href="Public\css\custom-comment-threads.css">
-    <!-- <link rel="stylesheet" href="Public/css/content.css"> -->
     <link rel="stylesheet" href="Public\css\custom.css">
-    <!-- <link rel="stylesheet" href="Public/css/new_book.css"> -->
+    <link rel="stylesheet" href="Public\css\demoStyle3.css">
     <!-- <link rel="stylesheet" href="Public/css/cmt_book.css"> -->
     <!-- <link rel="stylesheet" href="Public/css/login.css"> -->
     <!-- <link rel="stylesheet" href="Public/css/register.css"> -->
@@ -47,14 +46,30 @@
     <footer>
         <?php loadModule('footer'); ?>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="Public\dist\js\bootstrap.bundle.min.js"></script>
     <script src='https://tympanus.net/Development/ElasticSVGElements/js/classie.js'></script>
     <script src='https://tympanus.net/Development/ElasticSVGElements/js/snap.svg-min.js'></script>
     <script src="Public\javascript\listcategory-dropdown.js"></script>
     <script src="Public\javascript\form-validation.js"></script>
     <script src="Public\javascript\searchBook.js"></script>
-    <!-- <script src="Public\javascript\somepiece.js"></script> -->
+    <script src="Public\javascript\pagesDemo3.bundle.js"></script>
+    <script type="text/javascript">
+        (function(m, e, t, r, i, k, a) {
+            m[i] = m[i] || function() {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
+        ym(64530565, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true
+        });
+    </script>
 </body>
 
 </html>

@@ -73,16 +73,16 @@ class Book extends Database
         $result = mysqli_query($this->conn, $sql);
         return $result;
     }
-    // function loadBookName($idSach)
-    // {
-    //     $row = array();
-    //     $ten = null;
-    //     $sql = "select Tensach from tblSach where idSach = " . $idSach;
-    //     $result = mysqli_query($this->conn, $sql);
-    //     while ($row = $result->fetch_assoc())
-    //         $ten = $row['Tensach'];
-    //     return $ten;
-    // }
+    function loadBookName($idSach)
+    {
+        $row = array();
+        $ten = null;
+        $sql = "select Tensach from tblSach where idSach = " . $idSach;
+        $result = mysqli_query($this->conn, $sql);
+        while ($row = $result->fetch_assoc())
+            $ten = $row['Tensach'];
+        return $ten;
+    }
     function get_favour_by_book($idBook) {
         $sql = "select * from tblfavorite where idsach = " . $idBook;
         $result = mysqli_query($this->conn, $sql);
@@ -92,6 +92,19 @@ class Book extends Database
         $sql = "select * from tblfavorite where idMember = " . $idUser;
         $result = mysqli_query($this->conn, $sql);
         return $result;
+    }
+    function chapterContent($idSach, $tenchuong) {
+        $sql = "select * from tblchuong where idSach =" . $idSach . " and TenChuong= N'" . $tenchuong . "'";
+        $result = mysqli_query($this->conn, $sql);
+        $content = "";
+        $pages = array();
+        $row = array();
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $content = $row['noidung'];
+            }
+        }
+        return $content;
     }
     function TachPage($idSach, $tenchuong)
     {
