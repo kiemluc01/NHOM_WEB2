@@ -97,10 +97,9 @@
                     <?php 
                     $Listbook = loadModel("Listbook");
                     $soSach = $Listbook->Count_book();
-                    if($soSach->num_rows>0)
-                    while($row = $soSach->fetch_assoc()){ ?>
-                         <h3><?php echo $row['tongsosach'];?></h3>
-                    <?php }
+                     ?>
+                         <h3><?php echo $soSach;?></h3>
+                    <?php 
                 ?>
                 <p>Tổng số sách</p>
               </div>

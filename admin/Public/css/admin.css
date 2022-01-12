@@ -58,4 +58,11 @@
 
     display:flex;
 }
+.right_col {
+    height: 88vh!important;
+    overflow: auto!important;
+    padding: 10px !important; }
+body{
+    overflow: auto !important;
+}
 

@@ -7,7 +7,7 @@
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="Public\images\banner\banner1.png" alt="Banner 1" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+            <img src="admin\Public\images\banner\banner1.png" alt="Banner 1" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
             <div class="container">
                 <div class="carousel-caption text-start">
                     <h1>Lorem ipsum dolor sit amet.</h1>
@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img src="Public\images\banner\banner2.png" alt="Banner 2" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+            <img src="admin\Public\images\banner\banner2.png" alt="Banner 2" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
             <div class="container">
                 <div class="carousel-caption">
                     <h1>Lorem ipsum dolor sit amet.</h1>
@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img src="Public\images\banner\banner3.jpg" alt="Banner 3" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+            <img src="admin\Public\images\banner\banner3.jpg" alt="Banner 3" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
             <div class="container">
                 <div class="carousel-caption text-end">
                     <h1>Lorem ipsum dolor sit amet.</h1>
@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img src="Public\images\banner\banner4.jpg" alt="Banner 4" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+            <img src="admin\Public\images\banner\banner4.jpg" alt="Banner 4" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
             <div class="container">
                 <div class="carousel-caption text-start">
                     <h1>Lorem ipsum dolor sit amet.</h1>

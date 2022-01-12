@@ -78,8 +78,15 @@ class Listbook extends Database{
     // Thống kê
     function Count_book(){
         $sql = "SELECT COUNT(idSach) as tongsosach FROM tblsach";
+        $dem =0;
         $result = mysqli_query($this->conn, $sql);
-        return $result;
+        if($result->num_rows>0){
+            
+            while($row = $result->fetch_assoc()){
+                $dem = $row['tongsosach'];
+            }
+        }
+        return $dem;
     }
     function Select_view(){
         $sql = "SELECT sum(Luotxem) as Luotxem, sum(Favorite) as Favorite , sum(Feedback) as Feedback FROM chitietsach";

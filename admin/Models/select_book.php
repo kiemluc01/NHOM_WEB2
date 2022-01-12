@@ -4,9 +4,8 @@ mysqli_query($connect,"SET NAMES 'utf8'");
 
 if(isset($_REQUEST['idDanhmuc']))
 {
-// $book = loadModel('Listbook');
 $idDanhmuc =  $_REQUEST['idDanhmuc'];
-// $result = $book->getAllBook($_REQUEST['namebook']);
+
 $sql = "select a.*,b.Tendanhmuc from tblsach as a, tbldanhmuc as b where a.idDanhmuc = b.idDanhmuc and a.idDanhmuc = '".$idDanhmuc."'";
 $result = mysqli_query($connect, $sql);
 

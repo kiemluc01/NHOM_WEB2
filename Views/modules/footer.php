@@ -1,6 +1,6 @@
 <div class="footer clear-fix">
     <div class="footer-item logo">
-        <img src="Public\images\logo_light.png" alt="">
+        <img src="admin/Public/images/logo_light.png" alt="">
     </div>
     <div class="footer-item slogan">
         <p><em>Three Owls Book</em> is something ...</p>
