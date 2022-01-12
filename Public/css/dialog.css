@@ -1,0 +1,10 @@
+.dialog {
+    height: 23vh;
+    width: 25%;
+    border-radius: 10%/25%;
+    background-image: linear-gradient(to left, rgb(45, 135, 253), rgb(55, 192, 255), rgb(38, 252, 234));
+    /* display: none; */
+    position: absolute;
+    top: 40vh;
+    left: 45%;
+}

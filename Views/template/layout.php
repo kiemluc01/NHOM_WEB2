@@ -23,8 +23,8 @@
     <link rel="stylesheet" href="Public/fontawesome/css/all.css">
     <link rel="stylesheet" href="Public/css/icon.css">
     <link rel="stylesheet" href="Public/css/rating.css">
-    <!-- <link rel="stylesheet" href="Public/css/register.css"> -->
-    <!-- <link rel="stylesheet" href="Public/css/readbook.css"> -->
+    <link rel="stylesheet" href="Public/css/dialog.css">
+    <link rel="stylesheet" href="Public/css/member.css">
     <!-- <link rel="stylesheet" href="Public/css/fontfamily.css"> -->
 
     <link rel="icon" href="images/favicon.ico" type="image/ico" />
