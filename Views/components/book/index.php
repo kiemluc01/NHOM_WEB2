@@ -8,7 +8,6 @@ while ($row = $result->fetch_assoc()) {
     $Tacgia = $row['Tacgia'];
     $nd = $row['TomtatND'];
 }
-
 ?>
 <!-- Phần content -->
 <div class="fluid-container mt-5 mx-3">
@@ -70,16 +69,12 @@ while ($row = $result->fetch_assoc()) {
                     <div id="rating">
                         <input type="radio" id="star5" name="rating" value="5">
                         <label class="full" for="star5" title="Awesome - 5 stars"></label>
-
                         <input type="radio" id="star4" name="rating" value="4">
                         <label class="full" for="star4" title="Pretty good - 4 stars"></label>
-
                         <input type="radio" id="star3" name="rating" value="3">
                         <label class="full" for="star3" title="Meh - 3 stars"></label>
-
                         <input type="radio" id="star2" name="rating" value="2">
                         <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
-
                         <input type="radio" id="star1" name="rating" value="1">
                         <label class="full" for="star1" title="Sucks big time - 1 star"></label>
                     </div>
@@ -95,17 +90,26 @@ while ($row = $result->fetch_assoc()) {
                 <a class="btn btn-lg text-light btn-info fw-bold border-info bg-info" href="<?php loadHrefReadBook(); ?>" id="read">Đọc từ đầu</a>
             </div>
         </div>
-        <?php $result = $book->getChapter($_REQUEST['idSach']);
-        if ($result->num_rows > 0)
-            while ($row = $result->fetch_assoc()) { ?>
-            <a href="<?php if (isset($_REQUEST['condition'])) echo  'index.php?condition=' . $_REQUEST['condition'] . '&option=book&idSach=' . $_REQUEST['idSach'] . '&chapter=' . $row['TenChuong'] . '&page=1&kitu=0'; ?>"><span> <?php echo $row['TenChuong']; ?></span></a>
-        <?php        }
-        ?>
     </div>
-    <div class="row">
+    <div class="row mt-3">
+        <div class="col-lg-3 col-md-12 pe-md-5">
+            <h4>Chương mới nhất</h4>
+        </div>
+        <div class="col-lg-9 col-md-12 px-sm-0 px-lg-5">
+            <h4>Mục lục</h4>
+            <?php $result = $book->getChapter($_REQUEST['idSach']);
+            if ($result->num_rows > 0)
+                while ($row = $result->fetch_assoc()) { ?>
+                <p><a href="<?php if (isset($_REQUEST['condition'])) echo  'index.php?condition=' . $_REQUEST['condition'] . '&option=book&idSach=' . $_REQUEST['idSach'] . '&chapter=' . $row['TenChuong'] . '&page=1&kitu=0'; ?>"><span> <?php echo $row['TenChuong']; ?></span></a></p>
+            <?php   
+            }
+            ?>
+        </div>
+    </div>
+    <div class="row mt-3">
         <?php loadModule('cmt_book'); ?>
     </div>
-    <div class="row">
+    <div class="row mt-3">
         <?php loadModule('new_book'); ?>
     </div>
 </div>
