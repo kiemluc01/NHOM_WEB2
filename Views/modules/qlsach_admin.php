@@ -242,7 +242,7 @@
               <div class="col-md-12">
 
                 <!-- form date pickers -->
-                <div class="x_panel" style="">
+                <div class="x_panel" >
                   <div class="x_title">
                     <h2>Date Pickers <small> Available with multiple designs</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
@@ -394,7 +394,7 @@
 
         
                <!-- form datetimepicker -->
-<div class="x_panel" style="">
+<div class="x_panel" >
     <div class="x_title">
         <h2>Date Pickers <small> Available with multiple designs</small></h2>
         <ul class="nav navbar-right panel_toolbox">
@@ -497,7 +497,7 @@
                 <!-- /form datetimepicker -->
 
                 <!-- form grid slider -->
-                <div class="x_panel" style="">
+                <div class="x_panel" >
                   <div class="x_title">
                     <h2>Grid Slider</h2>
                     <ul class="nav navbar-right panel_toolbox">
