@@ -17,7 +17,8 @@ if ($resultBook->num_rows > 0) { ?>
                                     <a href="<?php loadHrefBook($rowBook['idSach']); ?>" class="listbook">
                                         <div class="front">
                                             <div class="cover">
-                                                <img class="book-cover-img" src="<?php echo $rowBook['imgSach']; ?>" alt="image">
+                                                <img class="book-cover-img" src="<?php if (substr($rowBook['imgSach'], 0, 4) == "http") echo $rowBook['imgSach'];
+                                                                                    else echo "admin/" . $rowBook['imgSach']; ?>" alt="image">
                                             </div>
                                         </div>
                                         <div class="left-side"></div>
