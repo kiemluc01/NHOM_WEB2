@@ -115,6 +115,19 @@ class Listbook extends Database{
         }
             return false;
     }
+     // Count comment 
+     function Count_comment(){
+        $sql = "SELECT COUNT(idDanhgia) as countComment FROM tbldanhgia;";
+        $dem =0;
+        $result = mysqli_query($this->conn, $sql);
+        if($result->num_rows>0){
+            
+            while($row = $result->fetch_assoc()){
+                $dem = $row['countComment'];
+            }
+        }
+        return $dem;
+    }
     //select chi tiet sach
     function Select_Chitiet()
     {

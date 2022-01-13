@@ -30,7 +30,7 @@
                 <li><a href="index.php?option=thongke"><i class="fa fa-bar-chart-o"></i>Thống kê</a></li>
                 <li><a href="index.php?option=control_nguoidung"><i class="fa fa-user"></i> Quản lý người dùng</a></li>
                 <li><a href="index.php?option=banner"><i class="fa fa-image"></i> Quản lý banner</a></li>
-                <li><a href="index.php?option=feedback"><i class="fa fa-comments"></i> Tương tác</a>
+                <li><a href="index.php?option=feedback&page=1"><i class="fa fa-comments"></i> Tương tác</a>
                 </li>
 
               </ul>

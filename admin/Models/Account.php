@@ -26,6 +26,7 @@ class Account extends Database {
         $result = mysqli_query($this->conn, $sql);
         return $result;
     }
+   
 }
 
 ?>
