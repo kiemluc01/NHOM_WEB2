@@ -220,7 +220,7 @@ class Book extends Database
         }
         return $str;
     }
-    function cmt($noidung, $idND, $idSach)
+    function cmt($noidung, $idSach)
     {
         $member = loadModel('Member');
         $time = date('y-m-d');
