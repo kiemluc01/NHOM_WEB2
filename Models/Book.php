@@ -11,7 +11,8 @@ class Book extends Database
         $result = mysqli_query($this->conn, $sql);
         return $result;
     }
-    function getAllBook() {
+    function getAllBook()
+    {
         $sql = "select * from tblsach";
         $result = mysqli_query($this->conn, $sql);
         mysqli_close($this->conn);
@@ -83,17 +84,20 @@ class Book extends Database
             $ten = $row['Tensach'];
         return $ten;
     }
-    function get_favour_by_book($idBook) {
+    function get_favour_by_book($idBook)
+    {
         $sql = "select * from tblfavorite where idsach = " . $idBook;
         $result = mysqli_query($this->conn, $sql);
         return $result;
     }
-    function get_favour_by_user($idUser) {
+    function get_favour_by_user($idUser)
+    {
         $sql = "select * from tblfavorite where idMember = " . $idUser;
         $result = mysqli_query($this->conn, $sql);
         return $result;
     }
-    function chapterContent($idSach, $tenchuong) {
+    function chapterContent($idSach, $tenchuong)
+    {
         $sql = "select * from tblchuong where idSach =" . $idSach . " and TenChuong= N'" . $tenchuong . "'";
         $result = mysqli_query($this->conn, $sql);
         $content = "";
@@ -136,6 +140,34 @@ class Book extends Database
         }
 
         return $text;
+    }
+    function divideContentToLine($str)
+    {
+        $lines = array(); // [line]
+        // $words_count = str_word_count($str);
+        $paragraphs = array();
+        $paragraphs = explode("\n", $str); // []
+        $line_count = 0;
+        foreach ($paragraphs as $para_str) {
+            $or = ord($para_str);
+            if ($or == 32) {
+                $lines[$line_count] = "\n";
+            } else {
+                $words_in_each_paragraph = array();
+                $words_in_each_paragraph = explode(" ", $para_str);
+                $lines[$line_count] = "";
+                foreach ($words_in_each_paragraph as $word) {
+                    if (strlen($lines[$line_count]) < 50) {
+                        $lines[$line_count] = $lines[$line_count] . $word . " ";
+                    } else {
+                        $line_count++;
+                        $lines[$line_count] = "";
+                    }
+                }
+            }
+            $line_count++;
+        }
+        return $lines;
     }
     function loadkitu(
         $i,
@@ -234,11 +266,10 @@ class Book extends Database
         if (
             $result->num_rows > 0
         )
-        while ($row = $result->fetch_assoc()
-        ) {
-            $ten = $row['TenChuong'];
-            break;
-        }
+            while ($row = $result->fetch_assoc()) {
+                $ten = $row['TenChuong'];
+                break;
+            }
         return $ten;
     }
     function Find_book($str)
