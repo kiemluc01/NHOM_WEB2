@@ -1,7 +1,6 @@
 <?php
 $row = array();
 $book = loadModel('Book');
-$book->Views();
 $sotrang = $book->loadSotrang($_REQUEST['idSach'], $_REQUEST['chapter']);
 $result = $book->get_bookcurrent($_REQUEST['idSach']);
 $chapterContent = $book->chapterContent($_REQUEST['idSach'], $_REQUEST['chapter']);
@@ -72,6 +71,7 @@ $chapterContent = $book->chapterContent($_REQUEST['idSach'], $_REQUEST['chapter'
                     <div class="page-content">
                         <h2>Chương <br><?php echo $_REQUEST['chapter']; ?></h2>
                     </div>
+
                 </div>
                 <div class="page page-cover page-cover-bottom" data-density="hard">
                     <div class="page-content">

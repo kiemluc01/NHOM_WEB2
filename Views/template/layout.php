@@ -37,7 +37,7 @@
 
     <main>
         <?php
-        if (isset($_REQUEST['findbook']))
+        if (isset($_REQUEST['find']))
             loadModule('result_find');
         else
             loadComponent(); ?>

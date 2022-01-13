@@ -2,7 +2,7 @@
 $book = loadModel('Book');
 
 if (isset($_REQUEST['Noidung'])) {
-    $book->cmt($_REQUEST['Noidung'], $_REQUEST['condition'], $_REQUEST['idSach']);
+    $book->cmt($_REQUEST['Noidung'], $_REQUEST['idSach']);
 }
 $cmt_book = $book->get_cmt($_REQUEST['idSach']);
 ?>
@@ -20,7 +20,8 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
                 <div class="flex-grow-1">
                     <div>
                         <span class="float-end"><?php echo $parts['mday'] . "-" . $parts['mon'] . "-" . $parts['year']; ?></span>
-                        <h4><?php echo $cmt_row['username'] ?></h4>
+                        <h4><?php $member = loadModel('Member');
+                            echo $member->getName($cmt_row['username']); ?></h4>
                     </div>
                     <p class="mt-3"><?php echo $cmt_row['Noidung'] ?></p>
                 </div>

@@ -1,6 +1,7 @@
 <?php
 $row = array();
 $book = loadModel('Book');
+$book->Views();
 $result = $book->get_bookcurrent($_REQUEST['idSach']);
 while ($row = $result->fetch_assoc()) {
     if (substr($row['imgSach'], 0, 4) == "http")
