@@ -1,4 +1,5 @@
 <?php
+$member = loadModel('Member');
 if (isset($_REQUEST['loadAVT'])) {
     $file = $_FILES['AVT']['tmp_name'];
     $path = 'Public/images/' . $_FILES['AVT']['name'];
@@ -29,15 +30,15 @@ if (isset($_REQUEST['loadBGR'])) {
 ?>
 <div>
     <div id="BGR">
-        <img src="admin/Public/images/avatar/hailong.jpg" alt="ảnh bìa" class="bgr">
+        <img src="<?php echo (substr($member->BGR(), 0, 4) == "http" ? $member->BGR() : "admin/" . $member->BGR()); ?>" alt="ảnh bìa" class="bgr">
         <img src="http://cdn.onlinewebfonts.com/svg/img_211436.png" alt="nút sauwr ảnh" class="edit" id="edit_bgr">
     </div>
     <div id="AVT">
-        <img src="admin/Public/images/avatar/kiemluc.jpg" alt="?nh d?i di?n" class="avt">
+        <img src="<?php echo (substr($member->AVT(), 0, 4) == "http" ? $member->AVT() : "admin/" . $member->AVT()); ?>" alt="?nh d?i di?n" class="avt">
         <img src="http://cdn.onlinewebfonts.com/svg/img_211436.png" alt="n�t s?a ?nh" id="edit_avt" class="edit">
     </div>
     <div class="infor">
-        <h1>? d�y show th�ng tin</h1>
+
     </div>
 </div>
 <!-- form load ?nh b�a -->

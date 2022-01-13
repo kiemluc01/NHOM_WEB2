@@ -31,24 +31,51 @@ $chapterContent = $book->chapterContent($_REQUEST['idSach'], $_REQUEST['chapter'
             </div>
         </div>
         <div class="col-lg-9 col-md-12">
-            <!-- <h1><?php echo $book->loadBookName($_REQUEST['idSach']); ?></h1> -->
-            <!-- <p><?php echo nl2br($book->TachPage($_REQUEST['idSach'], $_REQUEST['chapter'])); ?></p> -->
             <div class="flip-book html-book demo-book" id="demoBookExample" style="background-image: url(Public\images\css\background.jpg);">
                 <div class="page page-cover page-cover-top" data-density="hard">
                     <div class="page-content">
                         <h2><?php echo $book->loadBookName($_REQUEST['idSach']); ?></h2>
                     </div>
                 </div>
-                <div class="page">
+                <div class="page page-cover">
                     <div class="page-content">
-                        <h2 class="page-header">Ngày chưa giông bão</h2>
-                        <div class="page-text"><?php echo nl2br($chapterContent); ?></div>
-                        <div class="page-footer">2</div>
+                        <h2>Chương <br><?php echo $_REQUEST['chapter']; ?></h2>
                     </div>
+                </div>
+                <?php
+                $lines = $book->divideContentToLine($chapterContent);
+                $index = 0;
+                while ($index < count($lines) && $index % 20 == 0) {
+                ?>
+                    <div class="page">
+                        <div class="page-content">
+                            <h2 class="page-header"><?php echo $_REQUEST['chapter']; ?></h2>
+                            <div class="page-text">
+                                <?php 
+                                for ($l = 0; $l < 20; $l++) {
+                                    if ($index < count($lines)) {
+                                        echo $lines[$index] . "<br>";
+                                        $index++;
+                                    } else {
+                                        break;
+                                    }                                    
+                                }
+                                ?>
+                            </div>
+                            <div class="page-footer">2</div>
+                        </div>
+                    </div>
+                <?php }
+                ?>
+                <div class="page page-cover">
+                    <div class="page-content">
+                        <h2>Chương <br><?php echo $_REQUEST['chapter']; ?></h2>
+                    </div>
+
                 </div>
                 <div class="page page-cover page-cover-bottom" data-density="hard">
                     <div class="page-content">
-                        <h2>THE END</h2>
+                        <h2>Hết chương</h2>
                     </div>
                 </div>
             </div>
