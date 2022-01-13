@@ -64,7 +64,7 @@ function loadClass($name)
 function loadMenu()
 {
     $pathMenu = 'Views/modules/';
-    if (isset($_REQUEST['condition']))
+    if (isset($_SESSION['user']))
         
         $pathMenu = $pathMenu . 'menu_login.php';
     else
@@ -78,18 +78,13 @@ function loadMenu()
 function loadHrefBook($idSach)
 {
     $href = 'index.php?option=book&';
-    if (isset($_REQUEST['condition']))
-        $href = $href . 'condition=' . $_REQUEST['condition'] . '&idSach=' . $idSach;
-    else
+    
         $href = $href . 'idSach=' . $idSach;
     echo $href;
 }
 function loadHrefCategory($idDanhmuc)
 {
     $href = 'index.php?';
-    if (isset($_REQUEST['condition']))
-        $href = $href . 'condition=' . $_REQUEST['condition'] . '&category=' . $idDanhmuc;
-    else
         $href = $href . 'category=' . $idDanhmuc;
     echo $href;
 }
@@ -97,8 +92,8 @@ function loadHrefReadBook()
 {
     $book = loadModel('Book');
     $ten = $book->FirstChapter($_REQUEST['idSach']);
-    if (isset($_REQUEST['condition']))
-    echo 'index.php?condition=' . $_REQUEST['condition'] . '&option=book&idSach=' . $_REQUEST['idSach'] . '&chapter=' . $ten . '&page=1&kitu=0';
+    if (isset($_SESSION['user']))
+    echo 'index.php?option=book&idSach=' . $_REQUEST['idSach'] . '&chapter=' . $ten . '&page=1&kitu=0';
     else
         echo '';
 }

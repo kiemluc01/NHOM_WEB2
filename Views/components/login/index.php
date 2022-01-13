@@ -7,9 +7,11 @@ if (isset($_POST['user_login']) &&  isset($_POST['password_login'])) {
         $Member = loadModel('Member');
         $login = $Member->login($user, $pass);
         if ($login === true) {
-            if ($user == 'admin')
+            $_SESSION['user'] = $user;
+            if ($user == 'admin') {
+
                 echo '<script> location.href="admin/index.php" </script>';
-            else
+            } else
                 echo '<script> alert("đăng nhập thành công"); 
             location.assign("index.php?condition=' . $user . '");
         </script>';
@@ -20,7 +22,11 @@ if (isset($_POST['user_login']) &&  isset($_POST['password_login'])) {
     }
     //  else
     //     echo '<script> alert("không được bỏ trống các thuộc tính") </script>';
+} else {
+    unset($_SESSION['user']);
+    echo '<script> alert("' . $_SESSION['user'] . '");</script>';
 }
+
 // }
 ?>
 <?php
@@ -50,9 +56,11 @@ if (isset($_POST['btnlogin'])) {
                         <button class="w-100 btn btn-lg text-light btn-secondary fw-bold border-dark bg-dark" type="submit">Đăng nhập</button>
                     </form>
                 </div>
-                <div class="card-footer"><p>Bạn chưa có tài khoản? <a href="index.php?option=register" id="btnlogin_register">Tạo tài khoản mới</a></p></div> 
+                <div class="card-footer">
+                    <p>Bạn chưa có tài khoản? <a href="index.php?option=register" id="btnlogin_register">Tạo tài khoản mới</a></p>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>

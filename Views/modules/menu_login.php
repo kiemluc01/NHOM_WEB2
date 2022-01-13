@@ -9,7 +9,7 @@ $member = loadModel('Member');
 // $IMG = '';
 // $Ngaysinh = '';
 // $Gioitinh = '';
-$result = $member->get_member($_REQUEST['condition']);
+$result = $member->get_member($_SESSION['user']);
 while ($rowmember = $result->fetch_assoc()) {
     $idMember = $rowmember['idMember'];
     if ($rowmember['MemberName'] == null)
@@ -37,7 +37,7 @@ $category = $book->get_category_all();
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <li class="nav-item px-3">
-                    <a class="nav-link active" href="<?php echo 'index.php?condition=' . $_REQUEST['condition']; ?>">Trang chủ</a>
+                    <a class="nav-link active" href="<?php echo 'index.php'; ?>">Trang chủ</a>
                 </li>
                 <li class="nav-item dropdown px-3">
                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" href="#">
@@ -81,11 +81,18 @@ $category = $book->get_category_all();
                             <a class="dropdown-item" href="#"><i class="fas fa-key"></i> Đổi mật khẩu</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="index.php?option=login"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+                            <a class="dropdown-item" href="index.php?option=login" onclick="destroy()"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
                         </li>
                     </ul>
                 </li>
             </ul>
         </div>
     </div>
+
 </nav>
+<?php
+function destroy()
+{
+    unset($_SESSION['user']);
+}
+?>

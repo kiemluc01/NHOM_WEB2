@@ -41,7 +41,7 @@ class Member extends Database
     }
     function getID()
     {
-        $sql = "select * from tblaccount where username = '" . $_REQUEST['condition'] . "'";
+        $sql = "select * from tblaccount where username = '" . $_SESSION['user'] . "'";
         $result = mysqli_query($this->conn, $sql);
         if ($result->num_rows > 0)
             while ($row = $result->fetch_assoc()) {
