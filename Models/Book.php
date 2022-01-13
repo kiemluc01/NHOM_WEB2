@@ -66,6 +66,12 @@ class Book extends Database
         $result = mysqli_query($this->conn, $sql);
         return $result;
     }
+    function get_involve_book($str)
+    {
+        $sql = "select a.*,b.Tendanhmuc,Luotxem,Feedback,Favorite from tblsach as a, tbldanhmuc as b,chitietsach as c where a.idSach = c.idSach and a.idDanhmuc = b.idDanhmuc and a.idSach NOT IN(select a.idSach from tblsach as a, tbldanhmuc as b,chitietsach as c where a.idSach = c.idSach and a.idDanhmuc = b.idDanhmuc and ( Tensach like N'%" . $str . "%' or Tendanhmuc like N'%" . $str . "%' or Tacgia like N'%" . $str . "%' ))limit 5";
+        $result = mysqli_query($this->conn, $sql);
+        return $result;
+    }
     //lấy ra đánh giá về sách hiện tại
     function get_cmt($idBook)
     {
