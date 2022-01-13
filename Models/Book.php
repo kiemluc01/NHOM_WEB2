@@ -247,4 +247,9 @@ class Book extends Database
         $result = mysqli_query($this->conn, $sql);
         return $result;
     }
+    function Views()
+    {
+        $sql = "update chitietsach set Luotxem = Luotxem +1";
+        mysqli_query($this->conn, $sql);
+    }
 }

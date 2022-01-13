@@ -1,6 +1,7 @@
 <?php
 $row = array();
 $book = loadModel('Book');
+$book->Views();
 $sotrang = $book->loadSotrang($_REQUEST['idSach'], $_REQUEST['chapter']);
 $result = $book->get_bookcurrent($_REQUEST['idSach']);
 $chapterContent = $book->chapterContent($_REQUEST['idSach'], $_REQUEST['chapter']);

@@ -24,7 +24,6 @@ if (isset($_POST['user_login']) &&  isset($_POST['password_login'])) {
     //     echo '<script> alert("không được bỏ trống các thuộc tính") </script>';
 } else {
     unset($_SESSION['user']);
-    echo '<script> alert("' . $_SESSION['user'] . '");</script>';
 }
 
 // }
