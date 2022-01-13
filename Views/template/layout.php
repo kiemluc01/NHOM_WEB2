@@ -59,7 +59,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.2.8/emojionearea.min.js"></script>
     <script src="https://unpkg.com/file-upload-with-preview@4.0.2/dist/file-upload-with-preview.min.js"></script>
-    (function(m, e, t, r, i, k, a) {
+   <script>
+        (function(m, e, t, r, i, k, a) {
     m[i] = m[i] || function() {
     (m[i].a = m[i].a || []).push(arguments)
     };

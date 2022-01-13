@@ -45,7 +45,7 @@ function loadComponent()
             $pathcom = $pathcom . 'index.php';
         }
     } else {
-        $pathcom = $pathcom . 'admin/index.php';
+        $pathcom = $pathcom . 'admin/index.php?option=admin_home';
     }
 
 
