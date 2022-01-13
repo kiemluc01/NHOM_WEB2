@@ -69,7 +69,7 @@ $category = $book->get_category_all();
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li>
-                            <a class="dropdown-item" href="#"><i class="fas fa-user-cog"></i> <?php echo $username; ?></a>
+                            <a class="dropdown-item" href="index.php?option=member"><i class="fas fa-user-cog"></i> <?php echo $username; ?></a>
                         </li>
                         <li>
                             <a class="dropdown-item" href="#"><i class="fas fa-book"></i> Thư viện</a>

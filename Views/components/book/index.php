@@ -3,7 +3,10 @@ $row = array();
 $book = loadModel('Book');
 $result = $book->get_bookcurrent($_REQUEST['idSach']);
 while ($row = $result->fetch_assoc()) {
+    if (substr($row['imgSach'], 0, 4) == "http")
     $imgSach = $row['imgSach'];
+    else
+        $imgSach = "admin/" . $row['imgSach'];
     $Tensach = $row['Tensach'];
     $Tacgia = $row['Tacgia'];
     $nd = $row['TomtatND'];

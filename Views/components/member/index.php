@@ -29,37 +29,43 @@ if (isset($_REQUEST['loadBGR'])) {
 ?>
 <div>
     <div id="BGR">
-        <img src="admin/Public/images/avatar/hailong.jpg" alt="?nh b�a" class="bgr">
-        <img src="http://cdn.onlinewebfonts.com/svg/img_211436.png" alt="n�t s?a ?nh" class="edit">
+        <img src="admin/Public/images/avatar/hailong.jpg" alt="ảnh bìa" class="bgr">
+        <img src="http://cdn.onlinewebfonts.com/svg/img_211436.png" alt="nút sauwr ảnh" class="edit" id="edit_bgr">
     </div>
     <div id="AVT">
         <img src="admin/Public/images/avatar/kiemluc.jpg" alt="?nh d?i di?n" class="avt">
-        <img src="http://cdn.onlinewebfonts.com/svg/img_211436.png" alt="n�t s?a ?nh" class="edit">
+        <img src="http://cdn.onlinewebfonts.com/svg/img_211436.png" alt="n�t s?a ?nh" id="edit_avt" class="edit">
     </div>
     <div class="infor">
         <h1>? d�y show th�ng tin</h1>
     </div>
 </div>
 <!-- form load ?nh b�a -->
-<div class="dialog" id="dialogbgr">
-    <center>
-        <h3>c?p nh?t ?nh b�a</h3><br>
-        <form action="" method="post">
-            <input type="file" name="upload_BGR" id="upload_BGR">
-            <input type="submit" value="C?p nh?t" name="loadBGR">
-        </form>
-    </center>
+<div class="dialog" id="dialog_bgr">
+    <div style="width:98%">
+        <center>
+            <h3>c?p nh?t ?nh b�a</h3><br>
+            <form action="" method="post">
+                <input type="file" name="upload_BGR" id="upload_BGR">
+                <input type="submit" value="C?p nh?t" name="loadBGR">
+            </form>
+        </center>
+    </div>
 
+    <img src="https://topbag.vn/themes/giaodienweb/images/icon-close.jpg" id="close_bgr" alt="" style="width:30px;height:30px;">
 </div>
 <!-- form load ?nh d?i di?n -->
-<div class="dialog" id="dialogavt">
-    <center>
-        <h3>c?p nh?t ?nh d?i di?n</h3><br>
-        <form action="" method="post">
-            <input type="file" name="upload_AVT" id="upload_AVT">
-            <input type="submit" value="C?p nh?t" name="loadAVT">
-        </form>
-    </center>
+<div class="dialog" id="dialog_avt">
+    <div style="width:98%">
+        <center>
+            <h3>c?p nh?t ?nh d?i di?n</h3><br>
+            <form action="" method="post">
+                <input type="file" name="upload_AVT" id="upload_AVT">
+                <input type="submit" value="C?p nh?t" name="loadAVT">
+            </form>
+        </center>
+    </div>
+    <img src="https://topbag.vn/themes/giaodienweb/images/icon-close.jpg" id="close_avt" alt="" style="width:30px;height:30px;">
 </div>
 <!-- message  -->
 <div id="message" class="dialog">
@@ -68,21 +74,26 @@ if (isset($_REQUEST['loadBGR'])) {
         <h3>c?p nh?t th�nh c�ng</h3><br>
         <input type="submit" value="OK" id="ok_message">
     </center>
+
 </div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
 <script>
-    jQuery.noConflict();
-    jQuery(document).ready(function() {
+    $(document).ready(function() {
         $('#ok_message').click(function() {
             document.getElementById('message').style.display = 'none'
-        })(jQuery);
+        });
+        $('#edit_bgr').click(function() {
+            document.getElementById('dialog_bgr').style.display = 'flex'
+        })
+        $('#edit_avt').click(function() {
+            document.getElementById('dialog_avt').style.display = 'flex'
+        })
+        $('#close_avt').click(function() {
+            document.getElementById('dialog_avt').style.display = 'none'
+
+        })
+        $('#close_bgr').click(function() {
+            document.getElementById('dialog_bgr').style.display = 'none'
+        })
     })
-
-    // function close() {
-    //     document.getElementById('message').style.display = 'none'
-    // }
 </script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.2.8/emojionearea.min.css" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.2.8/emojionearea.min.js"></script>
-
-<script src="https://unpkg.com/file-upload-with-preview@4.0.2/dist/file-upload-with-preview.min.js"></script>
