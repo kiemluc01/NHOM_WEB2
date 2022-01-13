@@ -252,7 +252,7 @@ class Book extends Database
         }
         return $str;
     }
-    function cmt($noidung, $idSach)
+    function cmt($noidung, $idND, $idSach)
     {
         $member = loadModel('Member');
         $time = date('y-m-d');
