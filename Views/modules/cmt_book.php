@@ -40,7 +40,7 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
     </div>
     <!-- </form> -->
 </div>
-<input type="text" id="user" style="display:none" value=" <?php echo (isset($_SESSION['user']) ? $_SESSION['user'] : ""); ?>">
+<input type="text" id="user" style="display:none" value="<?php echo (isset($_SESSION['user']) ? $_SESSION['user'] : ""); ?>">
 <input type="text" id="idSach" style="display:none" value="<?php echo $_REQUEST['idSach']; ?>">
 <script></script>
 <script src=" //ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
@@ -53,10 +53,10 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
             var content = $('#noidung').val();
             var user = $('#user').val();
             var idsach = $('#idSach').val();
-            if (user == "")
+            if (user === "")
                 alert("bạn phải đăng nhập trước")
             else
-            if (content == "")
+            if (content === "")
                 alert("bạn chưa nhập nội dung")
             else {
                 $.ajax({

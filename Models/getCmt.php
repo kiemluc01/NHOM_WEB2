@@ -11,12 +11,10 @@ if (isset($_REQUEST['noidung']) && isset($_REQUEST['user']) && isset($_REQUEST['
     $iduser = "";
     while ($row = $result->fetch_assoc()) {
         $iduser = $row['idMember'];
-        echo '<script> alert(' . $iduser . ') </script>';
     }
 
-    $time = date('y-m-d');
+    $time = date('Y/m/d/H/i/s');
     $sql = "insert into tbldanhgia values(" . $iduser . "," . $idsach . ",null,N'" . $noidung . "','" . $time . "');";
-    echo $sql;
     mysqli_query($connect, $sql);
     $sql = "select a.*,b.* from tbldanhgia as a, tblaccount as b where a.idMember = b.idMember and idSach = " . $idsach . " order by Thoigian desc";
     $result = mysqli_query($connect, $sql);
