@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap');
 .flip-book {
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
   margin: 0 auto;
@@ -36,9 +37,10 @@
 }
 .page .page-content .page-text {
   /* width: auto; */
+  font-family: 'Inconsolata', monospace;
   height: 100%;
   flex-grow: 1;
-  font-size: 1.3vw;
+  font-size: 1.2vw;
   text-align: justify;
   margin-top: 10px;
   padding-top: 10px;
@@ -46,9 +48,6 @@
   border-top: solid 1px #f4e8d7;
   overflow: hidden;
   /* overflow-y: scroll; */
-}
-.page .page-content .page-text::-webkit-scrollbar {
-  width: 3px;
 }
 .page .page-content .page-footer {
   height: 30px;

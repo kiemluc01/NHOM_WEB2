@@ -45,14 +45,15 @@ $chapterContent = $book->chapterContent($_REQUEST['idSach'], $_REQUEST['chapter'
                 <?php
                 $lines = $book->divideContentToLine($chapterContent);
                 $index = 0;
-                while ($index < count($lines) && $index % 20 == 0) {
+                $pageNum = 1;
+                while ($index < count($lines) && $index % 21 == 0) {
                 ?>
                     <div class="page">
                         <div class="page-content">
                             <h2 class="page-header"><?php echo $_REQUEST['chapter']; ?></h2>
                             <div class="page-text">
                                 <?php 
-                                for ($l = 0; $l < 20; $l++) {
+                                for ($l = 0; $l < 21; $l++) {
                                     if ($index < count($lines)) {
                                         echo $lines[$index] . "<br>";
                                         $index++;
@@ -60,9 +61,10 @@ $chapterContent = $book->chapterContent($_REQUEST['idSach'], $_REQUEST['chapter'
                                         break;
                                     }                                    
                                 }
+                                $pageNum++;
                                 ?>
                             </div>
-                            <div class="page-footer">2</div>
+                            <div class="page-footer"><?php echo $pageNum; ?></div>
                         </div>
                     </div>
                 <?php }

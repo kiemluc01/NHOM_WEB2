@@ -163,11 +163,11 @@ class Book extends Database
                 $words_in_each_paragraph = explode(" ", $para_str);
                 $lines[$line_count] = "";
                 foreach ($words_in_each_paragraph as $word) {
-                    if (strlen($lines[$line_count]) < 50) {
+                    if (strlen($lines[$line_count]) < 60) {
                         $lines[$line_count] = $lines[$line_count] . $word . " ";
                     } else {
                         $line_count++;
-                        $lines[$line_count] = "";
+                        $lines[$line_count] = $word . " ";
                     }
                 }
             }
