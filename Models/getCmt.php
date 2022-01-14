@@ -18,13 +18,13 @@ if (isset($_REQUEST['noidung']) && isset($_REQUEST['user']) && isset($_REQUEST['
     $sql = "select a.*,b.* from tbldanhgia as a, tblaccount as b where a.idMember = b.idMember and idSach = " . $idsach . " order by Thoigian desc";
     $result = mysqli_query($connect, $sql);
     $sql = "select a.*,b.* from tbldanhgia as a, tblaccount as b where a.idMember = b.idMember and idSach = " . $idsach . " order by Thoigian desc";
-    $result = mysqli_query($connect, $sql);
+    $cmt_book = mysqli_query($connect, $sql);
 ?>
     <h4 class="[  custom-book-info-heading  custom-book-info-heading--4  ]">Cảm nhận bạn đọc</h4>
     <div class="custom-max-box mt-3 scroll-height-50">
         <?php
         if (true) {
-            while ($cmt_row = $result->fetch_assoc()) {
+            while ($cmt_row = $cmt_book->fetch_assoc()) {
                 $dateCmt = strtotime($cmt_row['Thoigian']);
                 $parts = getdate($dateCmt); ?>
                 <div class="card mb-3 text-justify position-relative">
@@ -36,7 +36,13 @@ if (isset($_REQUEST['noidung']) && isset($_REQUEST['user']) && isset($_REQUEST['
                             <div>
                                 <span class="float-end"><?php echo $parts['mday'] . "-" . $parts['mon'] . "-" . $parts['year']; ?></span>
                                 <h4><?php
-                                    echo $user; ?></h4>
+                                    $sql = "select * from tblaccount where idMember ='" . $cmt_row['idMember'] . "'";
+                                    $result = mysqli_query($connect, $sql);
+                                    $ten = "";
+                                    while ($row = $result->fetch_assoc()) {
+                                        $ten = $row['MemberName'];
+                                    }
+                                    echo $ten; ?></h4>
                             </div>
                             <p class="mt-3"><?php echo $cmt_row['Noidung'] ?></p>
                         </div>
@@ -45,7 +51,8 @@ if (isset($_REQUEST['noidung']) && isset($_REQUEST['user']) && isset($_REQUEST['
                     if ($cmt_row['username'] == $user) { ?>
                         <div class="position-absolute comment-trash">
                             <button class="btnDeleteCmt btn btn-info text-light" data-cmt-id="<?php echo $cmt_row['idDanhgia']; ?>" data-bs-toggle="modal" data-bs-target="#deleteCmtAlert"><i class="fas fa-trash"></i></button>
-                        </div><?php } ?>
+                        </div>
+                    <?php } ?>
                 </div>
         <?php }
         } ?>
@@ -58,7 +65,6 @@ if (isset($_REQUEST['id']) && isset($_REQUEST['user']) && isset($_REQUEST['idsac
     $user = $_REQUEST['user'];
     $idsach = $_REQUEST['idsach'];
     $sql = "delete from tbldanhgia where iddanhgia =" . $_REQUEST['id'];
-    echo $sql;
     if (mysqli_query($connect, $sql)) {
         $sql1 = "select * from tblaccount where username ='" . $user . "'";
         $result = mysqli_query($connect, $sql1);
@@ -67,13 +73,14 @@ if (isset($_REQUEST['id']) && isset($_REQUEST['user']) && isset($_REQUEST['idsac
             $iduser = $row['idMember'];
         }
         $sql = "select a.*,b.* from tbldanhgia as a, tblaccount as b where a.idMember = b.idMember and idSach = " . $idsach . " order by Thoigian desc";
-        $result = mysqli_query($connect, $sql);
+        $cmt_book = mysqli_query($connect, $sql);
 ?>
         <h4 class="[  custom-book-info-heading  custom-book-info-heading--4  ]">Cảm nhận bạn đọc</h4>
         <div class="custom-max-box mt-3 scroll-height-50">
             <?php
             if (true) {
-                while ($cmt_row = $result->fetch_assoc()) {
+                $id = 0;
+                while ($cmt_row = $cmt_book->fetch_assoc()) {
                     $dateCmt = strtotime($cmt_row['Thoigian']);
                     $parts = getdate($dateCmt); ?>
                     <div class="card mb-3 text-justify position-relative">
@@ -85,16 +92,24 @@ if (isset($_REQUEST['id']) && isset($_REQUEST['user']) && isset($_REQUEST['idsac
                                 <div>
                                     <span class="float-end"><?php echo $parts['mday'] . "-" . $parts['mon'] . "-" . $parts['year']; ?></span>
                                     <h4><?php
-                                        echo $user; ?></h4>
+                                        $sql = "select * from tblaccount where idMember ='" . $cmt_row['idMember'] . "'";
+                                        $result = mysqli_query($connect, $sql);
+                                        $ten = "";
+                                        while ($row = $result->fetch_assoc()) {
+                                            $ten = $row['MemberName'];
+                                        }
+                                        echo $ten; ?></h4>
                                 </div>
                                 <p class="mt-3"><?php echo $cmt_row['Noidung'] ?></p>
                             </div>
                         </div>
+
                         <?php
                         if ($cmt_row['username'] == $user) { ?>
                             <div class="position-absolute comment-trash">
                                 <button class="btnDeleteCmt btn btn-info text-light" data-cmt-id="<?php echo $cmt_row['idDanhgia']; ?>" data-bs-toggle="modal" data-bs-target="#deleteCmtAlert"><i class="fas fa-trash"></i></button>
-                            </div><?php } ?>
+                            </div>
+                        <?php } ?>
                     </div>
             <?php }
             } ?>

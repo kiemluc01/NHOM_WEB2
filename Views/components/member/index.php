@@ -38,7 +38,7 @@ if (isset($_REQUEST['loadBGR'])) {
         <button class="btn btn btn-info text-white" id="edit_bgr"><i class="fas fa-camera"></i></button>
     </div>
     <div class="profile-name custom-min-box-fit-content">
-        <h5 class="[  custom-book-info-heading  custom-book-info-heading--5  ]"><?php echo $member->getName(); ?></h5>
+        <h5 class="[  custom-book-info-heading  custom-book-info-heading--5  ]"><?php echo $member->getName($_SESSION['user']); ?></h5>
     </div>
     <p class="profile-email"><?php echo $member->getEmail(); ?></p>
     <div class="dialog" id="dialog_bgr">
@@ -97,7 +97,7 @@ if (isset($_REQUEST['loadBGR'])) {
                         </div>
                         <div class="mb-3">
                             <label for="fullname" class="form-label">Họ và tên:</label>
-                            <input type="text" class="form-control" id="fullname" placeholder="Văn Hoàng" name="fullname" value="<?php echo $member->getName(); ?>">
+                            <input type="text" class="form-control" id="fullname" placeholder="Văn Hoàng" name="fullname" value="<?php echo $member->getName($_SESSION['user']); ?>">
                         </div>
                         <div class=" mb-3">
                             <label for="email" class="form-label">Email:</label>
@@ -123,7 +123,7 @@ if (isset($_REQUEST['loadBGR'])) {
                 </div>
 
                 <div class="tab-pane container fade" id="library">
-                    <ul class="list-group list-group-flush">
+                    <ul class="list-group list-group-flush" id="book_f">
                         <?php $book = loadModel('Book');
                         $result = $book->getFavouriteBook();
                         if ($result->num_rows > 0)
@@ -135,9 +135,8 @@ if (isset($_REQUEST['loadBGR'])) {
                                                 ?>" alt="" width="80">
                                 </div>
                                 <div class="d-flex flex-column justify-content-between flex-grow-1">
-                                    <div><a href="#"><?php $row['imgSach'];
-                                                        ?></a></div>
-                                    <div class="text-end"><a href="index.php">Xoá khỏi danh sách yêu thích</a></div>
+                                    <div><a href="#"><?php $row['imgSach']; ?></a></div>
+                                    <div class="text-end"><a id-member="<?php echo $row['idMember']; ?>" id-book="<?php echo $row['idSach']; ?>" class="del_f">Xoá khỏi danh sách yêu thích</a></div>
                                 </div>
                             </li>
                         <?php    }

@@ -1,10 +1,8 @@
 $(document).ready(function() {
-    $(".btnDeleteCmt").on("mouseup", function() {
+    $(".btnDeleteCmt").click(function() {
         var id = $(this).attr("data-cmt-id");
         $("#cmtId").text(id);
     });
-
-
 
 
     $("#searchBookBtn").on({
@@ -25,5 +23,20 @@ $(document).ready(function() {
             xmlhttp.open("GET", "Views/modules/livesearchbuonba.php?q=" + filter, true);
             xmlhttp.send();
         }
+    })
+    $('.del_f').click(function() {
+        var idsach = $(this).attr("id-book");
+        var idmember = $(this).attr("id-member");
+        $.ajax({
+            url: "Models/favourite.php",
+            type: "POST",
+            data: {
+                idsach: idsach,
+                idmember: idmember
+            },
+            success: function(data) {
+                $('#book_f').html(data);
+            }
+        })
     })
 });
