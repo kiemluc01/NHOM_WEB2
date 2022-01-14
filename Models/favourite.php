@@ -15,11 +15,11 @@ if (isset($_REQUEST['user']) && isset($_REQUEST['idsach'])) {
     $result = mysqli_query($connect, $sql);
     if ($result->num_rows > 0) {
         if (mysqli_query($connect, "delete from tblfavorite where idSach =" . $idsach . " and idMember=" . $iduser)) {
-            echo "thích";
+            echo "";
         } else echo mysqli_error($connect);
     } else {
         if (mysqli_query($connect, "insert into tblfavorite values(" . $idsach . "," . $iduser . ");")) {
-            echo "bỏ thích";
+            echo "";
         } else echo mysqli_error($connect);
     }
 ?>

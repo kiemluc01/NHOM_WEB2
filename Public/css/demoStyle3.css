@@ -6,7 +6,7 @@
   z-index: 100;
 }
 .html-book {
-  background-size: cover;
+  background-size: auto;
 }
 .page {
   padding: 20px;

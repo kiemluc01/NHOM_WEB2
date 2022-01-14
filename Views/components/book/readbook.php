@@ -3,35 +3,22 @@ $row = array();
 $book = loadModel('Book');
 $sotrang = $book->loadSotrang($_REQUEST['idSach'], $_REQUEST['chapter']);
 $result = $book->get_bookcurrent($_REQUEST['idSach']);
+while ($result != false && $row = $result->fetch_assoc()) {
+    if (substr($row['imgSach'], 0, 4) == "http")
+        $imgSach = $row['imgSach'];
+    else
+    $imgSach = "admin/" . $row['imgSach'];
+    $Tensach = $row['Tensach'];
+    $Tacgia = $row['Tacgia'];
+    $nd = $row['TomtatND'];
+}
 $chapterContent = $book->chapterContent($_REQUEST['idSach'], $_REQUEST['chapter']);
 ?>
 
 <div class="fluid-container mt-5 mx-3">
     <div class="row">
-        <div class="col-lg-3 col-md-12 pe-md-5">
-            <div class="d-flex flex-column flex-shrink-0 px-3 pt-3 text-black custom-card-2 mb-md-3">
-                <h4 class="text-white mb-3">Mục lục</h4>
-                <input type="text" id="searchChapName" class="mb-3 px-3 py-2 form-control" placeholder="Nhập tên chương ..." onkeyup="searchChapterName()">
-                <ul id="chapterNameList" class="nav flex-column mb-auto">
-                    <?php $result = $book->getChapter($_REQUEST['idSach']);
-                    if ($result->num_rows > 0) {
-                        $i = 1;
-                        while ($row = $result->fetch_assoc()) { ?>
-                            <li class="nav-item bg-white mb-3 rounded-3">
-                                <a class="nav-link text-black" href="<?php if (isset($_REQUEST['condition'])) echo  'index.php?condition=' . $_REQUEST['condition'] . '&option=book&idSach=' . $_REQUEST['idSach'] . '&chapter=' . $row['TenChuong'] . '&page=1&kitu=0'; ?>">
-                                    <?php echo $row['TenChuong']; ?>
-                                </a>
-                            </li>
-                    <?php
-                            $i++;
-                        }
-                    }
-                    ?>
-                </ul>
-            </div>
-        </div>
-        <div class="col-lg-9 col-md-12">
-            <div class="flip-book html-book demo-book" id="demoBookExample" style="background-image: url(Public\images\css\background.jpg);">
+        <div class="col-lg-9">
+            <div class="flip-book html-book demo-book" id="demoBookExample" style="background-image: url(<?php echo $imgSach; ?>);">
                 <div class="page page-cover page-cover-top" data-density="hard">
                     <div class="page-content">
                         <h2><?php echo $book->loadBookName($_REQUEST['idSach']); ?></h2>
@@ -39,7 +26,7 @@ $chapterContent = $book->chapterContent($_REQUEST['idSach'], $_REQUEST['chapter'
                 </div>
                 <div class="page page-cover">
                     <div class="page-content">
-                        <h2>Chương <br><?php echo $_REQUEST['chapter']; ?></h2>
+                        <h2><?php echo $_REQUEST['chapter']; ?></h2>
                     </div>
                 </div>
                 <?php
@@ -52,14 +39,14 @@ $chapterContent = $book->chapterContent($_REQUEST['idSach'], $_REQUEST['chapter'
                         <div class="page-content">
                             <h2 class="page-header"><?php echo $_REQUEST['chapter']; ?></h2>
                             <div class="page-text">
-                                <?php 
+                                <?php
                                 for ($l = 0; $l < 21; $l++) {
                                     if ($index < count($lines)) {
                                         echo $lines[$index] . "<br>";
                                         $index++;
                                     } else {
                                         break;
-                                    }                                    
+                                    }
                                 }
                                 $pageNum++;
                                 ?>
@@ -80,6 +67,28 @@ $chapterContent = $book->chapterContent($_REQUEST['idSach'], $_REQUEST['chapter'
                         <h2>Hết chương</h2>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="col-lg-3 ps-lg-3">
+            <div class="d-flex flex-column flex-shrink-0 px-3 pt-3 text-black custom-max-box mb-md-3">
+                <h4 class="[  custom-book-info-heading  custom-book-info-heading--4  ]">Mục lục</h4>
+                <input type="text" id="searchChapName" class="my-3 px-3 py-2 form-control" placeholder="Nhập tên chương ..." onkeyup="searchChapterName()">
+                <ul id="chapterNameList" class="nav flex-column mb-auto">
+                    <?php $result = $book->getChapter($_REQUEST['idSach']);
+                    if ($result->num_rows > 0) {
+                        $i = 1;
+                        while ($row = $result->fetch_assoc()) { ?>
+                            <li class="nav-item bg-white mb-3 rounded-3">
+                                <a class="nav-link text-black" href="<?php if (isset($_REQUEST['condition'])) echo  'index.php?condition=' . $_REQUEST['condition'] . '&option=book&idSach=' . $_REQUEST['idSach'] . '&chapter=' . $row['TenChuong'] . '&page=1&kitu=0'; ?>">
+                                    <?php echo $row['TenChuong']; ?>
+                                </a>
+                            </li>
+                    <?php
+                            $i++;
+                        }
+                    }
+                    ?>
+                </ul>
             </div>
         </div>
     </div>

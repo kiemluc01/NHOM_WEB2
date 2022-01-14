@@ -14,7 +14,7 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
             while ($cmt_row = $cmt_book->fetch_assoc()) {
                 $dateCmt = strtotime($cmt_row['Thoigian']);
                 $parts = getdate($dateCmt); ?>
-                <div class="card mb-3 text-justify">
+                <div class="card mb-3 text-justify position-relative">
                     <div class="card-body d-flex">
                         <div class="me-3">
                             <img src="<?php echo $cmt_row['ImgAvatar'] ?>" alt="Avt" class="rounded-3" width="50" height="50">
@@ -27,6 +27,9 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
                             </div>
                             <p class="mt-3"><?php echo $cmt_row['Noidung'] ?></p>
                         </div>
+                    </div>
+                    <div class="position-absolute comment-trash">
+                        <button class="btn btn-info text-light" data-bs-toggle="modal" data-bs-target="#deleteCmtAlert"><i class="fas fa-trash"></i></button>
                     </div>
                 </div>
         <?php }
@@ -45,6 +48,19 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
         </div>
     </div>
     <!-- </form> -->
+</div>
+<div class="modal" id="deleteCmtAlert">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                Bạn muốn xoá cảm nhận này?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger">Có</button>
+                <button type="button" class="btn btn-info text-light" data-bs-dismiss="modal">Không</button>
+            </div>
+        </div>
+    </div>
 </div>
 <input type="text" id="user" style="display:none" value="<?php echo (isset($_SESSION['user']) ? $_SESSION['user'] : ""); ?>">
 <input type="text" id="idSach" style="display:none" value="<?php echo $_REQUEST['idSach']; ?>">
