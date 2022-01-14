@@ -14,6 +14,10 @@ if(isset($_REQUEST['action']))
     }
     
 }
+$namebook = "";
+if(isset($_REQUEST['namebook'])){
+    $namebook = $_REQUEST['namebook'];
+}
 ?>
     <div class="right_col" role="main">
         <div class="row" style="display:inline-block;">
@@ -31,20 +35,6 @@ if(isset($_REQUEST['action']))
                     <div class="filter-ft__ev">
                         <input type="submit" value="Tìm Kiếm" name="search" id="search" class = "btn btn-dark">
                     </div>
-                </div>
-                <div class="filter-ft__ev">
-                    <label for="">Tên danh mục :</label>
-                    <select name="category" id="category">
-                        <option value="category">Tìm kiếm theo danh mục</option>
-                        <?php
-                        $cat = loadModel('Listcategories');
-                        $result = $cat->getAll();
-                        if ($result->num_rows > 0)
-                            while ($row = $result->fetch_assoc()) { ?>
-                            <option value="<?php echo $row['idDanhmuc'] ?>"><?php echo $row['Tendanhmuc'] ?></option>
-                        <?php }
-                        ?>
-                    </select>
                 </div>
                 
             </div>
@@ -93,6 +83,9 @@ if(isset($_REQUEST['action']))
 
             <?php }
                 $Listbook = loadModel("Listbook");
+                if(isset($_REQUEST['namebook']))
+                $soComment = $Listbook->Count_find_feedback($_REQUEST['namebook']);
+                else
                 $soComment = $Listbook->Count_comment();
                 $sopage = ceil($soComment / (6.0));
                 ?>
@@ -101,18 +94,18 @@ if(isset($_REQUEST['action']))
     <div class="page_number">
         <?php
         if($_REQUEST['page'] > 1){ ?>
-            <a href="index.php?option=feedback&page=1"> << </a>
-            <a href="index.php?option=feedback&page=<?php echo $_REQUEST['page']-1;?>"> < </a>
+            <a href="index.php?option=feedback&page=1"<?php echo (isset($_REQUEST['namebook']) ? "&namebook=$namebook" : '')?>> << </a>
+            <a href="index.php?option=feedback&page=<?php echo $_REQUEST['page']-1;?><?php echo (isset($_REQUEST['namebook']) ? "&namebook=$namebook" : '')?>"> < </a>
         <?php  }
         $d =1;
        for($i = $_REQUEST['page'] +1 ; $i<=$sopage; $i++){ $d++; ?>
-           <a href="index.php?option=feedback&page=<?php echo $i;?>"> <?php echo $i; ?></a>
+           <a href="index.php?option=feedback&page=<?php echo $i;?><?php echo (isset($_REQUEST['namebook']) ? "&namebook=$namebook" : '')?>"> <?php echo $i; ?></a>
      <?php 
      if($d ==3) break;  }
         
         if($_REQUEST['page'] != $sopage ){ ?>
-            <a href="index.php?option=feedback&page=<?php echo $_REQUEST['page']+1;?>"> > </a>
-            <a href="index.php?option=feedback&page=<?php echo $sopage; ?>"> >> </a>
+            <a href="index.php?option=feedback&page=<?php echo $_REQUEST['page']+1;?><?php echo (isset($_REQUEST['namebook']) ? "&namebook=$namebook" : '')?>"> > </a>
+            <a href="index.php?option=feedback&page=<?php echo $sopage; ?><?php echo (isset($_REQUEST['namebook']) ? "&namebook=$namebook" : '')?>"> >> </a>
         <?php  } ?>
     </div>
 </div>

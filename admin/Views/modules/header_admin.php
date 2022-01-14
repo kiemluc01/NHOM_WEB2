@@ -1,5 +1,30 @@
 
  </div>
+ <?php
+$rowmember = array();
+$member = loadModel('Member');
+// $idMember = '';
+// $username = '';
+// $username = '';
+// $password = '';
+// $email = '';
+// $IMG = '';
+// $Ngaysinh = '';
+// $Gioitinh = '';
+$result = $member->get_member($_SESSION['user']);
+while ($rowmember = $result->fetch_assoc()) {
+    $idMember = $rowmember['idMember'];
+    if ($rowmember['MemberName'] == null)
+        $username = $rowmember['username'];
+    else
+        $username = $rowmember['MemberName'];
+    $password = $rowmember['password'];
+    $email = $rowmember['email'];
+    $IMG = $rowmember['ImgAvatar'];
+    $Ngaysinh = $rowmember['Ngaysinh'];
+    $Gioitinh = $rowmember['Gioitinh'];
+}
+?>
 <div class="top_nav">
           <div class="nav_menu">
               <div class="nav toggle">
@@ -9,7 +34,7 @@
               <ul class=" navbar-right">
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
                   <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                    <img src="" alt="">John Doe
+                    <img src="<?php echo $IMG;?>" alt=""><?php echo $username ;?>
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item"  href="javascript:;"> Profile</a>
@@ -18,7 +43,7 @@
                         <span>Settings</span>
                       </a>
                   <a class="dropdown-item"  href="javascript:;">Help</a>
-                    <a class="dropdown-item"  href="Views/components/login/index.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                    <a class="dropdown-item"  href="../index.php?option=login"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                   </div>
                 </li>
 
@@ -32,7 +57,7 @@
                       <a class="dropdown-item">
                         <span class="image"><img src="" alt="Profile Image" /></span>
                         <span>
-                          <span>John Smith</span>
+                          <span><?php echo $username ;?></span>
                           <span class="time">3 mins ago</span>
                         </span>
                         <span class="message">
@@ -89,4 +114,9 @@
               </ul>
             </nav>
           </div>
-       
+<?php
+function destroy()
+{
+    unset($_SESSION['user']);
+}
+?>

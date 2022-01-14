@@ -11,6 +11,10 @@ if(isset($_REQUEST['action']))
     }
     
 }
+$namebook = "";
+if(isset($_REQUEST['namebook'])){
+    $namebook = $_REQUEST['namebook'];
+}
 ?>
     <div class="right_col" role="main">
         <div class="row" style="display:inline-block;">
@@ -26,7 +30,7 @@ if(isset($_REQUEST['action']))
                         <input type="text" placeholder="Nhập tên sách" name="namebook" id="namebook" />
                     </div>
                     <div class="filter-ft__ev">
-                        <input type="button" value="Tìm Kiếm" name="search" id="search" class = "btn btn-dark">
+                        <input type="submit" value="Tìm Kiếm" name="search" id="search" class = "btn btn-dark">
                     </div>
                 </div>
                 <div class="filter-ft__ev">
@@ -64,7 +68,7 @@ if(isset($_REQUEST['action']))
             </tr>
             <?php
             $book = loadModel('Listbook');
-            if (isset($_REQUEST['namebook']) ? $_REQUEST['namebook'] : '')
+            if (isset($_REQUEST['namebook']))
             {
                  $namebook = $_REQUEST['namebook'];
                 $result = $book->Find_book($_REQUEST['namebook']);
@@ -96,6 +100,9 @@ if(isset($_REQUEST['action']))
        
         <?php }
               $Listbook = loadModel("Listbook");
+              if(isset($_REQUEST['namebook']))
+              $soSach = $Listbook->Count_find_book($_REQUEST['namebook']);
+              else
               $soSach = $Listbook->Count_book();
             $sopage = ceil($soSach / (6.0));
             ?>
@@ -103,19 +110,19 @@ if(isset($_REQUEST['action']))
     </div>
     <div class="page_number">
         <?php
-        if($_REQUEST['page'] > 1){ ?>
-            <a href="index.php?option=quanlysach&page=1"<?php echo (isset($namebook) ? "&namebook=$namebook" : '')?>> << </a>
-            <a href="index.php?option=quanlysach&page=<?php echo $_REQUEST['page']-1;?><?php echo (isset($namebook) ? "&namebook=$namebook" : ' ')?>"> < </a>
+        if($_REQUEST['page'] > 1){  ?>
+            <a href="index.php?option=quanlysach&page=1"<?php echo (isset($_REQUEST['namebook']) ? "&namebook=$namebook" : '')?>> << </a>
+            <a href="index.php?option=quanlysach&page=<?php echo $_REQUEST['page']-1;?><?php echo (isset($_REQUEST['namebook']) ? "&namebook=$namebook" : ' ')?>"> < </a>
         <?php  }
         $d =1;
-       for($i = $_REQUEST['page'] +1 ; $i<=$sopage; $i++){ $d++; ?>
-           <a href="index.php?option=quanlysach&page=<?php echo $i;?><?php echo (isset($namebook) ? "&namebook=$namebook" : '')?>"><?php echo $i; ?></a>
+       for($i = $_REQUEST['page'] + 1 ; $i<=$sopage; $i++){ $d++; ?>
+           <a href="index.php?option=quanlysach&page=<?php echo $i;?><?php echo (isset($_REQUEST['namebook']) ? "&namebook=$namebook" : '')?>"><?php echo $i; ?></a>
      <?php 
      if($d ==3) break;  }
         
         if($_REQUEST['page'] != $sopage ){ ?>
-            <a href="index.php?option=quanlysach&page=<?php echo $_REQUEST['page']+1;?><?php echo (isset($namebook) ? "&namebook=$namebook" : '')?>"> > </a>
-            <a href="index.php?option=quanlysach&page=<?php echo $sopage; ?><?php echo (isset($namebook) ? "&namebook=$namebook" : '')?>"> >> </a>
+            <a href="index.php?option=quanlysach&page=<?php echo $_REQUEST['page']+1;?><?php echo (isset($_REQUEST['namebook']) ? "&namebook=$namebook" : '')?>"> > </a>
+            <a href="index.php?option=quanlysach&page=<?php echo $sopage; ?><?php echo (isset($_REQUEST['namebook']) ? "&namebook=$namebook" : '')?>"> >> </a>
         <?php  } ?>
     </div>
 </div>

@@ -10,7 +10,7 @@ if(isset($_REQUEST['btn_add'])){
   $tacgia = $_REQUEST['Tacgia'];
   $nxb = $_REQUEST['NXB'];
   $danhmucsach = $_REQUEST['idDanhmuc'];
-  $target_dir = "admin/Public/images/bookcover/";
+  $target_dir = "Public/images/bookcover/";
   $target_file = $target_dir.basename($_FILES['file']['name']);
   move_uploaded_file($_FILES['file']['tmp_name'],$target_file);
   $tomtatND = $_REQUEST['tomtatND'];

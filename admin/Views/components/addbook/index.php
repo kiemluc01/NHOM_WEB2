@@ -16,7 +16,7 @@ if(isset($_REQUEST['btn_add'])){
   if($insert>0)
   {
     echo '<script>alert("Thêm thành công");
-    location.assign("index.php?option=quanlysach");</script>';
+    location.assign("index.php?option=quanlysach&page=1");</script>';
   }else{
     echo '<script>alert("Có lỗi");</script>';
   }

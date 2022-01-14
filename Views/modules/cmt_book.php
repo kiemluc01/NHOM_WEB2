@@ -31,6 +31,12 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
                     <div class="position-absolute comment-trash">
                         <button id="btnDeleteCmt" class="btn btn-info text-light" data-cmt-id="id đây nghe"  data-bs-toggle="modal" data-bs-target="#deleteCmtAlert"><i class="fas fa-trash"></i></button>
                     </div>
+                    <?php if (isset($_SESSION['user']))
+                        if ($cmt_row['username'] == $_SESSION['user']) { ?>
+                        <div class="position-absolute comment-trash">
+                            <a href="<?php echo 'index.php?option=book&idSach=' . $_REQUEST['idSach'] . '&action=delete&idcmt=' . $cmt_row['idDanhgia']; ?>" class="btn btn-info text-light" data-bs-toggle="modal" data-bs-target="#deleteCmtAlert"><i class="fas fa-trash"></i></a>
+                            <!-- <button class="btn btn-info text-light" data-bs-toggle="modal" data-bs-target="#deleteCmtAlert"><i class="fas fa-trash"></i></button> -->
+                        </div><?php } ?>
                 </div>
         <?php }
         } ?>
@@ -40,7 +46,7 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
     <h4 class="[  custom-book-info-heading  custom-book-info-heading--4  ]">Cho chúng tôi biết cảm nhận của bạn</h4>
     <!-- <form action="" method="post"> -->
     <div class="custom-max-box mt-3">
-        <div class="mb-3">
+        <div class="mb-3" id="content_cmt">
             <textarea name="Noidung" id="noidung" cols="30" rows="10" class="card p-3 w-100" placeholder="Cảm nhận của bạn ..."></textarea>
         </div>
         <div class="mt-3 text-end">
@@ -94,7 +100,7 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
                     },
                     success: function(data) {
                         $("#cmt").html(data);
-                        $('#noidung').innerHTML = ""
+                        $('#content_cmt').html('<textarea name="Noidung" id="noidung" cols="30" rows="10" class="card p-3 w-100" placeholder="Cảm nhận của bạn ..."></textarea>')
                     }
                 })
             }

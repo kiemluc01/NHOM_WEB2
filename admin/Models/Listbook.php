@@ -88,6 +88,16 @@ class Listbook extends Database{
         }
         return $dem;
     }
+    function Count_find_book($str){
+        $dem=0;
+        $sql = "select a.*,b.Tendanhmuc from tblsach as a, tbldanhmuc as b where a.idDanhmuc = b.idDanhmuc and ( Tensach like N'%".$str."%' or Tendanhmuc like N'%".$str."%' or Tacgia like N'%".$str."%' )";
+        $result = mysqli_query($this->conn, $sql);
+        if($result->num_rows>0)
+        while($row = $result->fetch_assoc()){
+            $dem++;
+        }
+        return $dem;
+    }
     function Select_view(){
         $sql = "SELECT sum(Luotxem) as Luotxem, sum(Favorite) as Favorite , sum(Feedback) as Feedback FROM chitietsach";
         $result = mysqli_query($this->conn, $sql);
@@ -103,6 +113,16 @@ class Listbook extends Database{
         $sql = "SELECT tblaccount.ImgAvatar , tblaccount.MemberName , tblsach.Tensach , tbldanhgia.* FROM tblaccount , tblsach , tbldanhgia WHERE tblsach.idSach = tbldanhgia.idSach and tblaccount.idMember = tbldanhgia.idMember and (Tensach like N'%".$str."%')";
         $result = mysqli_query($this->conn, $sql);
         return $result;
+    }
+    function Count_find_feedback($str){
+        $dem=0;
+        $sql = "SELECT tblaccount.ImgAvatar , tblaccount.MemberName , tblsach.Tensach , tbldanhgia.* FROM tblaccount , tblsach , tbldanhgia WHERE tblsach.idSach = tbldanhgia.idSach and tblaccount.idMember = tbldanhgia.idMember and (Tensach like N'%".$str."%')";
+        $result = mysqli_query($this->conn, $sql);
+        if($result->num_rows>0)
+        while($row = $result->fetch_assoc()){
+            $dem++;
+        }
+        return $dem;
     }
     function Delete_feedback($idDanhgia)
     {

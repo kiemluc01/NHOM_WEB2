@@ -53,26 +53,6 @@ if(isset($_REQUEST['action']))
                 <div id="filter" class="filter">
                     <div class= "filter-ft" >
                         <div class="filter-ft__ev">
-                            <input type="text" placeholder="Nhập tên sách" name="namebook" id="namebook" />
-                        </div>
-                        <div class="filter-ft__ev">
-                            <input type="submit" value="Tìm Kiếm" name="search" id="search" class = "btn btn-dark">
-                        </div>   
-                        <div class="filter-ft__ev">
-                            <label for="">Tên danh mục :</label>
-                            <select name="category" id="category">
-                                <option value="category">Tìm kiếm theo danh mục</option>
-                                <?php
-                                $cat = loadModel('Listcategories');
-                                $result = $cat->getAll();
-                                if ($result->num_rows > 0)
-                                    while ($row = $result->fetch_assoc()) { ?>
-                                    <option value="<?php echo $row['idDanhmuc'] ?>"><?php echo $row['Tendanhmuc'] ?></option>
-                                <?php }
-                                ?>
-                            </select>
-                        </div>
-                        <div class="filter-ft__ev">
                             <input type="button" value="Thêm Banner" name="add" id="add" class="btn btn-success" onclick="newDoc()">
                         </div>
                     </div>
