@@ -148,12 +148,19 @@ class Listbook extends Database{
         }
         return $dem;
     }
-    //select chi tiet sach
+    //thống kê chi tiet sach
     function Select_Chitiet()
     {
-        $sql = "SELECT tblsach.idSach , tblsach.Tensach , chitietsach.Luotxem , chitietsach.Favorite , chitietsach.Feedback FROM tblsach , chitietsach WHERE tblsach.idSach = chitietsach.idSach";
+        $sql = "SELECT tblsach.idSach , tblsach.NgayDang , tblsach.Tensach , chitietsach.Luotxem , chitietsach.Favorite , chitietsach.Feedback FROM tblsach , chitietsach WHERE tblsach.idSach = chitietsach.idSach";
         $result = mysqli_query($this->conn, $sql);
         return $result;
+    }
+    // thống kê ngày tháng năm
+    function Select_date($sundays , $now)
+    {
+        $sql = "SELECT tblsach.idSach , tblsach.NgayDang , tblsach.Tensach , chitietsach.Luotxem , chitietsach.Favorite , chitietsach.Feedback FROM tblsach , chitietsach WHERE tblsach.idSach = chitietsach.idSach and tblsach.NgayDang BETWEEN '$sundays' AND '$now' ORDER BY tblsach.NgayDang ASC";
+        $sql_query = mysqli_query($this->conn,$sql);
+        return $sql_query;
     }
     //select chapters
     function Select_Chapters($idSach)
