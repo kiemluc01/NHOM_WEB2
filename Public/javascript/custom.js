@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    $("#btnDeleteCmt").on("mouseup", function () {
-        $("#cmtId").text($("#btnDeleteCmt").attr("data-cmt-id"));
+    $(".btnDeleteCmt").on("mouseup", function () {
+        var id = $(this).attr("data-cmt-id");
+        $("#cmtId").text(id);
     });
 });
