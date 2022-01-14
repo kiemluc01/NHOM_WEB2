@@ -29,7 +29,7 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
                         </div>
                     </div>
                     <div class="position-absolute comment-trash">
-                        <button class="btn btn-info text-light" data-bs-toggle="modal" data-bs-target="#deleteCmtAlert"><i class="fas fa-trash"></i></button>
+                        <button id="btnDeleteCmt" class="btn btn-info text-light" data-cmt-id="id đây nghe"  data-bs-toggle="modal" data-bs-target="#deleteCmtAlert"><i class="fas fa-trash"></i></button>
                     </div>
                 </div>
         <?php }
@@ -54,6 +54,7 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
         <div class="modal-content">
             <div class="modal-body">
                 Bạn muốn xoá cảm nhận này?
+                <p>Comment ID: <span id="cmtId"></span></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger">Có</button>

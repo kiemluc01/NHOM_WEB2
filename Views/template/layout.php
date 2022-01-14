@@ -54,7 +54,7 @@
     <script src="Public\dist\js\bootstrap.bundle.min.js"></script>
     <script src='https://tympanus.net/Development/ElasticSVGElements/js/classie.js'></script>
     <script src='https://tympanus.net/Development/ElasticSVGElements/js/snap.svg-min.js'></script>
-    <script src="Public\javascript\listcategory-dropdown.js"></script>
+    <script src="Public\javascript\custom.js"></script>
     <script src="Public\javascript\form-validation.js"></script>
     <script src="Public\javascript\searchBook.js"></script>
     <script src="Public\javascript\pagesDemo3.bundle.js"></script>
