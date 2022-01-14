@@ -11,6 +11,7 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
     <div class="custom-max-box mt-3 scroll-height-50">
         <?php
         if (true) {
+            $id = 0;
             while ($cmt_row = $cmt_book->fetch_assoc()) {
                 $dateCmt = strtotime($cmt_row['Thoigian']);
                 $parts = getdate($dateCmt); ?>
@@ -28,12 +29,14 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
                             <p class="mt-3"><?php echo $cmt_row['Noidung'] ?></p>
                         </div>
                     </div>
-                    <?php if (isset($_SESSION['user']))
+                    <div class="position-absolute comment-trash">
+                        <button class="btnDeleteCmt btn btn-info text-light" data-cmt-id="id đây nghe <?php echo $cmt_row['Noidung']; ?>"  data-bs-toggle="modal" data-bs-target="#deleteCmtAlert"><i class="fas fa-trash"></i></button>
+                    </div>
+                    <!-- <?php if (isset($_SESSION['user']))
                         if ($cmt_row['username'] == $_SESSION['user']) { ?>
                         <div class="position-absolute comment-trash">
                             <a href="<?php echo 'index.php?option=book&idSach=' . $_REQUEST['idSach'] . '&action=delete&idcmt=' . $cmt_row['idDanhgia']; ?>" class="btn btn-info text-light" data-bs-toggle="modal" data-bs-target="#deleteCmtAlert"><i class="fas fa-trash"></i></a>
-                            <!-- <button class="btn btn-info text-light" data-bs-toggle="modal" data-bs-target="#deleteCmtAlert"><i class="fas fa-trash"></i></button> -->
-                        </div><?php } ?>
+                        </div><?php } ?> -->
                 </div>
         <?php }
         } ?>
@@ -57,6 +60,7 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
         <div class="modal-content">
             <div class="modal-body">
                 Bạn muốn xoá cảm nhận này?
+                <p>Comment ID: <span id="cmtId"></span></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger">Có</button>

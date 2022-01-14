@@ -1,12 +1,28 @@
 </div> <!-- page content -->
+<?php
+if(isset($_REQUEST['btn_add'])){
+    if(isset($_POST['Tendanhmuc']))
+    {
+        $Tendanhmuc = $_POST['Tendanhmuc'];
+        $Listcategories = loadModel('Listcategories');
+        $insert = $Listcategories->Insert_category($Tendanhmuc);
+        if($insert>0)
+        {
+          echo '<script>alert("Thêm thành công");
+          location.assign("index.php?option=quanlydanhmuc");</script>';
+        }else{
+          echo '<script>alert("Thêm không thành công");</script>';
+        } 
+    }
+}
+?>
 <?php 
 if(isset($_REQUEST['action']))
 {
 
 }
 ?>
-    <div class="right_col" role="main" style=" height: 100vh!important;
-    overflow: auto!important;">
+    <div class="right_col" role="main">
         <div class="btn"style="width:100%">
         <form action="" method="post">
             <div id="filter" style="display:flex;justify-content:space-between!important ;">
@@ -52,13 +68,15 @@ if(isset($_REQUEST['action']))
                 <?php 
                     $category = loadModel('Listcategories');
                     $result = $category->getAll();
+                    
                     $i =1;
                     if($result->num_rows>0)
-                    while($row = $result->fetch_assoc()){ ?>
+                    while($row = $result->fetch_assoc()){ 
+                        $soSach = $category->count_category($row['idDanhmuc']); ?>
                 <tr>
                     <td><?php echo $i++; ?></td>
                     <td><?php echo $row['Tendanhmuc']; ?></td>
-                    <td><?php echo $row['sosach']; ?></td>
+                    <td><?php echo $soSach; ?></td>
                     <td>
                         <input type="submit"  class="btn btn-danger" value="Xóa" name="<?php echo $row['idDanhmuc']; ?>" id="<?php echo $row['idDanhmuc']; ?>">
                         <input type="submit" class="btn btn-warning" value="Sửa" name="<?php echo $row['idDanhmuc']; ?>" id="<?php echo $row['idDanhmuc'];?>">

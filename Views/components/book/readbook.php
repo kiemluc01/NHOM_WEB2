@@ -7,7 +7,7 @@ while ($result != false && $row = $result->fetch_assoc()) {
     if (substr($row['imgSach'], 0, 4) == "http")
         $imgSach = $row['imgSach'];
     else
-    $imgSach = "admin/" . $row['imgSach'];
+        $imgSach = "admin/" . $row['imgSach'];
     $Tensach = $row['Tensach'];
     $Tacgia = $row['Tacgia'];
     $nd = $row['TomtatND'];
@@ -58,7 +58,7 @@ $chapterContent = $book->chapterContent($_REQUEST['idSach'], $_REQUEST['chapter'
                 ?>
                 <div class="page page-cover">
                     <div class="page-content">
-                        <h2>Chương <br><?php echo $_REQUEST['chapter']; ?></h2>
+                        <h2><?php echo $_REQUEST['chapter']; ?></h2>
                     </div>
 
                 </div>
@@ -70,6 +70,11 @@ $chapterContent = $book->chapterContent($_REQUEST['idSach'], $_REQUEST['chapter'
             </div>
         </div>
         <div class="col-lg-3 ps-lg-3">
+            <div class="mb-3">
+                <button type="button" class="btn btn-info btn-sm btn-prev">Previous page</button>
+                [<span class="page-current">1</span> of <span class="page-total">-</span>]
+                <button type="button" class="btn btn-info btn-sm btn-next">Next page</button>
+            </div>
             <div class="d-flex flex-column flex-shrink-0 px-3 pt-3 text-black custom-max-box mb-md-3">
                 <h4 class="[  custom-book-info-heading  custom-book-info-heading--4  ]">Mục lục</h4>
                 <input type="text" id="searchChapName" class="my-3 px-3 py-2 form-control" placeholder="Nhập tên chương ..." onkeyup="searchChapterName()">

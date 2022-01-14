@@ -166,6 +166,9 @@ class Book extends Database
         $paragraphs = explode("\n", $str); // []
         $line_count = 0;
         foreach ($paragraphs as $para_str) {
+            if (strlen($para_str) > 4) {
+                $para_str = trim($para_str);
+            }
             $or = ord($para_str);
             if ($or == 32) {
                 $lines[$line_count] = "\n";
