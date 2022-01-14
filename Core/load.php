@@ -64,15 +64,23 @@ function loadClass($name)
 function loadMenu()
 {
     $pathMenu = 'Views/modules/';
-    if (isset($_SESSION['user']))
-        
+
+
+    if (isset($_SESSION['user'])) {
+        if (isset($_REQUEST['option'])) {
+            if ($_REQUEST['option'] == "login") {
+                $pathMenu = $pathMenu . 'menu_home.php';
+            } else {
+                $pathMenu = $pathMenu . 'menu_login.php';
+            }
+        } else
         $pathMenu = $pathMenu . 'menu_login.php';
-    else
+    } else
         $pathMenu = $pathMenu . 'menu_home.php';
     if (file_exists($pathMenu)) {
         include($pathMenu);
     } else {
-        echo 'Cú tìm ra menu in rứa mô mà load cha \f556';
+        echo 'Not exist';
     }
 }
 function loadHrefBook($idSach)
