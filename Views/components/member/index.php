@@ -56,60 +56,127 @@ if (isset($_REQUEST['loadBGR'])) {
 </div>
 <div class="container mt-5 custom-max-box">
     <div class="row">
-        <div class="col-md-3">
-            <ul class="dropdown-menu dropdown-menu-light position-static d-block mx-0 border-0 shadow" style="width: 220px;">
-                <li>
-                    <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
-                        
-                        Documents
+        <div class="col-lg-3">
+            <ul class="nav flex-column nav-pills" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-bs-toggle="pill" href="#userinfo">
+                        <i class="fas fa-user-cog me-3"></i>
+                        Thông tin tài khoản
                     </a>
                 </li>
-                <li>
-                    <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
-                        <svg class="bi" width="16" height="16">
-                            <use xlink:href="#image-fill" />
-                        </svg>
-                        Photos
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="pill" href="#library">
+                        <i class="fas fa-book me-3"></i> Thư viện
                     </a>
                 </li>
-                <li>
-                    <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
-                        <svg class="bi" width="16" height="16">
-                            <use xlink:href="#film" />
-                        </svg>
-                        Movies
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="pill" href="#notifi">
+                        <i class="fas fa-bell me-3"></i> Thông báo
                     </a>
                 </li>
-                <li>
-                    <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
-                        <svg class="bi" width="16" height="16">
-                            <use xlink:href="#music-note-beamed" />
-                        </svg>
-                        Music
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="pill" href="#passchange">
+                        <i class="fas fa-key me-3"></i> Đổi mật khẩu
                     </a>
                 </li>
-                <li>
-                    <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
-                        <svg class="bi" width="16" height="16">
-                            <use xlink:href="#joystick" />
-                        </svg>
-                        Games
-                    </a>
-                </li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-                <li>
-                    <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
-                        <svg class="bi" width="16" height="16">
-                            <use xlink:href="#trash" />
-                        </svg>
-                        Đăng xuất
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php?option=login" onclick="destroy()">
+                        <i class="fas fa-sign-out-alt me-3"></i> Đăng xuất
                     </a>
                 </li>
             </ul>
         </div>
-        <div class="col-md-9"></div>
+        <div class="col-lg-9">
+            <div class="tab-content">
+                <div class="tab-pane container active" id="userinfo">
+                    <form action="" method="post">
+                        <div class="mb-3 mt-3">
+                            <label for="user_name" class="form-label">Tên tài khoản:</label>
+                            <input type="text" class="form-control" id="user_name" placeholder="vanhoang" name="user_name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="fullname" class="form-label">Họ và tên:</label>
+                            <input type="text" class="form-control" id="fullname" placeholder="Văn Hoàng" name="fullname">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="email" class="form-control" id="email" placeholder="vanhoang@gmail.com" name="email">
+                        </div>
+                        <div class="mb-3 d-flex gap-5">
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Nam
+                                <label class="form-check-label" for="radio1"></label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Nữ
+                                <label class="form-check-label" for="radio2"></label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="dbo" class="form-label">Ngày sinh:</label>
+                            <input type="date" class="form-control" id="dbo" name="dbo">
+                        </div>
+                        <button type="submit" class="btn btn-lg text-light btn-info fw-bold border-info bg-info">Lưu</button>
+                    </form>
+                </div>
+                <div class="tab-pane container fade" id="library">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item p-3 d-flex gap-3">
+                            <div>
+                                <img src="admin\Public\images\avatar\ahuhu.jpg" alt="" width="80">
+                            </div>
+                            <div class="d-flex flex-column justify-content-between flex-grow-1">
+                                <div><a href="#">Book name (link to book)</a></div>
+                                <div class="text-end"><a href="#">Xoá khỏi danh sách yêu thích</a></div>
+                            </div>
+                        </li>
+                        <li class="list-group-item p-3 d-flex gap-3">
+                            <div>
+                                <img src="admin\Public\images\avatar\ahuhu.jpg" alt="" width="80">
+                            </div>
+                            <div class="d-flex flex-column justify-content-between flex-grow-1">
+                                <div><a href="#">Book name (link to book)</a></div>
+                                <div class="text-end"><a href="#">Xoá khỏi danh sách yêu thích</a></div>
+                            </div>
+                        </li>
+                        <li class="list-group-item p-3 d-flex gap-3">
+                            <div>
+                                <img src="admin\Public\images\avatar\ahuhu.jpg" alt="" width="80">
+                            </div>
+                            <div class="d-flex flex-column justify-content-between flex-grow-1">
+                                <div><a href="#">Book name (link to book)</a></div>
+                                <div class="text-end"><a href="#">Xoá khỏi danh sách yêu thích</a></div>
+                            </div>
+                        </li>
+                        <li class="list-group-item p-3 d-flex gap-3">
+                            <div>
+                                <img src="admin\Public\images\avatar\ahuhu.jpg" alt="" width="80">
+                            </div>
+                            <div class="d-flex flex-column justify-content-between flex-grow-1">
+                                <div><a href="#">Book name (link to book)</a></div>
+                                <div class="text-end"><a href="#">Xoá khỏi danh sách yêu thích</a></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-pane container fade" id="notifi">
+                    Tính năng đang xây dựng
+                </div>
+                <div class="tab-pane container fade" id="passchange">
+                    <form action="" method="post">
+                        <div class="mb-3 mt-3">
+                            <label for="pwd_change" class="form-label">Mật khẩu mới:</label>
+                            <input type="password" class="form-control" id="pwd_change" name="pwd_change">
+                        </div>
+                        <div class="mb-3">
+                            <label for="pwd_change_confirm" class="form-label">Nhập lại mật khẩu:</label>
+                            <input type="password" class="form-control" id="pwd_change_confirm" name="pwd_change_confirm">
+                        </div>
+                        <button type="submit" class="btn btn-lg text-light btn-info fw-bold border-info bg-info">Gửi</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <!-- <div>
