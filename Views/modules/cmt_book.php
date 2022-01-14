@@ -70,12 +70,12 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
 </div>
 <input type="text" id="user" style="display:none" value="<?php echo (isset($_SESSION['user']) ? $_SESSION['user'] : ""); ?>">
 <input type="text" id="idSach" style="display:none" value="<?php echo $_REQUEST['idSach']; ?>">
-<script src=" //ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 <script>
-    var content = $('#noidung').val();
     $(document).ready(function() {
+
         $('#push').click(function() {
             var content = $('#noidung').val();
             var user = $('#user').val();
@@ -108,7 +108,6 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
             var id = $("#cmtId").text();
             var user = $('#user').val();
             var idsach = $('#idSach').val();
-            alert(id)
             document.getElementById('deleteCmtAlert').style.display = 'none'
             $.ajax({
                 url: "Models/getCmt.php",
@@ -125,5 +124,10 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
                 }
             })
         })
+
     })
+
+    function del_f() {
+
+    }
 </script>
