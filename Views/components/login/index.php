@@ -12,11 +12,11 @@ if (isset($_POST['user_login']) &&  isset($_POST['password_login'])) {
 
                 echo '<script> location.href="admin/index.php" </script>';
             } else
-                echo '<script> alert("đăng nhập thành công"); 
+                echo '<script> alert("Đăng nhập thành công"); 
             location.assign("index.php?condition=' . $user . '");
         </script>';
         } else
-            echo '<script> alert("sai tài khoản hoặc mật khẩu");
+            echo '<script> alert("Sai tài khoản hoặc mật khẩu");
             return false; 
             </script>';
     }

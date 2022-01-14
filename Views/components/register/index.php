@@ -55,7 +55,7 @@ if (isset($_POST['btnregister'])) {
                             <label for="cpass">Nhập lại mật khẩu</label>
                             <div class="invalid-feedback">Please fill out this field.</div>
                         </div>
-                        <button class="w-100 btn btn-lg text-light btn-secondary fw-bold border-dark bg-dark" type="submit">Đăng nhập</button>
+                        <button class="w-100 btn btn-lg text-light btn-secondary fw-bold border-dark bg-dark" type="submit">Đăng ký</button>
                     </form>
                 </div>
                 <div class="card-footer">
