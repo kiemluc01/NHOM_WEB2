@@ -31,11 +31,11 @@ if (isset($_REQUEST['loadBGR'])) {
 <div>
     <div id="BGR">
         <img src="<?php echo (substr($member->BGR(), 0, 4) == "http" ? $member->BGR() : "admin/" . $member->BGR()); ?>" alt="ảnh bìa" class="bgr">
-        <img src="http://cdn.onlinewebfonts.com/svg/img_211436.png" alt="nút sauwr ảnh" class="edit" id="edit_bgr">
+        <img src="http://cdn.onlinewebfonts.com/svg/img_211436.png" alt="nút sửa ảnh" class="edit" id="edit_bgr">
     </div>
     <div id="AVT">
         <img src="<?php echo (substr($member->AVT(), 0, 4) == "http" ? $member->AVT() : "admin/" . $member->AVT()); ?>" alt="?nh d?i di?n" class="avt">
-        <img src="http://cdn.onlinewebfonts.com/svg/img_211436.png" alt="n�t s?a ?nh" id="edit_avt" class="edit">
+        <img src="http://cdn.onlinewebfonts.com/svg/img_211436.png" alt="nút sửa ảnh" id="edit_avt" class="edit">
     </div>
     <div class="infor">
 
