@@ -5,10 +5,30 @@ function showBook(filter, inp) {
     }
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
-        if (this.readyState==4 && this.status==200) {
-            document.getElementById("liveSearch").style.display = "block";
-            document.getElementById("liveSearch").innerHTML=this.responseText;
-            document.getElementById("liveSearch").style.border="2px solid yellow"
+        if (this.readyState == 4 && this.status == 200) {
+            var resultBox = document.getElementById("liveSearch");
+            resultBox.style.display = "block";
+            while (resultBox.hasChildNodes()) {
+                resultBox.removeChild(resultBox.firstChild);
+            }
+            var listSearch = this.responseText.split("|");
+            listSearch.forEach(book => {
+                var bookInfo = book.split("_");
+                var bookName = bookInfo[0];
+                var bookId = bookInfo[1];
+                var bookLinkDiv = document.createElement("div");
+                var bookLink = document.createElement("a");
+                var bookLinkText = document.createTextNode(bookName);
+                bookLink.appendChild(bookLinkText);
+                bookLink.style.cursor = "pointer";
+                bookLink.classList.add("list-group-item", "list-group-item-action");
+                bookLink.title = bookName;
+                if (bookName != "Không tìm thấy kết quả phù hợp") {
+                    bookLink.href = "index.php?option=book&idSach=" + bookId;
+                    bookLinkDiv.appendChild(bookLink);
+                    resultBox.appendChild(bookLinkDiv);
+                }
+            });
         }
     }
     xmlhttp.open("GET", "Views/modules/livesearchbuonba.php?q=" + filter, true);
@@ -17,6 +37,12 @@ function showBook(filter, inp) {
 function hideliveSearch() {
     document.getElementById("liveSearch").style.display = "none";
 }
+document.addEventListener('mouseup', function (e) {
+    var box = document.getElementById("searchBox");
+    if (!box.contains(e.target)) {
+        hideliveSearch();
+    }
+});
 // Search chapter name
 function searchChapterName() {
     var input, filter, ul, li, a, i;

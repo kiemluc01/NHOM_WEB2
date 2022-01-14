@@ -9,7 +9,8 @@ $allBooksName = array();
 if ($allBooks->num_rows > 0) {
     while ($bookName = $allBooks->fetch_assoc()) {
         $bName = $bookName['Tensach'];
-        $allBooksName[] = $bName;
+        $bId = $bookName['idSach'];
+        $allBooksName[] = $bName . "_" . $bId;
     }
 }
 $q = $_REQUEST["q"];
@@ -22,11 +23,11 @@ if ($q !== "") {
             if ($hint === "") {
                 $hint = $bName;
             } else {
-                $hint .= ", $bName";
+                $hint .= "|$bName";
             }
         }
     }
 }
-echo $hint === "" ? "no result" : $hint;
+echo $hint === "" ? "Không tìm thấy kết quả phù hợp" : $hint;
 // print_r($allBooksName);
 ?>

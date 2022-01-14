@@ -49,9 +49,9 @@ class Member extends Database
             }
         return null;
     }
-    function getName()
+    function getName($user)
     {
-        $sql = "select * from tblaccount where username = '" . $_SESSION['user'] . "'";
+        $sql = "select * from tblaccount where username = '" . $user . "'";
         $result = mysqli_query($this->conn, $sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc())

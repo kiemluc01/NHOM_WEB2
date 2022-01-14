@@ -1,4 +1,10 @@
 #liveSearch {
-    position: absolute;
-    top: 3rem;
+  position: absolute;
+  top: 55px;
+  width: 356px;
+  height: 200px;
+  /* background-color: #f0f7d4; */
+  border-radius: 7px;
+  display: none;
+  z-index: 100;
 }

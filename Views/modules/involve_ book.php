@@ -2,7 +2,7 @@
 $book = loadModel('book');
 $resultBook =  $book->get_involve_book($_REQUEST['find']);
 ?>
-<h4>Đề xuất khác</h4>
+<h4 class="[  custom-book-info-heading  custom-book-info-heading--4  ]">Đề xuất khác</h4>
 <div class="d-flex">
     <?php while ($newBook = $resultBook->fetch_assoc()) { ?>
         <form class="w-25 p-4" method="get">
