@@ -4,22 +4,6 @@
  <?php 
     $Listbook = loadModel("Listbook");
     $soSach = $Listbook->Count_book();
-    // $Select = $Listbook->Select_Chitiet();
-    // $chart_data = '';
-    // if($Select->num_rows > 0)
-    // {
-    //   while($row = $Select->fetch_array())
-    //   {
-    //     $chart_data[] = array(
-    //       'NgayDang' => $row['NgayDang'],
-    //       'Tensach' => $row['Tensach'],
-    //       'Luotxem' => $row['Luotxem'],
-    //      'Favorite' => $row['Favorite'],
-    //       'Feedback' => $row['Feedback']
-    //       );
-    //   }
-    // }
-    // $chart_data = substr($chart_data, 0, -2);
   ?>
         <!-- page content -->
         <div class="right_col" role="main">
@@ -175,7 +159,7 @@ $('.select-date').change(function(){
   } else if(thoigian == '90ngay')
   {
     var text = '90 ngày qua';
-  } else 
+  } else if(thoigian == '365ngay')
   {
     var text = '365 ngày qua';
   }
