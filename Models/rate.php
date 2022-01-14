@@ -12,7 +12,8 @@ if (isset($_REQUEST['user']) && isset($_REQUEST['idsach']) && isset($_REQUEST['s
     while ($row = $result->fetch_assoc()) {
         $iduser = $row['idMember'];
     }
-    if (mysqli_query($connect, "select * from rate where idSach=" . $idsach . " and idMember=" . $iduser)->num_rows > 0)
+    $rate = mysqli_query($connect, "select * from rate where idSach=" . $idsach . " and idMember=" . $iduser);
+    if ($rate != false && $rate->num_rows > 0)
         $sql = "update rate set sosao=" . $sosao . " where idSach=" . $idsach . " and idMember=" . $iduser;
     else
         $sql = "insert into rate values(" . $idsach . "," . $iduser . "," . $sosao . ");";
@@ -21,7 +22,7 @@ if (isset($_REQUEST['user']) && isset($_REQUEST['idsach']) && isset($_REQUEST['s
     $rate = 0;
     $result = mysqli_query($connect, $sql);
     if (
-        $result->num_rows > 0
+        $result != false && $result->num_rows > 0
     ) {
         while ($row = $result->fetch_assoc())
             $rate = $row['sosao'];

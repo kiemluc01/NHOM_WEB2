@@ -304,7 +304,7 @@ class Book extends Database
         $rate = 0;
         $result = mysqli_query($this->conn, $sql);
         if (
-            $result->num_rows > 0
+            $result != false && $result->num_rows > 0
         ) {
             while ($row = $result->fetch_assoc())
             $rate = $row['sosao'];
@@ -318,7 +318,7 @@ class Book extends Database
         $rate = 0;
         $result = mysqli_query($this->conn, $sql);
         if (
-            $result->num_rows > 0
+            $result != false && $result->num_rows > 0
         ) {
             while ($row = $result->fetch_assoc())
             $rate = $row['sosao'];

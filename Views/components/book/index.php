@@ -63,25 +63,15 @@ while ($row = $result->fetch_assoc()) {
                             }
                         }
                         ?>
-                        <!-- <input type="radio" id="star5" name="rating" value="5">
-                        <label class="full" for="star5" title="Awesome - 5 stars"></label>
-                        <input type="radio" id="star4" name="rating" value="4">
-                        <label class="full" for="star4" title="Pretty good - 4 stars"></label>
-                        <input type="radio" id="star3" name="rating" value="3">
-                        <label class="full" for="star3" title="Meh - 3 stars"></label>
-                        <input type="radio" id="star2" name="rating" value="2">
-                        <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
-                        <input type="radio" id="star1" name="rating" value="1">
-                        <label class="full" for="star1" title="Sucks big time - 1 star"></label> -->
                         <p id="rate_percent"><?php echo $book->getRate(); ?>★</p>
                     </div>
                     <div id="add-favourite">
                         <?php if ($book->check_f()) {
                         ?>
                             <input type="checkbox" name="favourite" id="favour" value="1" checked>
-                            <label for="favour" id="favourite">Bỏ thích</label> <?php } else { ?>
+                            <label for="favour" id="favourite"></label> <?php } else { ?>
                             <input type="checkbox" name="favourite" id="favour" value="1">
-                            <label for="favour" id="favourite">Thích</label>
+                            <label for="favour" id="favourite"></label>
                         <?php }
                         ?>
                         <!-- <span>Thêm vào yêu thích</span>  -->
