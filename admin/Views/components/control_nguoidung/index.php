@@ -22,31 +22,9 @@ if(isset($_REQUEST['action']))
         </div>
         <div class="btn" style="width:100%">
             <form action="" method="post">
-            <div id="filter" class="filter" style=" ;">
+            <div id="filter" class="filter">
 
-                <div class= "filter-ft" style="display: flex;">
-                    <div class="filter-ft__ev">
-                        <input type="text" placeholder="Nhập tên sách" name="namebook" id="namebook" />
-                    </div>
-                    <div class="filter-ft__ev">
-                        <input type="submit" value="Tìm Kiếm" name="search" id="search" class = "btn btn-dark">
-                    </div>
-                </div>
-                <div class="filter-ft__ev">
-                    <label for="">Tên danh mục :</label>
-                    <select name="category" id="category">
-                        <option value="category">Tìm kiếm theo danh mục</option>
-                        <?php
-                        $cat = loadModel('Listcategories');
-                        $result = $cat->getAll();
-                        if ($result->num_rows > 0)
-                            while ($row = $result->fetch_assoc()) { ?>
-                            <option value="<?php echo $row['idDanhmuc'] ?>"><?php echo $row['Tendanhmuc'] ?></option>
-                        <?php }
-                        ?>
-                    </select>
-                </div>
-              
+            
             </div>
         </form>
     </div>

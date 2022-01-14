@@ -1,20 +1,45 @@
+<?php
+$rowmember = array();
+$member = loadModel('Member');
+// $idMember = '';
+// $username = '';
+// $username = '';
+// $password = '';
+// $email = '';
+// $IMG = '';
+// $Ngaysinh = '';
+// $Gioitinh = '';
+$result = $member->get_member($_SESSION['user']);
+while ($rowmember = $result->fetch_assoc()) {
+    $idMember = $rowmember['idMember'];
+    if ($rowmember['MemberName'] == null)
+        $username = $rowmember['username'];
+    else
+        $username = $rowmember['MemberName'];
+    $password = $rowmember['password'];
+    $email = $rowmember['email'];
+    $IMG = $rowmember['ImgAvatar'];
+    $Ngaysinh = $rowmember['Ngaysinh'];
+    $Gioitinh = $rowmember['Gioitinh'];
+}
 
+?>
   <div class="container body">
     <div class="main_container">
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+            <a href="#" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
           </div>
           <div class="clearfix"></div>
           <!-- menu profile quick info -->
           <div class="profile clearfix">
             <div class="profile_pic">
-              <img src="Public/images/hailong.jpg" alt="..." class="img-circle profile_img">
+              <img src="<?php echo $IMG; ?>" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
               <span>Welcome,</span>
-              <h2>John Doe</h2>
+              <h2><?php echo $username; ?></h2>
             </div>
           </div>
           <!-- /menu profile quick info -->

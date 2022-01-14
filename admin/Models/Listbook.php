@@ -114,6 +114,16 @@ class Listbook extends Database{
         $result = mysqli_query($this->conn, $sql);
         return $result;
     }
+    function Count_find_feedback($str){
+        $dem=0;
+        $sql = "SELECT tblaccount.ImgAvatar , tblaccount.MemberName , tblsach.Tensach , tbldanhgia.* FROM tblaccount , tblsach , tbldanhgia WHERE tblsach.idSach = tbldanhgia.idSach and tblaccount.idMember = tbldanhgia.idMember and (Tensach like N'%".$str."%')";
+        $result = mysqli_query($this->conn, $sql);
+        if($result->num_rows>0)
+        while($row = $result->fetch_assoc()){
+            $dem++;
+        }
+        return $dem;
+    }
     function Delete_feedback($idDanhgia)
     {
         $sql = "delete from tbldanhgia where idDanhgia = '".$idDanhgia."'";
