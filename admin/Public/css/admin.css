@@ -1,68 +1,64 @@
-
-.modal__overlay{
-     position: absolute;
-     width: 100%;
-     height: 100%;
-     background-color : rgba(0, 0, 0, 0.4);
- }
- .modal_inner{
-    position:fixed; 
-    top:0;
-    right:0;
-    bottom:0;
-    left:0; 
-    display:flex;
-    animation: fadeIn linear 0,1s;
-   display:none;
- }
- @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+.modal__overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
 }
- .modal__body{
-    width: 500px;
-    height: 500px;
-    margin: auto;
-    position: relative;
-    background-color:white;
-    border-radius: 5px;
-    z-index: 1;
+.modal_inner {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  animation: fadeIn linear 0, 1s;
+  display: none;
 }
-.modal__main{
-    padding:10px;
-    
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
-.img-thumbnail{
-    margin-top:10px;
+.modal__body {
+  width: 500px;
+  height: 500px;
+  margin: auto;
+  position: relative;
+  background-color: white;
+  border-radius: 5px;
+  z-index: 1;
 }
-.btn-success{
-    margin-top:10px;
+.modal__main {
+  padding: 10px;
 }
-.btn{
-    width:100%;
+.img-thumbnail {
+  margin-top: 10px;
 }
-.filter{
-    display: flex;
-    width:100%;
+.btn-success {
+  margin-top: 10px;
 }
-.filter .filter-ft
-{
-    width:100%;
-    display: flex;
+.btn {
+  width: 100%;
 }
-.Tenchuong{
-
-    display:flex;
+.filter {
+  display: flex;
+  width: 100%;
+}
+.filter .filter-ft {
+  width: 100%;
+  display: flex;
+}
+.Tenchuong {
+  display: flex;
 }
 .right_col {
-    height: 88vh!important;
-    overflow: auto!important;
-    padding: 10px !important; }
-body{
-    overflow: auto !important;
+  height: 88vh !important;
+  /* overflow: auto!important; */
+  padding: 10px !important;
 }
-
+body {
+  overflow: auto !important;
+}
