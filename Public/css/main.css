@@ -12,7 +12,7 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 body {
-  background-color: var(--light);
+  /* background-color: var(--light); */
   padding-top: 3rem;
 }
 textarea {
