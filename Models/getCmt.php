@@ -44,8 +44,7 @@ if (isset($_REQUEST['noidung']) && isset($_REQUEST['user']) && isset($_REQUEST['
                     <?php
                     if ($cmt_row['username'] == $user) { ?>
                         <div class="position-absolute comment-trash">
-                            <a href="" class="btn btn-info text-light" data-bs-toggle="modal" data-bs-target="#deleteCmtAlert"><i class="fas fa-trash"></i></a>
-                            <!-- <button class="btn btn-info text-light" data-bs-toggle="modal" data-bs-target="#deleteCmtAlert"><i class="fas fa-trash"></i></button> -->
+                            <button class="btnDeleteCmt btn btn-info text-light" data-cmt-id="<?php echo $cmt_row['idDanhgia']; ?>" data-bs-toggle="modal" data-bs-target="#deleteCmtAlert"><i class="fas fa-trash"></i></button>
                         </div><?php } ?>
                 </div>
         <?php }
@@ -59,6 +58,7 @@ if (isset($_REQUEST['id']) && isset($_REQUEST['user']) && isset($_REQUEST['idsac
     $user = $_REQUEST['user'];
     $idsach = $_REQUEST['idsach'];
     $sql = "delete from tbldanhgia where iddanhgia =" . $_REQUEST['id'];
+    echo $sql;
     if (mysqli_query($connect, $sql)) {
         $sql1 = "select * from tblaccount where username ='" . $user . "'";
         $result = mysqli_query($connect, $sql1);
@@ -93,8 +93,7 @@ if (isset($_REQUEST['id']) && isset($_REQUEST['user']) && isset($_REQUEST['idsac
                         <?php
                         if ($cmt_row['username'] == $user) { ?>
                             <div class="position-absolute comment-trash">
-                                <a href="" class="btn btn-info text-light" data-bs-toggle="modal" data-bs-target="#deleteCmtAlert"><i class="fas fa-trash"></i></a>
-                                <!-- <button class="btn btn-info text-light" data-bs-toggle="modal" data-bs-target="#deleteCmtAlert"><i class="fas fa-trash"></i></button> -->
+                                <button class="btnDeleteCmt btn btn-info text-light" data-cmt-id="<?php echo $cmt_row['idDanhgia']; ?>" data-bs-toggle="modal" data-bs-target="#deleteCmtAlert"><i class="fas fa-trash"></i></button>
                             </div><?php } ?>
                     </div>
             <?php }
