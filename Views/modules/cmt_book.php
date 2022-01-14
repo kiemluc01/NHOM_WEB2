@@ -30,10 +30,10 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
                         </div>
                     </div>
                     <div class="position-absolute comment-trash">
-                        <button class="btnDeleteCmt btn btn-info text-light" data-cmt-id="id đây nghe <?php echo $cmt_row['Noidung']; ?>"  data-bs-toggle="modal" data-bs-target="#deleteCmtAlert"><i class="fas fa-trash"></i></button>
+                        <button class="btnDeleteCmt btn btn-info text-light" data-cmt-id="<?php echo $cmt_row['idDanhgia']; ?>" data-bs-toggle="modal" data-bs-target="#deleteCmtAlert"><i class="fas fa-trash"></i></button>
                     </div>
                     <!-- <?php if (isset($_SESSION['user']))
-                        if ($cmt_row['username'] == $_SESSION['user']) { ?>
+                                if ($cmt_row['username'] == $_SESSION['user']) { ?>
                         <div class="position-absolute comment-trash">
                             <a href="<?php echo 'index.php?option=book&idSach=' . $_REQUEST['idSach'] . '&action=delete&idcmt=' . $cmt_row['idDanhgia']; ?>" class="btn btn-info text-light" data-bs-toggle="modal" data-bs-target="#deleteCmtAlert"><i class="fas fa-trash"></i></a>
                         </div><?php } ?> -->
@@ -60,10 +60,10 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
         <div class="modal-content">
             <div class="modal-body">
                 Bạn muốn xoá cảm nhận này?
-                <p>Comment ID: <span id="cmtId"></span></p>
+                <p style="display: none;">Comment ID: <span id="cmtId"></span></p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger">Có</button>
+                <button type="button" class="btn btn-danger" id="delete_cmt">Có</button>
                 <button type="button" class="btn btn-info text-light" data-bs-dismiss="modal">Không</button>
             </div>
         </div>
@@ -104,6 +104,26 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
                     }
                 })
             }
+        })
+        $('#delete_cmt').on("click", function() {
+            var id = $("#cmtId").text();
+            var user = $('#user').val();
+            var idsach = $('#idSach').val();
+            document.getElementById('deleteCmtAlert').style.display = 'none'
+            $.ajax({
+                url: "Models/getCmt.php",
+                type: "POST",
+                data: {
+                    idsach: idsach,
+                    user: user,
+                    id: id
+                },
+                success: function(data) {
+                    $("#cmt").html(data);
+                    $('#content_cmt').html('<textarea name="Noidung" id="noidung" cols="30" rows="10" class="card p-3 w-100" placeholder="Cảm nhận của bạn ..."></textarea>')
+                    // $('#dialog').html('<div class="modal-content"> <div class = "modal-body" >Bạn muốn xoá cảm nhận này ?<p style = "display: none;" > Comment ID : <span id = "cmtId" > </span></p ></div> <div class = "modal-footer" ><button type = "button"class = "btn btn-danger"id = "delete_cmt" > Có </button> <button type = "button" class = "btn btn-info text-light" data-bs-dismiss = "modal" >Không</button></div>')
+                }
+            })
         })
     })
 </script>
