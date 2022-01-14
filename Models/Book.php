@@ -80,6 +80,17 @@ class Book extends Database
         $result = mysqli_query($this->conn, $sql);
         return $result;
     }
+    function check_f()
+    {
+        $member = loadModel('Member');
+        $sql = "select * from tblfavorite where idSach =" . $_REQUEST['idSach'] . " and idMember=" . $member->getID();
+        $result = mysqli_query($this->conn, $sql);
+        if (
+            $result->num_rows > 0
+        )
+        return true;
+        else return false;
+    }
     function loadBookName($idSach)
     {
         $row = array();
@@ -269,9 +280,7 @@ class Book extends Database
         $sql = "select * from tblchuong where idSach = " . $idBook;
         $ten = '';
         $result = mysqli_query($this->conn, $sql);
-        if (
-            $result->num_rows > 0
-        )
+        if ($result->num_rows > 0)
             while ($row = $result->fetch_assoc()) {
                 $ten = $row['TenChuong'];
                 break;
@@ -288,5 +297,32 @@ class Book extends Database
     {
         $sql = "update chitietsach set Luotxem = Luotxem +1";
         mysqli_query($this->conn, $sql);
+    }
+    function getRate()
+    {
+        $sql = "select idSach,avg(sosao) as sosao from rate where idSach =" . $_REQUEST['idSach'] . " group by idSach";
+        $rate = 0;
+        $result = mysqli_query($this->conn, $sql);
+        if (
+            $result->num_rows > 0
+        ) {
+            while ($row = $result->fetch_assoc())
+            $rate = $row['sosao'];
+        }
+        return round($rate, 1);
+    }
+    function checkRate()
+    {
+        $member = loadModel('Member');
+        $sql = "select * from rate where idSach =" . $_REQUEST['idSach'] . " and idMember = " . $member->getID() . " group by idSach";
+        $rate = 0;
+        $result = mysqli_query($this->conn, $sql);
+        if (
+            $result->num_rows > 0
+        ) {
+            while ($row = $result->fetch_assoc())
+            $rate = $row['sosao'];
+        }
+        return $rate;
     }
 }

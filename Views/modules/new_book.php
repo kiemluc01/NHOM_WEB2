@@ -10,7 +10,7 @@ $resultBook =  $book->get_new_book($_REQUEST['idSach']);
                 <div class="book">
                     <a href="<?php loadHrefBook($newBook['idSach']); ?>" class="inner-book">
                         <div class="img" style="padding-top: calc(1.07 * 100%)">
-                            <img src="<?php echo $newBook['imgSach']; ?>" alt="Book Cover Image">
+                            <img src="<?php echo (substr($newBook['imgSach'], 0, 4) == "http" ? $newBook['imgSach'] : "admin/" . $newBook['imgSach']); ?>" alt="Book Cover Image">
                         </div>
                         <div class="page"></div>
                         <div class="page page-2"></div>

@@ -42,8 +42,7 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
 </div>
 <input type="text" id="user" style="display:none" value="<?php echo (isset($_SESSION['user']) ? $_SESSION['user'] : ""); ?>">
 <input type="text" id="idSach" style="display:none" value="<?php echo $_REQUEST['idSach']; ?>">
-<script></script>
-<script src=" //ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 <script>
@@ -72,7 +71,7 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
                     },
                     success: function(data) {
                         $("#cmt").html(data);
-                        $('#noidung').val() = ""
+                        $('#noidung').innerHTML = ""
                     }
                 })
             }
