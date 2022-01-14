@@ -37,7 +37,7 @@ $category = $book->get_category_all();
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <li class="nav-item px-3">
-                    <a class="nav-link active" href="<?php echo 'index.php'; ?>">Trang chủ</a>
+                    <a class="nav-link" href="<?php echo 'index.php'; ?>">Trang chủ</a>
                 </li>
                 <li class="nav-item dropdown px-3">
                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" href="#">
@@ -69,19 +69,19 @@ $category = $book->get_category_all();
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li>
-                            <a class="dropdown-item" href="index.php?option=member"><i class="fas fa-user-cog"></i> <?php echo $username; ?></a>
+                            <a class="dropdown-item" href="index.php?option=member"><i class="fas fa-user-cog me-3"></i> <?php echo $username; ?></a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="#"><i class="fas fa-book"></i> Thư viện</a>
+                            <a class="dropdown-item" href="#"><i class="fas fa-book me-3"></i> Thư viện</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="#"><i class="fas fa-bell"></i> Thông báo</a>
+                            <a class="dropdown-item" href="#"><i class="fas fa-bell me-3"></i> Thông báo</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="#"><i class="fas fa-key"></i> Đổi mật khẩu</a>
+                            <a class="dropdown-item" href="#"><i class="fas fa-key me-3"></i> Đổi mật khẩu</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="index.php?option=login" onclick="destroy()"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+                            <a class="dropdown-item" href="index.php?option=login" onclick="destroy()"><i class="fas fa-sign-out-alt me-3"></i> Đăng xuất</a>
                         </li>
                     </ul>
                 </li>
