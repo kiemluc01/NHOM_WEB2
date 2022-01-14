@@ -325,4 +325,10 @@ class Book extends Database
         }
         return $rate;
     }
+    function getFavouriteBook()
+    {
+        $member = loadModel(('Member'));
+        $sql = "select a.idSach,a.idMember,b.Tensach,imgSach from tblfavorite as a,tblsach as b where a.idSach = b.idSach and idMember = " . $member->getID();
+        return mysqli_query($this->conn, $sql);
+    }
 }

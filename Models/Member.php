@@ -49,13 +49,22 @@ class Member extends Database
             }
         return null;
     }
-    function getName($user)
+    function getName()
     {
-        $sql = "select * from tblaccount where username = '" . $user . "'";
+        $sql = "select * from tblaccount where username = '" . $_SESSION['user'] . "'";
         $result = mysqli_query($this->conn, $sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc())
                 return $row['MemberName'];
+        }
+    }
+    function getEmail()
+    {
+        $sql = "select * from tblaccount where username = '" . $_SESSION['user'] . "'";
+        $result = mysqli_query($this->conn, $sql);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc())
+                return $row['email'];
         }
     }
     function AVT()
