@@ -3,13 +3,8 @@ $(document).ready(function() {
         var id = $(this).attr("data-cmt-id");
         $("#cmtId").text(id);
     });
-
-
-
-
-    $("#searchBookBtn").on({
-        keyup: function() {
-            var filter = $(this).value;
+    $("#searchBookBtn").on("keyup", function() {
+            var filter = $(this).text();
             if (filter.length == 0) {
                 // document.getElementById("liveSearch").innerHTML = "";
                 $("#liveSearch").style.display = "none";
@@ -25,5 +20,5 @@ $(document).ready(function() {
             xmlhttp.open("GET", "Views/modules/livesearchbuonba.php?q=" + filter, true);
             xmlhttp.send();
         }
-    })
+    );
 });
