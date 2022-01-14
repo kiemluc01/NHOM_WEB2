@@ -3,3 +3,9 @@
   top: 66px;
   z-index: 100;
 }
+.dropdown-item {
+  color: hotpink;
+}
+.dropdown-item:hover {
+  color: var(--ihover);
+}

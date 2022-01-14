@@ -37,7 +37,7 @@ $category = $book->get_category_all();
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <li class="nav-item px-3">
-                    <a class="nav-link active" href="<?php echo 'index.php'; ?>">Trang chủ</a>
+                    <a class="nav-link" href="<?php echo 'index.php'; ?>">Trang chủ</a>
                 </li>
                 <li class="nav-item dropdown px-3">
                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" href="#">

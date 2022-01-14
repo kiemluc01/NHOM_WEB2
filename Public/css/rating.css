@@ -26,7 +26,7 @@
 #rating>input:checked~label:hover,
 #rating>label:hover~input:checked~label,
 #rating>input:checked~label:hover~label {
-  color: #ffa26f;
+  color: var(--ihover);
 }
 #add-favourite > input {
   display: none;
@@ -55,5 +55,5 @@
 #add-favourite>input:checked~label:hover,
 #add-favourite>label:hover~input:checked~label,
 #add-favourite>input:checked~label:hover~label {
-  color: #ffa26f;
+  color: var(--ihover);
 }

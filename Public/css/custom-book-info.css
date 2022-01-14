@@ -3,6 +3,19 @@
   max-width: fit-content;
   background-color: #f2f2f2;
 }
+.custom-max-box {
+  padding: 2rem;
+  background-color: #f2f2f2;
+}
+.custom-min-box {
+  padding: 0.5rem;
+  background-color: #f2f2f2;
+}
+.custom-min-box-fit-content {
+  padding: 0.5rem;
+  max-width: fit-content;
+  background-color: #f2f2f2;
+}
 :root {
   --underline-intrinsic-width: 8;
   --underline-width: 12;
@@ -50,4 +63,16 @@
 .custom-book-info-heading--2 {
     --underline-width: 8;
     --underline-offset-y: -2px;
+}
+.custom-book-info-heading--3 {
+  --underline-width: 6;
+  --underline-offset-y: -2px;
+}
+.custom-book-info-heading--4 {
+  --underline-width: 5;
+  --underline-offset-y: -2px;
+}
+.custom-book-info-heading--5 {
+  --underline-width: 4;
+  --underline-offset-y: -2px;
 }
