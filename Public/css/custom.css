@@ -3,12 +3,20 @@
   top: 66px;
   z-index: 100;
 }
-.dropdown-item {
+.dropdown-item,
+.dropdown-item:focus {
   color: hotpink;
 }
 .dropdown-item:hover {
   color: var(--ihover);
 }
+/* .nav-link,
+.nav-link:focus {
+  color: hotpink;
+}
+.nav-link:hover {
+  color: var(--ihover);
+} */
 .comment-trash {
   bottom: 0.5vh;
   right: 0.5vw;

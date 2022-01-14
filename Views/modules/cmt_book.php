@@ -63,7 +63,7 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
                 <p>Comment ID: <span id="cmtId"></span></p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger">Có</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Có</button>
                 <button type="button" class="btn btn-info text-light" data-bs-dismiss="modal">Không</button>
             </div>
         </div>
