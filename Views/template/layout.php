@@ -32,6 +32,10 @@
 
 <body>
     <header>
+        <?php if (isset($_REQUEST['option'])) {
+            if ($_REQUEST['option'] == 'login')
+                isset($_SESSION['user']);
+        } ?>
         <?php loadMenu(); ?>
     </header>
 

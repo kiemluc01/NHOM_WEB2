@@ -77,7 +77,7 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
                     },
                     success: function(data) {
                         $("#cmt").html(data);
-                        $('#noidung').val() = ""
+                        $('#noidung').innerHTML = ""
                     }
                 })
             }
