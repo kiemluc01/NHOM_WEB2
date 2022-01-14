@@ -166,6 +166,9 @@ class Book extends Database
         $paragraphs = explode("\n", $str); // []
         $line_count = 0;
         foreach ($paragraphs as $para_str) {
+            if (strlen($para_str) > 4) {
+                $para_str = trim($para_str);
+            }
             $or = ord($para_str);
             if ($or == 32) {
                 $lines[$line_count] = "\n";
@@ -324,5 +327,11 @@ class Book extends Database
             $rate = $row['sosao'];
         }
         return $rate;
+    }
+    function getFavouriteBook()
+    {
+        $member = loadModel(('Member'));
+        $sql = "select a.idSach,a.idMember,b.Tensach,imgSach from tblfavorite as a,tblsach as b where a.idSach = b.idSach and idMember = " . $member->getID();
+        return mysqli_query($this->conn, $sql);
     }
 }

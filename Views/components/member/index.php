@@ -29,7 +29,8 @@ if (isset($_REQUEST['loadBGR'])) {
 }
 ?>
 <div class="fluid-container mt-2">
-    <div class="cover-photo" style="background: url(<?php echo (substr($member->BGR(), 0, 4) == "http" ? $member->BGR() : "admin/" . $member->BGR()); ?>);">
+    <!--  -->
+    <div class="cover-photo" style="background-image: url('<?php echo (substr($member->BGR(), 0, 4) == "http" ? $member->BGR()  : "admin/" . $member->BGR()); ?>');">
         <div class="profile-photo-container">
             <img src="<?php echo (substr($member->AVT(), 0, 4) == "http" ? $member->AVT() : "admin/" . $member->AVT()); ?>" alt="Profile photo" class="profile">
             <button class="btn btn-info text-light" id="edit_avt"><i class="fas fa-camera"></i></button>
@@ -37,9 +38,9 @@ if (isset($_REQUEST['loadBGR'])) {
         <button class="btn btn btn-info text-white" id="edit_bgr"><i class="fas fa-camera"></i></button>
     </div>
     <div class="profile-name custom-min-box-fit-content">
-        <h5 class="[  custom-book-info-heading  custom-book-info-heading--5  ]">Tên thành viên</h5>
+        <h5 class="[  custom-book-info-heading  custom-book-info-heading--5  ]"><?php echo $member->getName(); ?></h5>
     </div>
-    <p class="profile-email">Email thành viên</p>
+    <p class="profile-email"><?php echo $member->getEmail(); ?></p>
     <div class="dialog" id="dialog_bgr">
         <div style="width:98%">
             <center>
@@ -92,18 +93,19 @@ if (isset($_REQUEST['loadBGR'])) {
                     <form action="" method="post">
                         <div class="mb-3 mt-3">
                             <label for="user_name" class="form-label">Tên tài khoản:</label>
-                            <input type="text" class="form-control" id="user_name" placeholder="vanhoang" name="user_name">
+                            <input type="text" class="form-control" id="user_name" placeholder="vanhoang" name="user_name" value="<?php echo $_SESSION['user']; ?>">
                         </div>
                         <div class="mb-3">
                             <label for="fullname" class="form-label">Họ và tên:</label>
-                            <input type="text" class="form-control" id="fullname" placeholder="Văn Hoàng" name="fullname">
+                            <input type="text" class="form-control" id="fullname" placeholder="Văn Hoàng" name="fullname" value="<?php echo $member->getName(); ?>">
                         </div>
-                        <div class="mb-3">
+                        <div class=" mb-3">
                             <label for="email" class="form-label">Email:</label>
-                            <input type="email" class="form-control" id="email" placeholder="vanhoang@gmail.com" name="email">
+                            <input type="email" class="form-control" id="email" placeholder="vanhoang@gmail.com" name="email" value="<?php echo $member->getEmail(); ?>">
                         </div>
                         <div class="mb-3 d-flex gap-5">
                             <div class="form-check">
+                                <?php  ?>
                                 <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Nam
                                 <label class="form-check-label" for="radio1"></label>
                             </div>
@@ -114,49 +116,33 @@ if (isset($_REQUEST['loadBGR'])) {
                         </div>
                         <div class="mb-3">
                             <label for="dbo" class="form-label">Ngày sinh:</label>
-                            <input type="date" class="form-control" id="dbo" name="dbo">
+                            <input type="date" class="form-control" id="dbo" name="dbo" value="<?php echo $_SESSION['user']; ?>">
                         </div>
                         <button type="submit" class="btn btn-lg text-light btn-info fw-bold border-info bg-info">Lưu</button>
                     </form>
                 </div>
+
                 <div class="tab-pane container fade" id="library">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item p-3 d-flex gap-3">
-                            <div>
-                                <img src="admin\Public\images\avatar\ahuhu.jpg" alt="" width="80">
-                            </div>
-                            <div class="d-flex flex-column justify-content-between flex-grow-1">
-                                <div><a href="#">Book name (link to book)</a></div>
-                                <div class="text-end"><a href="#">Xoá khỏi danh sách yêu thích</a></div>
-                            </div>
-                        </li>
-                        <li class="list-group-item p-3 d-flex gap-3">
-                            <div>
-                                <img src="admin\Public\images\avatar\ahuhu.jpg" alt="" width="80">
-                            </div>
-                            <div class="d-flex flex-column justify-content-between flex-grow-1">
-                                <div><a href="#">Book name (link to book)</a></div>
-                                <div class="text-end"><a href="#">Xoá khỏi danh sách yêu thích</a></div>
-                            </div>
-                        </li>
-                        <li class="list-group-item p-3 d-flex gap-3">
-                            <div>
-                                <img src="admin\Public\images\avatar\ahuhu.jpg" alt="" width="80">
-                            </div>
-                            <div class="d-flex flex-column justify-content-between flex-grow-1">
-                                <div><a href="#">Book name (link to book)</a></div>
-                                <div class="text-end"><a href="#">Xoá khỏi danh sách yêu thích</a></div>
-                            </div>
-                        </li>
-                        <li class="list-group-item p-3 d-flex gap-3">
-                            <div>
-                                <img src="admin\Public\images\avatar\ahuhu.jpg" alt="" width="80">
-                            </div>
-                            <div class="d-flex flex-column justify-content-between flex-grow-1">
-                                <div><a href="#">Book name (link to book)</a></div>
-                                <div class="text-end"><a href="#">Xoá khỏi danh sách yêu thích</a></div>
-                            </div>
-                        </li>
+                        <?php $book = loadModel('Book');
+                        $result = $book->getFavouriteBook();
+                        if ($result->num_rows > 0)
+                            while ($row = $result->fetch_assoc()) {
+                        ?>
+                            <li class="list-group-item p-3 d-flex gap-3">
+                                <div>
+                                    <img src="<?php echo (substr($row['imgSach'], 0, 4) == "http" ? $row['imgSach'] : "admin/" . $row['imgSach']);
+                                                ?>" alt="" width="80">
+                                </div>
+                                <div class="d-flex flex-column justify-content-between flex-grow-1">
+                                    <div><a href="#"><?php $row['imgSach'];
+                                                        ?></a></div>
+                                    <div class="text-end"><a href="index.php">Xoá khỏi danh sách yêu thích</a></div>
+                                </div>
+                            </li>
+                        <?php    }
+                        ?>
+                        <!--  -->
                     </ul>
                 </div>
                 <div class="tab-pane container fade" id="notifi">

@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="Public\css\custom.css">
     <link rel="stylesheet" href="Public\css\demoStyle3.css">
     <link rel="stylesheet" href="Public\css\custom-profile.css">
-    <!-- <link rel="stylesheet" href="Public/css/login.css"> -->
+    <link rel="stylesheet" href="Public\css\custom-livesearch.css">
     <!-- <link rel="stylesheet" href="Public/css/register.css"> -->
     <link rel="stylesheet" href="Public/fontawesome/css/all.css">
     <link rel="stylesheet" href="Public/css/icon.css">
