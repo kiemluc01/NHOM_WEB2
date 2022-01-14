@@ -13,20 +13,20 @@ if(isset($_POST['thoigian']))
 }else
 {
 $thoigian = '';
-$subdays = Carbon::now('Asia/Ho_Chi_Minh') -> subdays(365)->toDateTimeString();
+$subdays = Carbon::now('Asia/Ho_Chi_Minh') -> subDays(365)->toDateTimeString();
 }
 
 if($thoigian == '7ngay')
 {
-    $subdays = Carbon::now('Asia/Ho_Chi_Minh') -> subdays(7)->toDateTimeString(); 
+    $subdays = Carbon::now('Asia/Ho_Chi_Minh') -> subDays(7)->toDateTimeString(); 
 }else if($thoigian == '28ngay')
 {
-    $subdays = Carbon::now('Asia/Ho_Chi_Minh') -> subdays(28)->toDateTimeString(); 
+    $subdays = Carbon::now('Asia/Ho_Chi_Minh') -> subDays(28)->toDateTimeString(); 
 }else if($thoigian == '90ngay')
 {
-    $subdays = Carbon::now('Asia/Ho_Chi_Minh') -> subdays(90)->toDateTimeString(); 
+    $subdays = Carbon::now('Asia/Ho_Chi_Minh') -> subDays(90)->toDateTimeString(); 
 }else if($thoigian == '365ngay'){
-    $subdays = Carbon::now('Asia/Ho_Chi_Minh') -> subdays(365)->toDateTimeString(); 
+    $subdays = Carbon::now('Asia/Ho_Chi_Minh') -> subDays(365)->toDateTimeString(); 
 }
 $now = Carbon::now('Asia/Ho_Chi_Minh')->toDateTimeString();
 $Listbook = loadModel('Listbook');
