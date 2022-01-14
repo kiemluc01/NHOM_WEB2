@@ -12,7 +12,7 @@ $member = loadModel('Member');
 $result = $member->get_member($_SESSION['user']);
 while ($rowmember = $result->fetch_assoc()) {
     $idMember = $rowmember['idMember'];
-    if ($rowmember['MemberName'] == null)
+    if ($rowmember['MemberName'] == null || $rowmember['MemberName']  == "Chưa đặt tên")
         $username = $rowmember['username'];
     else
         $username = $rowmember['MemberName'];
@@ -56,7 +56,7 @@ while ($rowmember = $result->fetch_assoc()) {
                 <li><a href="index.php?option=control_nguoidung"><i class="fa fa-user"></i> Quản lý người dùng</a></li>
                 <li><a href="index.php?option=banner"><i class="fa fa-image"></i> Quản lý banner</a></li>
                 <li><a href="index.php?option=feedback&page=1"><i class="fa fa-comments"></i> Tương tác</a>
-                <li><a href="index.php?option=rate"><i class="fa fa-comments"></i>Đánh giá sách</a>
+                <li><a href="index.php?option=rate"><i class="fas fa-star"></i>Đánh giá sách</a>
                 </li>
 
               </ul>
