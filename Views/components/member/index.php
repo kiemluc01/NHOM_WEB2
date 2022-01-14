@@ -3,7 +3,7 @@ $member = loadModel('Member');
 if (isset($_REQUEST['loadAVT'])) {
     $file = $_FILES['AVT']['tmp_name'];
     $path = 'Public/images/' . $_FILES['AVT']['name'];
-    if (move_uploaded_file($file, $path)) {
+    if (move_uploaded_file($file, 'admin/' . $path)) {
         $person->update_IMGAVT($path);
         echo "<script>
             $(document).ready(function(){
@@ -17,7 +17,7 @@ if (isset($_REQUEST['loadAVT'])) {
 if (isset($_REQUEST['loadBGR'])) {
     $file = $_FILES['BGR']['tmp_name'];
     $path = 'Public/images/' . $_FILES['BGR']['name'];
-    if (move_uploaded_file($file, $path)) {
+    if (move_uploaded_file($file, 'admin/' . $path)) {
         $person->update_IMGBGR($path);
         echo "<script>
             $(document).ready(function(){

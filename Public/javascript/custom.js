@@ -36,6 +36,7 @@ $(document).ready(function() {
             },
             success: function(data) {
                 $('#book_f').html(data);
+                window.location.reload()
             }
         })
     })
