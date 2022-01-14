@@ -11,6 +11,7 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
     <div class="custom-max-box mt-3 scroll-height-50">
         <?php
         if (true) {
+            $id = 0;
             while ($cmt_row = $cmt_book->fetch_assoc()) {
                 $dateCmt = strtotime($cmt_row['Thoigian']);
                 $parts = getdate($dateCmt); ?>
@@ -29,8 +30,13 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
                         </div>
                     </div>
                     <div class="position-absolute comment-trash">
-                        <button class="btn btn-info text-light" data-bs-toggle="modal" data-bs-target="#deleteCmtAlert"><i class="fas fa-trash"></i></button>
+                        <button class="btnDeleteCmt btn btn-info text-light" data-cmt-id="id đây nghe <?php echo $cmt_row['Noidung']; ?>"  data-bs-toggle="modal" data-bs-target="#deleteCmtAlert"><i class="fas fa-trash"></i></button>
                     </div>
+                    <!-- <?php if (isset($_SESSION['user']))
+                        if ($cmt_row['username'] == $_SESSION['user']) { ?>
+                        <div class="position-absolute comment-trash">
+                            <a href="<?php echo 'index.php?option=book&idSach=' . $_REQUEST['idSach'] . '&action=delete&idcmt=' . $cmt_row['idDanhgia']; ?>" class="btn btn-info text-light" data-bs-toggle="modal" data-bs-target="#deleteCmtAlert"><i class="fas fa-trash"></i></a>
+                        </div><?php } ?> -->
                 </div>
         <?php }
         } ?>
@@ -40,7 +46,7 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
     <h4 class="[  custom-book-info-heading  custom-book-info-heading--4  ]">Cho chúng tôi biết cảm nhận của bạn</h4>
     <!-- <form action="" method="post"> -->
     <div class="custom-max-box mt-3">
-        <div class="mb-3">
+        <div class="mb-3" id="content_cmt">
             <textarea name="Noidung" id="noidung" cols="30" rows="10" class="card p-3 w-100" placeholder="Cảm nhận của bạn ..."></textarea>
         </div>
         <div class="mt-3 text-end">
@@ -54,6 +60,7 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
         <div class="modal-content">
             <div class="modal-body">
                 Bạn muốn xoá cảm nhận này?
+                <p>Comment ID: <span id="cmtId"></span></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger">Có</button>
@@ -93,7 +100,7 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
                     },
                     success: function(data) {
                         $("#cmt").html(data);
-                        $('#noidung').innerHTML = ""
+                        $('#content_cmt').html('<textarea name="Noidung" id="noidung" cols="30" rows="10" class="card p-3 w-100" placeholder="Cảm nhận của bạn ..."></textarea>')
                     }
                 })
             }

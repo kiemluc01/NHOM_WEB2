@@ -42,9 +42,12 @@ if (isset($_REQUEST['noidung']) && isset($_REQUEST['user']) && isset($_REQUEST['
                             <p class="mt-3"><?php echo $cmt_row['Noidung'] ?></p>
                         </div>
                     </div>
-                    <div class="position-absolute">
-                        <button class="btn btn-info text-light" data-bs-toggle="modal" data-bs-target="#deleteCmtAlert"><i class="fas fa-trash"></i></button>
-                    </div>
+                    <?php
+                    if ($cmt_row['username'] == $user) { ?>
+                        <div class="position-absolute comment-trash">
+                            <a href="" class="btn btn-info text-light" data-bs-toggle="modal" data-bs-target="#deleteCmtAlert"><i class="fas fa-trash"></i></a>
+                            <!-- <button class="btn btn-info text-light" data-bs-toggle="modal" data-bs-target="#deleteCmtAlert"><i class="fas fa-trash"></i></button> -->
+                        </div><?php } ?>
                 </div>
         <?php }
         } ?>
