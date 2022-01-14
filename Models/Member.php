@@ -85,4 +85,22 @@ class Member extends Database
                 return $row['ImgBia'];
         }
     }
+    function getGT()
+    {
+        $sql = "select * from tblaccount where username = '" . $_SESSION['user'] . "'";
+        $result = mysqli_query($this->conn, $sql);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc())
+                return $row['Gioitinh'];
+        }
+    }
+    function getNS()
+    {
+        $sql = "select * from tblaccount where username = '" . $_SESSION['user'] . "'";
+        $result = mysqli_query($this->conn, $sql);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc())
+                return $row['Ngaysinh'];
+        }
+    }
 }

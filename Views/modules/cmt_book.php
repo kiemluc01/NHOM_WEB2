@@ -100,6 +100,7 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
                     success: function(data) {
                         $("#cmt").html(data);
                         $('#content_cmt').html('<textarea name="Noidung" id="noidung" cols="30" rows="10" class="card p-3 w-100" placeholder="Cảm nhận của bạn ..."></textarea>')
+                        window.location.reload()
                     }
                 })
             }
@@ -120,6 +121,7 @@ $cmt_book = $book->get_cmt($_REQUEST['idSach']);
                 success: function(data) {
                     $("#cmt").html(data);
                     $('#content_cmt').html('<textarea name="Noidung" id="noidung" cols="30" rows="10" class="card p-3 w-100" placeholder="Cảm nhận của bạn ..."></textarea>')
+                    window.location.reload()
                     // $('#dialog').html('<div class="modal-content"> <div class = "modal-body" >Bạn muốn xoá cảm nhận này ?<p style = "display: none;" > Comment ID : <span id = "cmtId" > </span></p ></div> <div class = "modal-footer" ><button type = "button"class = "btn btn-danger"id = "delete_cmt" > Có </button> <button type = "button" class = "btn btn-info text-light" data-bs-dismiss = "modal" >Không</button></div>')
                 }
             })
