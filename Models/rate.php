@@ -12,7 +12,7 @@ if (isset($_REQUEST['user']) && isset($_REQUEST['idsach']) && isset($_REQUEST['s
     while ($row = $result->fetch_assoc()) {
         $iduser = $row['idMember'];
     }
-    if (mysqli_query($connect, "select * from rate where idSach=" . $idsach . " and idMember=" . $iduser))
+    if (mysqli_query($connect, "select * from rate where idSach=" . $idsach . " and idMember=" . $iduser)->num_rows > 0)
         $sql = "update rate set sosao=" . $sosao . " where idSach=" . $idsach . " and idMember=" . $iduser;
     else
         $sql = "insert into rate values(" . $idsach . "," . $iduser . "," . $sosao . ");";

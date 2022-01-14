@@ -73,7 +73,7 @@ while ($row = $result->fetch_assoc()) {
                 <form action="#" method="post" class="clear-fix">
                     <div id="rating">
                         <?php $sosao = $book->checkRate();
-                        for ($i = 1; $i <= 5; $i++) {
+                                                            for ($i = 5; $i >= 1; $i--) {
                             if ($i == $sosao) { ?>
                                 <input type="radio" id="star<?php echo $i ?>" name="rating" value="<?php echo $i ?>" checked>
                                 <label class="full" for="star<?php echo $i ?>" title="Awesome - <?php echo $i ?> stars"></label>
