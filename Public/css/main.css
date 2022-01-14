@@ -1,6 +1,6 @@
 :root {
   --light: #f0f7d4;
-  --link: #b2d732;
+  --link: #1221ff;
   --linkhover: #6e8322;
   --primary: #4424d6;
   --icolor: hotpink;
@@ -16,6 +16,9 @@
 ::-webkit-scrollbar-thumb {
   background: var(--icolor);
   border-radius: 5px;
+}
+.text-dark-blue {
+  color: var(--link);
 }
 
 * {
