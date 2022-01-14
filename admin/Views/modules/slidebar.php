@@ -56,6 +56,7 @@ while ($rowmember = $result->fetch_assoc()) {
                 <li><a href="index.php?option=control_nguoidung"><i class="fa fa-user"></i> Quản lý người dùng</a></li>
                 <li><a href="index.php?option=banner"><i class="fa fa-image"></i> Quản lý banner</a></li>
                 <li><a href="index.php?option=feedback&page=1"><i class="fa fa-comments"></i> Tương tác</a>
+                <li><a href="index.php?option=rate"><i class="fa fa-comments"></i>Đánh giá sách</a>
                 </li>
 
               </ul>

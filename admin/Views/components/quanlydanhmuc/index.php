@@ -41,8 +41,8 @@ if(isset($_REQUEST['action']))
     </div>
 
            
-        <div class="div_table" style="width = 100%">
-            <table class = "table" style ="border:2px solid black">
+        <div class="div_table">
+            <table class = "table">
                 <tr>
                     <th>STT</th>
                     <th>Tên danh mục</th>
