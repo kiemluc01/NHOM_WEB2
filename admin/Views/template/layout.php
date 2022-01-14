@@ -82,22 +82,28 @@
 </head>
 
 <body class="nav-md">
-    <!-- top navigation -->
-    <?php
-    loadModule("slidebar")
-    ?>
-    <!-- /top navigation -->
-    <?php
-    loadModule("header_admin")
-    ?>
+    <div class="container body">
+        <div class="main_container">
+            <!-- top navigation -->
+            <?php
+            loadModule("slidebar")
+            ?>
+            <!-- /top navigation -->
+            <?php
+            loadModule("header_admin")
+            ?>
 
-    <!-- page content -->
-    <?php loadComponent()
-    ?>
-    <!-- /page content -->
-    <?php
-    loadModule("footer_admin")
-    ?>
+            <!-- page content -->
+            <div class="right_col custom-scroll" role="main">
+                <?php loadComponent()
+                ?>
+            </div>
+            <!-- /page content -->
+            <?php
+            loadModule("footer_admin")
+            ?>
+        </div>
+    </div>
 </body>
 
 </html> <!-- footer content -->

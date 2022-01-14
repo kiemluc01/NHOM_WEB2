@@ -1,10 +1,10 @@
 <?php
 $member = loadModel('Member');
 if (isset($_REQUEST['loadAVT'])) {
-    $file = $_FILES['AVT']['tmp_name'];
-    $path = 'Public/images/' . $_FILES['AVT']['name'];
-    if (move_uploaded_file($file, $path)) {
-        $person->update_IMGAVT($path);
+    $file = $_FILES['upload_AVT']['tmp_name'];
+    $path = 'Public/images/' . $_FILES['upload_AVT']['name'];
+    if (move_uploaded_file($file, 'admin/' . $path)) {
+        $member->update_IMGAVT($path);
         echo "<script>
             $(document).ready(function(){
                 document.getElementById('loadAVT').style.display = 'none';
@@ -15,10 +15,10 @@ if (isset($_REQUEST['loadAVT'])) {
         echo 'fail';
 }
 if (isset($_REQUEST['loadBGR'])) {
-    $file = $_FILES['BGR']['tmp_name'];
-    $path = 'Public/images/' . $_FILES['BGR']['name'];
-    if (move_uploaded_file($file, $path)) {
-        $person->update_IMGBGR($path);
+    $file = $_FILES['upload_BGR']['tmp_name'];
+    $path = 'Public/images/' . $_FILES['upload_BGR']['name'];
+    if (move_uploaded_file($file, 'admin/' . $path)) {
+        $member->update_IMGBGR($path);
         echo "<script>
             $(document).ready(function(){
                 document.getElementById('message').style.display = 'block';
@@ -41,8 +41,8 @@ if (isset($_REQUEST['loadBGR'])) {
         <h5 class="[  custom-book-info-heading  custom-book-info-heading--5  ]"><?php echo $member->getName($_SESSION['user']); ?></h5>
     </div>
     <p class="profile-email"><?php echo $member->getEmail(); ?></p>
-    <div class="dialog" id="dialog_bgr">
-        <div style="width:98%">
+    <!-- <div class="dialog" id="dialog_bgr">
+        <div style="width:90%">
             <center>
                 <h3>Cập nhật ảnh bìa</h3><br>
                 <form action="" method="post">
@@ -53,7 +53,7 @@ if (isset($_REQUEST['loadBGR'])) {
         </div>
 
         <img src="https://topbag.vn/themes/giaodienweb/images/icon-close.jpg" id="close_bgr" alt="" style="width:30px;height:30px;">
-    </div>
+    </div> -->
 </div>
 <div class="container mt-5 custom-max-box">
     <div class="row">
@@ -105,13 +105,33 @@ if (isset($_REQUEST['loadBGR'])) {
                         </div>
                         <div class="mb-3 d-flex gap-5">
                             <div class="form-check">
-                                <?php  ?>
-                                <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Nam
-                                <label class="form-check-label" for="radio1"></label>
+                                <?php if ($member->getGT() != null) {
+                                    if ($member->getGT() == "Nam") { ?>
+                                        <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Nam
+                                        <label class="form-check-label" for="radio1"></label>
+                                    <?php } else { ?>
+                                        <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1">Nam
+                                        <label class="form-check-label" for="radio1"></label>
+                                    <?php    }
+                                } else { ?>
+                                    <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1">Nam
+                                    <label class="form-check-label" for="radio1"></label>
+                                <?php } ?>
                             </div>
                             <div class="form-check">
-                                <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Nữ
-                                <label class="form-check-label" for="radio2"></label>
+                                <?php if ($member->getGT() != null) {
+                                    if ($member->getGT() == "Nữ") { ?>
+                                        <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2" checked>Nữ
+                                        <label class="form-check-label" for="radio2"></label>
+                                    <?php } else { ?>
+                                        <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Nữ
+                                        <label class="form-check-label" for="radio2"></label>
+                                    <?php    }
+                                } else { ?>
+                                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Nữ
+                                    <label class="form-check-label" for="radio2"></label>
+                                <?php } ?>
+
                             </div>
                         </div>
                         <div class="mb-3">
@@ -179,9 +199,9 @@ if (isset($_REQUEST['loadBGR'])) {
 </div> -->
 <!-- form load ?nh b�a -->
 <div class="dialog" id="dialog_bgr">
-    <div style="width:98%">
+    <div style="width:90%">
         <center>
-            <h3>c?p nh?t ?nh b�a</h3><br>
+            <h5>c?p nh?t ?nh b�a</h5><br>
             <form action="" method="post">
                 <input type="file" name="upload_BGR" id="upload_BGR">
                 <input type="submit" value="C?p nh?t" name="loadBGR">
@@ -189,20 +209,20 @@ if (isset($_REQUEST['loadBGR'])) {
         </center>
     </div>
 
-    <img src="https://topbag.vn/themes/giaodienweb/images/icon-close.jpg" id="close_bgr" alt="" style="width:30px;height:30px;">
+    <img src="https://topbag.vn/themes/giaodienweb/images/icon-close.jpg" id="close_bgr" alt="" style="width:30px;height:30px; border-radius:50%/50%">
 </div>
 <!-- form load ?nh d?i di?n -->
 <div class="dialog" id="dialog_avt">
-    <div style="width:98%">
+    <div style="width:90%">
         <center>
-            <h3>Cập nhật ảnh đại diện</h3><br>
+            <h5>Cập nhật ảnh đại diện</h5><br>
             <form action="" method="post">
                 <input type="file" name="upload_AVT" id="upload_AVT">
                 <input type="submit" value="C?p nh?t" name="loadAVT">
             </form>
         </center>
     </div>
-    <img src="https://topbag.vn/themes/giaodienweb/images/icon-close.jpg" id="close_avt" alt="" style="width:30px;height:30px;">
+    <img src="https://topbag.vn/themes/giaodienweb/images/icon-close.jpg" id="close_avt" alt="" style="border-radius:50%/50%;width:30px;height:30px;">
 </div>
 <!-- message  -->
 <div id="message" class="dialog">
