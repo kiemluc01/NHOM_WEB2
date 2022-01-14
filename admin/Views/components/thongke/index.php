@@ -4,20 +4,25 @@
  <?php 
     $Listbook = loadModel("Listbook");
     $soSach = $Listbook->Count_book();
-    $Select = $Listbook->Select_Chitiet();
-    $chart_data = '';
-    if($Select->num_rows > 0)
-    {
-      while($row = $Select->fetch_assoc())
-      {
-        $chart_data .= "{ Tensach:'".$row["Tensach"]."', Luotxem:".$row["Luotxem"].", Favorite:".$row["Favorite"].", Feedback:".$row["Feedback"]."}, ";
-      }
-    }
-    $chart_data = substr($chart_data, 0, -2);
+    // $Select = $Listbook->Select_Chitiet();
+    // $chart_data = '';
+    // if($Select->num_rows > 0)
+    // {
+    //   while($row = $Select->fetch_array())
+    //   {
+    //     $chart_data[] = array(
+    //       'NgayDang' => $row['NgayDang'],
+    //       'Tensach' => $row['Tensach'],
+    //       'Luotxem' => $row['Luotxem'],
+    //      'Favorite' => $row['Favorite'],
+    //       'Feedback' => $row['Feedback']
+    //       );
+    //   }
+    // }
+    // $chart_data = substr($chart_data, 0, -2);
   ?>
         <!-- page content -->
-        <div class="right_col" role="main" style=" height: 100vh!important;
-    overflow: auto!important;">
+        <div class="right_col" role="main">
           <div class="">
             <div class="page-title">
               <div class="title_left">
@@ -27,10 +32,12 @@
               <div class="title_right">
                 <div class="col-md-5 col-sm-5   form-group pull-right top_search">
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Go!</button>
-                    </span>
+                   <select class="select-date">
+                     <option value='7ngay'>7 ngày qua</option>
+                     <option value='28ngay'>28 ngày qua</option>
+                     <option value='90ngay'>90 ngày qua</option>
+                     <option value= '365ngay'>365 ngày qua</option>
+                   </select>
                   </div>
                 </div>
               </div>
@@ -116,7 +123,7 @@
               <div class="card-header">
                 <h3 class="card-title">
                   <i class="fas fa-chart-pie mr-1"></i>
-                  Thống kê sách
+                  Thống kê sách theo :<span id="text-date"></span>
                 </h3>
               </div><!-- /.card-header -->
               <div class="card-body">
@@ -145,13 +152,58 @@
             </div>
           </div>
           <script>
-Morris.Bar({
+ $(document).ready(function(){
+  thongke();
+  var char = new Morris.Area({
  element : 'chart',
- data:[<?php echo $chart_data; ?>],
- xkey:'Tensach',
+ xkey:'NgayDang',
  ykeys:['Luotxem', 'Favorite', 'Feedback'],
- labels:['Luotxem', 'Favorite', 'Feedback'],
+ labels:['Lượt Xem', 'Yêu Thích', 'Phản Hồi'],
  hideHover:'auto',
- stacked:true
+ stacked:true,
+ parseTime:false,
+});
+ 
+$('.select-date').change(function(){
+  var thoigian = $(this).val();
+  if(thoigian == '7ngay')
+  {
+    var text = '7 ngày qua';
+  } else if(thoigian == '28ngay')
+  {
+    var text = '28 ngày qua';
+  } else if(thoigian == '90ngay')
+  {
+    var text = '90 ngày qua';
+  } else 
+  {
+    var text = '365 ngày qua';
+  }
+  
+  $.ajax({
+    url:"thongke.php",
+    method:"post",
+    dataType:"json",
+    date:{thoigian:thoigian},
+    success:function(data){
+      char.setData(data);
+      $('#text-date').text(text);
+    }
+  });
+})
+function thongke()
+{
+  var text = '365 ngày qua';
+  $('#text-date').text(text);
+  $.ajax({
+    url:"thongke.php",
+    method:"POST",
+    dataType:"JSON",
+    success:function(data){
+      char.setData(data);
+      $('#text-date').text(text);
+    }
+  })
+}
 });
 </script>
