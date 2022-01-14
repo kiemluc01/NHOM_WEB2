@@ -1,7 +1,7 @@
 <?PHP
 class Listcategories extends Database{
     function getAll(){
-        $sql = "Select tbldanhmuc.*, c.sosach from tbldanhmuc,(SELECT idDanhmuc,COUNT(Tensach) as sosach FROM tblsach GROUP By idDanhmuc) as c where tbldanhmuc.idDanhmuc = c.idDanhmuc";
+        $sql = "select *from tbldanhmuc";
         $result = mysqli_query($this->conn, $sql);
         return $result;
     }
@@ -22,5 +22,10 @@ class Listcategories extends Database{
             }
             return false;
         }
+    }
+    function count_category($idDM){
+        $sql = "SELECT idDanhmuc,idSach FROM tblsach where idDanhmuc = ".$idDM;
+        $result = mysqli_query($this->conn, $sql);
+        return $result->num_rows;
     }
 }
