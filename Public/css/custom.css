@@ -7,9 +7,13 @@
 .dropdown-item:focus {
   color: hotpink;
 }
+.dropdown-item:focus {
+  background: initial;
+}
 .dropdown-item:hover {
   color: var(--ihover);
 }
+
 /* .nav-link,
 .nav-link:focus {
   color: hotpink;

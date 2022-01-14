@@ -1,6 +1,6 @@
 :root {
   --light: #f0f7d4;
-  --link: #b2d732;
+  --link: #1221ff;
   --linkhover: #6e8322;
   --primary: #4424d6;
   --icolor: hotpink;
@@ -17,6 +17,9 @@
   background: var(--icolor);
   border-radius: 5px;
 }
+.text-dark-blue {
+  color: var(--link);
+}
 
 * {
   box-sizing: border-box;
@@ -29,16 +32,6 @@ body {
 textarea {
   resize: none;
 }
-
-#liveSearch {
-  width: 356px;
-  height: 200px;
-  background-color: #f0f7d4;
-  position: absolute;
-  display: none;
-  z-index: 100;
-}
-
 .scroll-height-50 {
   height: 50vh;
   overflow-y: scroll;

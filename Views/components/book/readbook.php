@@ -70,11 +70,11 @@ $chapterContent = $book->chapterContent($_REQUEST['idSach'], $_REQUEST['chapter'
             </div>
         </div>
         <div class="col-lg-3 ps-lg-3">
-            <div class="mb-3">
+            <!-- <div class="mb-3">
                 <button type="button" class="btn btn-info btn-sm btn-prev">Previous page</button>
                 [<span class="page-current">1</span> of <span class="page-total">-</span>]
                 <button type="button" class="btn btn-info btn-sm btn-next">Next page</button>
-            </div>
+            </div> -->
             <div class="d-flex flex-column flex-shrink-0 px-3 pt-3 text-black custom-max-box mb-md-3">
                 <h4 class="[  custom-book-info-heading  custom-book-info-heading--4  ]">Mục lục</h4>
                 <input type="text" id="searchChapName" class="my-3 px-3 py-2 form-control" placeholder="Nhập tên chương ..." onkeyup="searchChapterName()">

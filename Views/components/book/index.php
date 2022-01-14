@@ -51,7 +51,7 @@ while ($row = $result->fetch_assoc()) {
                 <form action="#" method="post" class="clear-fix">
                     <div id="rating">
                         <?php $sosao = $book->checkRate();
-                                                            for ($i = 5; $i >= 1; $i--) {
+                        for ($i = 5; $i >= 1; $i--) {
                             if ($i == $sosao) { ?>
                                 <input type="radio" id="star<?php echo $i ?>" name="rating" value="<?php echo $i ?>" checked>
                                 <label class="full" for="star<?php echo $i ?>" title="Awesome - <?php echo $i ?> stars"></label>
@@ -91,13 +91,16 @@ while ($row = $result->fetch_assoc()) {
             <div class="custom-book-info-box mb-4">
                 <h3 class="[  custom-book-info-heading  custom-book-info-heading--3  ]">Mục lục</h3>
             </div>
-            <?php $result = $book->getChapter($_REQUEST['idSach']);
-            if ($result->num_rows > 0)
-                while ($row = $result->fetch_assoc()) { ?>
-                <p><a href="<?php if (isset($_REQUEST['condition'])) echo  'index.php?condition=' . $_REQUEST['condition'] . '&option=book&idSach=' . $_REQUEST['idSach'] . '&chapter=' . $row['TenChuong'] . '&page=1&kitu=0'; ?>"><span> <?php echo $row['TenChuong']; ?></span></a></p>
-            <?php
-                }
-            ?>
+            <div class="list-group">
+                <?php $result = $book->getChapter($_REQUEST['idSach']);
+                if ($result->num_rows > 0)
+                    while ($row = $result->fetch_assoc()) { ?>
+                    <a class="list-group-item list-group-item-action" 
+                    href="<?php if (isset($_REQUEST['condition'])) echo  'index.php?condition=' . $_REQUEST['condition'] . '&option=book&idSach=' . $_REQUEST['idSach'] . '&chapter=' . $row['TenChuong'] . '&page=1&kitu=0'; ?>"><span> <?php echo $row['TenChuong']; ?></span></a>
+                <?php
+                    }
+                ?>
+            </div>
         </div>
     </div>
     <div class="row mt-3">
