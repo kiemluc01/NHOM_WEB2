@@ -23,7 +23,7 @@ class banner extends Database {
         }
         return false;
     }
-    //delect banner
+    //delete banner
     function Delete_banner($idbanner)
     {
         $sql = "delete from banner where idbanner = '".$idbanner."'";

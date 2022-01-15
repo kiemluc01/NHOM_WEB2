@@ -103,7 +103,59 @@
                  <a href="#" class="small-box-footer"></a>
                </div>
              </div>
+<<<<<<< HEAD
              <!-- ./col -->
+=======
+           </div>
+           <!-- ./col -->
+           <div class="col-lg-3 col-6">
+             <!-- small box -->
+             <div class="small-box bg-success">
+               <div class="inner">
+                 <h3><?php echo $row['Luotxem'] ?></h3><sup style="font-size: 20px"></sup>
+                 <p>Số lượt xem</p>
+               </div>
+               <div class="icon">
+                 <i class="ion ion-stats-bars"></i>
+               </div>
+               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+             </div>
+           </div>
+           <!-- ./col -->
+           <div class="col-lg-3 col-6">
+             <!-- small box -->
+             <div class="small-box bg-warning">
+               <div class="inner">
+                 <h3><?php echo $row['Feedback'] ?></h3>
+
+                 <p>Số lượt bình luận</p>
+               </div>
+               <div class="icon">
+                 <i class="fas fa-comments-dollar"></i>
+               </div>
+               <a href="index.php?option=feedback&page=1" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+             </div>
+           </div>
+         <?php } ?>
+         <!-- ./col -->
+         <div class="col-lg-3 col-6">
+           <!-- small box -->
+           <div class="small-box bg-danger">
+             <div class="inner">
+               <?php
+                $Listbook = loadModel("Listbook");
+                $soSach = $Listbook->Count_book();
+                ?>
+               <h3><?php echo $soSach; ?></h3>
+               <?php
+                ?>
+               <p>Tổng số sách</p>
+             </div>
+             <div class="icon">
+               <i class="fas fa-book-reader"></i>
+             </div>
+             <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+>>>>>>> 668ebc5da03815fe2ac1b6e1769c7317979aef7e
            </div>
          </div>
          <div class="card">
