@@ -65,16 +65,7 @@ while ($row = $result->fetch_assoc()) {
                                 }
                             }
                         } else { ?>
-                            <input type="radio" id="star1" name="rating" value="1">
-                            <label class="full" for="star1" title="Awesome - 1 stars"></label>
-                            <input type="radio" id="star2" name="rating" value="2">
-                            <label class="full" for="star2" title="Awesome - 2 stars"></label>
-                            <input type="radio" id="star3" name="rating" value="3">
-                            <label class="full" for="star3" title="Awesome - 3 stars"></label>
-                            <input type="radio" id="star4" name="rating" value="4">
-                            <label class="full" for="star4" title="Awesome - 4 stars"></label>
-                            <input type="radio" id="star5" name="rating" value="5">
-                            <label class="full" for="star5" title="Awesome - 5 stars"></label>
+                            <input type="radio" id="star1" name="rating" value="1"><label class="full" for="star1" title="Awesome - 1 stars"></label><input type="radio" id="star2" name="rating" value="2"><label class="full" for="star2" title="Awesome - 2 stars"></label><input type="radio" id="star3" name="rating" value="3"><label class="full" for="star3" title="Awesome - 3 stars"></label><input type="radio" id="star4" name="rating" value="4"><label class="full" for="star4" title="Awesome - 4 stars"></label><input type="radio" id="star5" name="rating" value="5"><label class="full" for="star5" title="Awesome - 5 stars"></label>
                         <?php }
                         ?>
                         <p id="rate_percent"><?php echo $book->getRate(); ?>★</p>
@@ -90,8 +81,7 @@ while ($row = $result->fetch_assoc()) {
                                 <label for="favour" id="favourite"></label>
                             <?php }
                                                                     } else { ?>
-                            <input type="checkbox" name="favourite" id="favour" value="1">
-                            <label for="favour" id="favourite"></label>
+                            <input type="checkbox" name="favourite" id="favour" value="1"><label for="favour" id="favourite"></label>
                         <?php }
                         ?>
                         <!-- <span>Thêm vào yêu thích</span>  -->
@@ -136,9 +126,12 @@ while ($row = $result->fetch_assoc()) {
         $('#favourite').click(function() {
             var user = $('#user').val();
             var idsach = $('#idSach').val();
-            if (user === "")
+            if (user === "") {
                 alert("bạn phải đăng nhập trước")
-            else {
+                var str = '<input type="checkbox" name="favourite" id="favour" value="1"><label for="favour" id="favourite"></label>'
+                $('#add_favourite').html(str)
+                location.reload()
+            } else {
                 $.ajax({
                     url: 'Models/favourite.php',
                     type: 'POST',
@@ -155,9 +148,12 @@ while ($row = $result->fetch_assoc()) {
         $('#star1').click(function() {
             var user = $('#user').val();
             var idsach = $('#idSach').val();
-            if (user === "")
+            if (user === "") {
                 alert("bạn phải đăng nhập trước")
-            else {
+                var str = '<input type="radio" id="star1" name="rating" value="1"><label class="full" for="star1" title="Awesome - 1 stars"></label><input type="radio" id="star2" name="rating" value="2"><label class="full" for="star2" title="Awesome - 2 stars"></label><input type="radio" id="star3" name="rating" value="3"><label class="full" for="star3" title="Awesome - 3 stars"></label><input type="radio" id="star4" name="rating" value="4"><label class="full" for="star4" title="Awesome - 4 stars"></label><input type="radio" id="star5" name="rating" value="5"><label class="full" for="star5" title="Awesome - 5 stars"></label>';
+                $('#rating').html(str)
+                location.reload()
+            } else {
                 $.ajax({
                     url: 'Models/rate.php',
                     type: 'POST',
