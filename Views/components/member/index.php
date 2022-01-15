@@ -1,11 +1,14 @@
 <?php
 $member = loadModel('Member');
-if (isset($_REQUEST['upload_AVT'])) {
-    echo '<script> alert("m") </script>';
-    $file = $_FILES['upload_AVT']['tmp_name'];
-    $path = 'Public/images/' . $_FILES['upload_AVT']['name'];
-    if (move_uploaded_file($file, 'admin/' . $path)) {
-        $member->update_AVT($path);
+if (isset($_REQUEST['loadAVT'])) {
+    // $file = $_FILES['file']['tmp_name'];
+    // $path = 'Public/images/' . $_FILES['file']['name'];
+    $target_dir = "Public/images/";
+    $target_file = $target_dir . basename($_FILES['file']['name']);
+    // move_uploaded_file($_FILES['file']['tmp_name'], $target_file);
+    move_uploaded_file($_FILES['file']['tmp_name'], 'admin/' . $target_file);
+    $update = $member->update_IMGAVT($target_dir);
+    if ($update> 0) {
         echo "<script>
             $(document).ready(function(){
                 document.getElementById('loadAVT').style.display = 'none';
@@ -15,26 +18,15 @@ if (isset($_REQUEST['upload_AVT'])) {
     } else
         echo 'fail';
 }
-if (isset($_REQUEST['save'])) {
-    $name = $_REQUEST['fullname'];
-    $email = $_REQUEST['email'];
-    if (isset($_REQUEST['optradio1']))
-        $gt = "Nam";
-    else
-        $gt = "Nữ";
-    $ns = $_REQUEST['dbo'];
-    $member->update($name, $email, $ns, $gt);
-    echo "<script>
-            $(document).ready(function(){
-                document.getElementById('message').style.display = 'block';
-            });
-        </script>";
-}
-if (isset($_REQUEST['upload_BGR'])) {
-    $file = $_FILES['upload_BGR']['tmp_name'];
-    $path = 'Public/images/' . $_FILES['upload_BGR']['name'];
-    if (move_uploaded_file($file, 'admin/' . $path)) {
-        $member->update_BGR($path);
+if (isset($_REQUEST['loadBGR'])) {
+    // $file = $_FILES['file']['tmp_name'];
+    // $path = 'Public/images/' . $_FILES['file']['name'];
+    $target_dir = "Public/images/";
+    $target_file = $target_dir . basename($_FILES['file']['name']);
+    move_uploaded_file($_FILES['file']['tmp_name'], 'admin/' . $target_file);
+    $updateBGR =  $member->update_IMGBGR($target_file);
+    if ($updateBGR > 0) {
+       
         echo "<script>
             $(document).ready(function(){
                 document.getElementById('message').style.display = 'block';
@@ -204,21 +196,20 @@ if (isset($_REQUEST['upload_BGR'])) {
 <!-- form load ?nh b�a -->
 <div class="dialog" id="dialog_bgr">
     <div style="width:90%">
-        <form action="" method="post" enctype="multipart/form-data">
-            <center>
-                <h5>c?p nh?t ?nh b�a</h5><br>
-
-                <input type="file" name="upload_BGR" id="upload_BGR" required>
-                <input type="submit" value="C?p nh?t" name="loadBGR">
-
-            </center>
-        </form>
+        <center>
+            <h5>c?p nh?t ?nh b�a</h5><br>
+            <form action="" method="post">
+                <input type="file" name="file" id="file">
+                <input type="submit" value="Cập nhật" name="loadBGR">
+            </form>
+        </center>
     </div>
 
     <img src="https://topbag.vn/themes/giaodienweb/images/icon-close.jpg" id="close_bgr" alt="" style="width:30px;height:30px; border-radius:50%/50%">
 </div>
 <!-- form load ?nh d?i di?n -->
 <div class="dialog" id="dialog_avt">
+<<<<<<< HEAD
     <form action="" method="post" enctype="multipart/form-data" style="width:90%">
         <center>
             <h5>Cập nhật ảnh đại diện</h5><br>
@@ -226,17 +217,17 @@ if (isset($_REQUEST['upload_BGR'])) {
             <input type="submit" value="Cập nhật" name="loadAVT">
         </center>
     </form>
+=======
+    <div style="width:90%">
+        <center>
+            <h5>Cập nhật ảnh đại diện</h5><br>
+           
+                <input type="file" name="file" id="file" class="date-picker form-control" required>
+                
+            </center>
+            <input type="submit" value="Cập nhật" name="loadAVT" class="btn btn-success submit">
+>>>>>>> 69a953d79780b1ff426cfe129556d390ea4d2210
     <img src="https://topbag.vn/themes/giaodienweb/images/icon-close.jpg" id="close_avt" alt="" style="border-radius:50%/50%;width:30px;height:30px;">
-</div>
-<!-- message  -->
-<div id="message" class="dialog">
-    <center>
-        <br>
-        <h3>Cập nhật thành công</h3><br>
-        <input type="submit" value="OK" id="ok_message">
-    </center>
-
-</div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
 <script>
     $(document).ready(function() {
