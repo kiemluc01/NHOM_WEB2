@@ -1,14 +1,10 @@
 <?php
 $member = loadModel('Member');
 if (isset($_REQUEST['loadAVT'])) {
-    // $file = $_FILES['file']['tmp_name'];
-    // $path = 'Public/images/' . $_FILES['file']['name'];
-    $target_dir = "Public/images/";
-    $target_file = $target_dir . basename($_FILES['file']['name']);
-    // move_uploaded_file($_FILES['file']['tmp_name'], $target_file);
-    move_uploaded_file($_FILES['file']['tmp_name'], 'admin/' . $target_file);
-    $update = $member->update_IMGAVT($target_dir);
-    if ($update> 0) {
+    $file = $_FILES['upload_AVT']['tmp_name'];
+    $path = 'Public/images/' . $_FILES['upload_AVT']['name'];
+    if (move_uploaded_file($file, 'admin/' . $path)) {
+        $member->update_IMGAVT($path);
         echo "<script>
             $(document).ready(function(){
                 document.getElementById('loadAVT').style.display = 'none';
@@ -19,14 +15,10 @@ if (isset($_REQUEST['loadAVT'])) {
         echo 'fail';
 }
 if (isset($_REQUEST['loadBGR'])) {
-    // $file = $_FILES['file']['tmp_name'];
-    // $path = 'Public/images/' . $_FILES['file']['name'];
-    $target_dir = "Public/images/";
-    $target_file = $target_dir . basename($_FILES['file']['name']);
-    move_uploaded_file($_FILES['file']['tmp_name'], 'admin/' . $target_file);
-    $updateBGR =  $member->update_IMGBGR($target_file);
-    if ($updateBGR > 0) {
-       
+    $file = $_FILES['upload_BGR']['tmp_name'];
+    $path = 'Public/images/' . $_FILES['upload_BGR']['name'];
+    if (move_uploaded_file($file, 'admin/' . $path)) {
+        $member->update_IMGBGR($path);
         echo "<script>
             $(document).ready(function(){
                 document.getElementById('message').style.display = 'block';
@@ -115,14 +107,14 @@ if (isset($_REQUEST['loadBGR'])) {
                             <div class="form-check">
                                 <?php if ($member->getGT() != null) {
                                     if ($member->getGT() == "Nam") { ?>
-                                        <input type="radio" class="form-check-input" id="radio1" name="optradio1" value="option1" checked>Nam
+                                        <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Nam
                                         <label class="form-check-label" for="radio1"></label>
                                     <?php } else { ?>
-                                        <input type="radio" class="form-check-input" id="radio1" name="optradio1" value="option1">Nam
+                                        <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1">Nam
                                         <label class="form-check-label" for="radio1"></label>
                                     <?php    }
                                 } else { ?>
-                                    <input type="radio" class="form-check-input" id="radio1" name="optradio1" value="option1">Nam
+                                    <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1">Nam
                                     <label class="form-check-label" for="radio1"></label>
                                 <?php } ?>
                             </div>
@@ -142,12 +134,11 @@ if (isset($_REQUEST['loadBGR'])) {
 
                             </div>
                         </div>
-
                         <div class="mb-3">
                             <label for="dbo" class="form-label">Ngày sinh:</label>
-                            <input type="text" class="form-control" id="dbo" name="dbo" value="<?php echo $member->getNS(); ?>">
+                            <input type="date" class="form-control" id="dbo" name="dbo" value="<?php echo $_SESSION['user']; ?>">
                         </div>
-                        <button type="submit" name="save" class="btn btn-lg text-light btn-info fw-bold border-info bg-info">Lưu</button>
+                        <button type="submit" class="btn btn-lg text-light btn-info fw-bold border-info bg-info">Lưu</button>
                     </form>
                 </div>
 
@@ -193,14 +184,27 @@ if (isset($_REQUEST['loadBGR'])) {
         </div>
     </div>
 </div>
+<!-- <div>
+    <div id="BGR">
+        <img src="<?php echo (substr($member->BGR(), 0, 4) == "http" ? $member->BGR() : "admin/" . $member->BGR()); ?>" alt="ảnh bìa" class="bgr">
+        <img src="http://cdn.onlinewebfonts.com/svg/img_211436.png" alt="nút sửa ảnh" class="edit" id="edit_bgr">
+    </div>
+    <div id="AVT">
+        <img src="<?php echo (substr($member->AVT(), 0, 4) == "http" ? $member->AVT() : "admin/" . $member->AVT()); ?>" alt="?nh d?i di?n" class="avt">
+        <img src="http://cdn.onlinewebfonts.com/svg/img_211436.png" alt="nút sửa ảnh" id="edit_avt" class="edit">
+    </div>
+    <div class="infor">
+
+    </div>
+</div> -->
 <!-- form load ?nh b�a -->
 <div class="dialog" id="dialog_bgr">
     <div style="width:90%">
         <center>
             <h5>c?p nh?t ?nh b�a</h5><br>
             <form action="" method="post">
-                <input type="file" name="file" id="file">
-                <input type="submit" value="Cập nhật" name="loadBGR">
+                <input type="file" name="upload_BGR" id="upload_BGR">
+                <input type="submit" value="C?p nh?t" name="loadBGR">
             </form>
         </center>
     </div>
@@ -212,12 +216,23 @@ if (isset($_REQUEST['loadBGR'])) {
     <div style="width:90%">
         <center>
             <h5>Cập nhật ảnh đại diện</h5><br>
-           
-                <input type="file" name="file" id="file" class="date-picker form-control" required>
-                
-            </center>
-            <input type="submit" value="Cập nhật" name="loadAVT" class="btn btn-success submit">
+            <form action="" method="post">
+                <input type="file" name="upload_AVT" id="upload_AVT">
+                <input type="submit" value="C?p nh?t" name="loadAVT">
+            </form>
+        </center>
+    </div>
     <img src="https://topbag.vn/themes/giaodienweb/images/icon-close.jpg" id="close_avt" alt="" style="border-radius:50%/50%;width:30px;height:30px;">
+</div>
+<!-- message  -->
+<div id="message" class="dialog">
+    <center>
+        <br>
+        <h3>Cập nhật thành công</h3><br>
+        <input type="submit" value="OK" id="ok_message">
+    </center>
+
+</div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
 <script>
     $(document).ready(function() {
