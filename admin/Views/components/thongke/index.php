@@ -73,7 +73,7 @@
                <div class="icon">
                  <i class="fas fa-comments-dollar"></i>
                </div>
-               <a href="index.php?option=feedback" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+               <a href="index.php?option=feedback&page=1" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
              </div>
            </div>
          <?php } ?>
