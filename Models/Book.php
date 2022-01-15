@@ -86,6 +86,7 @@ class Book extends Database
         $sql = "select * from tblfavorite where idSach =" . $_REQUEST['idSach'] . " and idMember=" . $member->getID();
         $result = mysqli_query($this->conn, $sql);
         if (
+            $result != false &&
             $result->num_rows > 0
         )
         return true;

@@ -25,7 +25,7 @@ if ($account->num_rows > 0)
 <div class="">
   <div class="page-title">
     <div class="title_left">
-      <h3>Sửa sách</h3>
+      <h3>Sửa thông tin người dùng</h3>
     </div>
     <div class="title_right">
       <div class="col-md-5 col-sm-5  form-group row pull-right top_search">

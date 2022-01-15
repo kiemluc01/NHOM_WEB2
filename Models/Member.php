@@ -31,22 +31,23 @@ class Member extends Database
     {
         $sql = "select * from tblaccount where username = '" . $user . "' and password ='" . $pass . "'";
         $login = mysqli_query($this->conn, "select * from tblaccount where username = '" . $user . "' and password ='" . $pass . "'");
-        if (mysqli_num_rows($login) > 0)
-        {
+        if (mysqli_num_rows($login) > 0) {
             return true;
         }
-           
+
 
         return false;
     }
     function getID()
     {
-        $sql = "select * from tblaccount where username = '" . $_SESSION['user'] . "'";
-        $result = mysqli_query($this->conn, $sql);
-        if ($result->num_rows > 0)
-            while ($row = $result->fetch_assoc()) {
-                return $row['idMember'];
-            }
+        if (isset($_SESSION['user'])) {
+            $sql = "select * from tblaccount where username = '" . $_SESSION['user'] . "'";
+            $result = mysqli_query($this->conn, $sql);
+            if ($result->num_rows > 0)
+                while ($row = $result->fetch_assoc()) {
+                    return $row['idMember'];
+                }
+        }
         return null;
     }
     function getName($user)
@@ -121,6 +122,5 @@ class Member extends Database
     {
         $sql = "update tblaccount set MemberName =N'" . $name . "',email ='" . $email . "',Ngaysinh ='" . $ns . "', Gioitinh =N'" . $gt . "' where username = '" . $_SESSION['user'] . "'";
         mysqli_query($this->conn, $sql);
-        
     }
 }
