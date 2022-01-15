@@ -109,7 +109,7 @@ if (isset($_REQUEST['upload_BGR'])) {
                     <form action="" method="post">
                         <div class="mb-3 mt-3">
                             <label for="user_name" class="form-label">Tên tài khoản:</label>
-                            <input type="text" class="form-control" id="user_name" placeholder="vanhoang" name="user_name" value="<?php echo $_SESSION['user']; ?>">
+                            <input type="text" disabled class="form-control" id="user_name" placeholder="vanhoang" name="user_name" value="<?php echo $_SESSION['user']; ?>">
                         </div>
                         <div class="mb-3">
                             <label for="fullname" class="form-label">Họ và tên:</label>
@@ -219,16 +219,13 @@ if (isset($_REQUEST['upload_BGR'])) {
 </div>
 <!-- form load ?nh d?i di?n -->
 <div class="dialog" id="dialog_avt">
-    <div style="width:90%">
-        <form action="" method="post" enctype="multipart/form-data">
-            <center>
-                <h5>Cập nhật ảnh đại diện</h5><br>
-                <input type="file" name="upload_AVT" id="upload_AVT" required>
-                <input type="submit" value="Cập nhật" name="loadAVT">
-            </center>
-        </form>
-
-    </div>
+    <form action="" method="post" enctype="multipart/form-data" style="width:90%">
+        <center>
+            <h5>Cập nhật ảnh đại diện</h5><br>
+            <input type="file" name="upload_AVT" id="upload_AVT" required>
+            <input type="submit" value="Cập nhật" name="loadAVT">
+        </center>
+    </form>
     <img src="https://topbag.vn/themes/giaodienweb/images/icon-close.jpg" id="close_avt" alt="" style="border-radius:50%/50%;width:30px;height:30px;">
 </div>
 <!-- message  -->

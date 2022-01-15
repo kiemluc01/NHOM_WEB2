@@ -97,10 +97,30 @@ class Member extends Database
     function getNS()
     {
         $sql = "select * from tblaccount where username = '" . $_SESSION['user'] . "'";
+        $ns = '';
         $result = mysqli_query($this->conn, $sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc())
-                return $row['Ngaysinh'];
+                if ($row['Ngaysinh'] != null)
+                    $ns = $row['Ngaysinh'];
         }
+        return $ns;
+    }
+
+    function update_AVT($path)
+    {
+        $sql = "update tblaccount set ImgAvatar = '" . $path . " where username ='" . $_SESSION['user'] . "'";
+        mysqli_query($this->conn, $sql);
+    }
+    function update_BGR($path)
+    {
+        $sql = "update tblaccount set ImgBia = '" . $path . " where username ='" . $_SESSION['user'] . "'";
+        mysqli_query($this->conn, $sql);
+    }
+    function update($name, $email, $ns, $gt)
+    {
+        $sql = "update tblaccount set MemberName =N'" . $name . "',email ='" . $email . "',Ngaysinh ='" . $ns . "', Gioitinh =N'" . $gt . "' where username = '" . $_SESSION['user'] . "'";
+        mysqli_query($this->conn, $sql);
+        
     }
 }
