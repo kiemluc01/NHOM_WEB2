@@ -105,7 +105,7 @@ while ($row = $result->fetch_assoc()) {
                 <?php $result = $book->getChapter($_REQUEST['idSach']);
                 if ($result->num_rows > 0)
                     while ($row = $result->fetch_assoc()) { ?>
-                    <a class="list-group-item list-group-item-action" href="<?php if (isset($_REQUEST['condition'])) echo  'index.php?condition=' . $_REQUEST['condition'] . '&option=book&idSach=' . $_REQUEST['idSach'] . '&chapter=' . $row['TenChuong'] . '&page=1&kitu=0'; ?>"><span> <?php echo $row['TenChuong']; ?></span></a>
+                    <a class="list-group-item list-group-item-action" href="<?php echo  'index.php?option=book&idSach=' . $_REQUEST['idSach'] . '&chapter=' . $row['TenChuong'] . '&page=1&kitu=0'; ?>"><span> <?php echo $row['TenChuong']; ?></span></a>
                 <?php
                     }
                 ?>
