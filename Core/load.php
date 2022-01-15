@@ -37,6 +37,8 @@ function loadComponent()
         $pathcom = $pathcom . $_REQUEST['option'] . '/';
         if (isset($_REQUEST['chapter'])) {
             $pathcom = $pathcom . 'readbook.php';
+        } else if (isset($_REQUEST['sub_option'])) {
+            $pathcom = $pathcom . $_REQUEST['sub_option'] . '.php';
         } else {
             $pathcom = $pathcom . 'index.php';
         }

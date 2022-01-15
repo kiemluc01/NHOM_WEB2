@@ -84,7 +84,7 @@ $chapterContent = $book->chapterContent($_REQUEST['idSach'], $_REQUEST['chapter'
                         $i = 1;
                         while ($row = $result->fetch_assoc()) { ?>
                             <li class="nav-item bg-white mb-3 rounded-3">
-                                <a class="nav-link text-black" href="<?php if (isset($_REQUEST['condition'])) echo  'index.php?condition=' . $_REQUEST['condition'] . '&option=book&idSach=' . $_REQUEST['idSach'] . '&chapter=' . $row['TenChuong'] . '&page=1&kitu=0'; ?>">
+                                <a class="nav-link text-black" href="<?php echo  'index.php?option=book&idSach=' . $_REQUEST['idSach'] . '&chapter=' . $row['TenChuong'] . '&page=1&kitu=0'; ?>">
                                     <?php echo $row['TenChuong']; ?>
                                 </a>
                             </li>

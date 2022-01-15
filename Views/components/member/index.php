@@ -93,7 +93,7 @@ if (isset($_REQUEST['loadBGR'])) {
                     <form action="" method="post">
                         <div class="mb-3 mt-3">
                             <label for="user_name" class="form-label">Tên tài khoản:</label>
-                            <input type="text" class="form-control" id="user_name" placeholder="vanhoang" name="user_name" value="<?php echo $_SESSION['user']; ?>">
+                            <input type="text" disabled class="form-control" id="user_name" placeholder="vanhoang" name="user_name" value="<?php echo $_SESSION['user']; ?>">
                         </div>
                         <div class="mb-3">
                             <label for="fullname" class="form-label">Họ và tên:</label>
@@ -168,22 +168,25 @@ if (isset($_REQUEST['loadBGR'])) {
                     Tính năng đang xây dựng
                 </div>
                 <div class="tab-pane container fade" id="passchange">
-                    <form action="" method="post">
-                        <div class="mb-3 mt-3">
+                    <form action="" method="post" onsubmit="return false">
+                        <div class="mb-3 mt-3" id="ctn_pass">
                             <label for="pwd_change" class="form-label">Mật khẩu mới:</label>
                             <input type="password" class="form-control" id="pwd_change" name="pwd_change">
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3" id="ctn_cf_pass">
                             <label for="pwd_change_confirm" class="form-label">Nhập lại mật khẩu:</label>
                             <input type="password" class="form-control" id="pwd_change_confirm" name="pwd_change_confirm">
                         </div>
-                        <button type="submit" class="btn btn-lg text-light btn-info fw-bold border-info bg-info">Gửi</button>
+                        <button type="submit" id="change" name="change" class="btn btn-lg text-light btn-info fw-bold border-info bg-info">Gửi</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<?php
+
+?>
 <!-- <div>
     <div id="BGR">
         <img src="<?php echo (substr($member->BGR(), 0, 4) == "http" ? $member->BGR() : "admin/" . $member->BGR()); ?>" alt="ảnh bìa" class="bgr">
@@ -213,16 +216,31 @@ if (isset($_REQUEST['loadBGR'])) {
 </div>
 <!-- form load ?nh d?i di?n -->
 <div class="dialog" id="dialog_avt">
-    <div style="width:90%">
+    <<<<<<< HEAD <form action="" method="post" enctype="multipart/form-data" style="width:90%">
         <center>
             <h5>Cập nhật ảnh đại diện</h5><br>
+            <input type="file" name="upload_AVT" id="upload_AVT" required>
+            <input type="submit" value="Cập nhật" name="loadAVT">
+        </center>
+        </form>
+        =======
+        <div style="width:90%">
+            <center>
+                <h5>Cập nhật ảnh đại diện</h5><br>
+                <<<<<<< HEAD <input type="file" name="file" id="file" class="date-picker form-control" required>
+
+            </center>
+            <input type="submit" value="Cập nhật" name="loadAVT" class="btn btn-success submit">
+            >>>>>>> 69a953d79780b1ff426cfe129556d390ea4d2210
+            =======
             <form action="" method="post">
                 <input type="file" name="upload_AVT" id="upload_AVT">
                 <input type="submit" value="C?p nh?t" name="loadAVT">
             </form>
-        </center>
-    </div>
-    <img src="https://topbag.vn/themes/giaodienweb/images/icon-close.jpg" id="close_avt" alt="" style="border-radius:50%/50%;width:30px;height:30px;">
+            </center>
+        </div>
+        >>>>>>> 62fd5a6341c9b2eb000dbd9b0093ab7823d6d7f4
+        <img src="https://topbag.vn/themes/giaodienweb/images/icon-close.jpg" id="close_avt" alt="" style="border-radius:50%/50%;width:30px;height:30px;">
 </div>
 <!-- message  -->
 <div id="message" class="dialog">
@@ -251,6 +269,29 @@ if (isset($_REQUEST['loadBGR'])) {
         })
         $('#close_bgr').click(function() {
             document.getElementById('dialog_bgr').style.display = 'none'
+        })
+        $('#change').click(function() {
+            var pass = $('#pwd_change').val();
+            var cf_pass = $('#pwd_change_confirm').val();
+            var user = $('#user_name').val();
+            if (pass != cf_pass) {
+                alert('mật khẩu không trùng nhau')
+            } else {
+                $.ajax({
+                    url: "Models/change.php",
+                    type: "POST",
+                    data: {
+                        user: user,
+                        pass: pass
+                    },
+                    success: function() {
+                        alert("đổi thành công")
+                        $('#ctn_cf_pass').html('<label for="pwd_change_confirm" class="form-label">Nhập lại mật khẩu:</label><input type="password" class="form-control" id="pwd_change_confirm" name="pwd_change_confirm">');
+                        $('#ctn_pass').html('<label for="pwd_change" class="form-label">Mật khẩu mới:</label><input type="password" class="form-control" id="pwd_change" name="pwd_change">');
+
+                    }
+                })
+            }
         })
     })
 </script>
