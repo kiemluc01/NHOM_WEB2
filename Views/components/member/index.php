@@ -1,10 +1,14 @@
 <?php
 $member = loadModel('Member');
 if (isset($_REQUEST['loadAVT'])) {
-    $file = $_FILES['upload_AVT']['tmp_name'];
-    $path = 'Public/images/' . $_FILES['upload_AVT']['name'];
-    if (move_uploaded_file($file, 'admin/' . $path)) {
-        $member->update_IMGAVT($path);
+    // $file = $_FILES['file']['tmp_name'];
+    // $path = 'Public/images/' . $_FILES['file']['name'];
+    $target_dir = "Public/images/";
+    $target_file = $target_dir . basename($_FILES['file']['name']);
+    // move_uploaded_file($_FILES['file']['tmp_name'], $target_file);
+    move_uploaded_file($_FILES['file']['tmp_name'], 'admin/' . $target_file);
+    $update = $member->update_IMGAVT($target_dir);
+    if ($update> 0) {
         echo "<script>
             $(document).ready(function(){
                 document.getElementById('loadAVT').style.display = 'none';
@@ -15,10 +19,14 @@ if (isset($_REQUEST['loadAVT'])) {
         echo 'fail';
 }
 if (isset($_REQUEST['loadBGR'])) {
-    $file = $_FILES['upload_BGR']['tmp_name'];
-    $path = 'Public/images/' . $_FILES['upload_BGR']['name'];
-    if (move_uploaded_file($file, 'admin/' . $path)) {
-        $member->update_IMGBGR($path);
+    // $file = $_FILES['file']['tmp_name'];
+    // $path = 'Public/images/' . $_FILES['file']['name'];
+    $target_dir = "Public/images/";
+    $target_file = $target_dir . basename($_FILES['file']['name']);
+    move_uploaded_file($_FILES['file']['tmp_name'], 'admin/' . $target_file);
+    $updateBGR =  $member->update_IMGBGR($target_file);
+    if ($updateBGR > 0) {
+       
         echo "<script>
             $(document).ready(function(){
                 document.getElementById('message').style.display = 'block';
@@ -203,8 +211,8 @@ if (isset($_REQUEST['loadBGR'])) {
         <center>
             <h5>c?p nh?t ?nh b�a</h5><br>
             <form action="" method="post">
-                <input type="file" name="upload_BGR" id="upload_BGR">
-                <input type="submit" value="C?p nh?t" name="loadBGR">
+                <input type="file" name="file" id="file">
+                <input type="submit" value="Cập nhật" name="loadBGR">
             </form>
         </center>
     </div>
@@ -216,15 +224,15 @@ if (isset($_REQUEST['loadBGR'])) {
     <div style="width:90%">
         <center>
             <h5>Cập nhật ảnh đại diện</h5><br>
-            <form action="" method="post">
-                <input type="file" name="upload_AVT" id="upload_AVT">
-                <input type="submit" value="C?p nh?t" name="loadAVT">
-            </form>
-        </center>
+           
+                <input type="file" name="file" id="file" class="date-picker form-control" required>
+                
+            </center>
+            <input type="submit" value="Cập nhật" name="loadAVT" class="btn btn-success submit">
     </div>
     <img src="https://topbag.vn/themes/giaodienweb/images/icon-close.jpg" id="close_avt" alt="" style="border-radius:50%/50%;width:30px;height:30px;">
 </div>
-<!-- message  -->
+    <!-- message  -->
 <div id="message" class="dialog">
     <center>
         <br>
