@@ -50,26 +50,46 @@ while ($row = $result->fetch_assoc()) {
             <div class="row">
                 <form action="#" method="post" class="clear-fix">
                     <div id="rating">
-                        <?php $sosao = $book->checkRate();
-                        for ($i = 5; $i >= 1; $i--) {
-                            if ($i == $sosao) { ?>
-                                <input type="radio" id="star<?php echo $i ?>" name="rating" value="<?php echo $i ?>" checked>
-                                <label class="full" for="star<?php echo $i ?>" title="Awesome - <?php echo $i ?> stars"></label>
-                            <?php } else {
-                            ?>
-                                <input type="radio" id="star<?php echo $i ?>" name="rating" value="<?php echo $i ?>">
-                                <label class="full" for="star<?php echo $i ?>" title="Awesome - <?php echo $i ?> stars"></label>
                         <?php
+                        if (isset($_SESSION['user'])) {
+                            $sosao = $book->checkRate();
+                            for ($i = 5; $i >= 1; $i--) {
+                                if ($i == $sosao) { ?>
+                                    <input type="radio" id="star<?php echo $i ?>" name="rating" value="<?php echo $i ?>" checked>
+                                    <label class="full" for="star<?php echo $i ?>" title="Awesome - <?php echo $i ?> stars"></label>
+                                <?php } else {
+                                ?>
+                                    <input type="radio" id="star<?php echo $i ?>" name="rating" value="<?php echo $i ?>">
+                                    <label class="full" for="star<?php echo $i ?>" title="Awesome - <?php echo $i ?> stars"></label>
+                            <?php
+                                }
                             }
-                        }
+                        } else { ?>
+                            <input type="radio" id="star1" name="rating" value="1">
+                            <label class="full" for="star1" title="Awesome - 1 stars"></label>
+                            <input type="radio" id="star2" name="rating" value="2">
+                            <label class="full" for="star2" title="Awesome - 2 stars"></label>
+                            <input type="radio" id="star3" name="rating" value="3">
+                            <label class="full" for="star3" title="Awesome - 3 stars"></label>
+                            <input type="radio" id="star4" name="rating" value="4">
+                            <label class="full" for="star4" title="Awesome - 4 stars"></label>
+                            <input type="radio" id="star5" name="rating" value="5">
+                            <label class="full" for="star5" title="Awesome - 5 stars"></label>
+                        <?php }
                         ?>
                         <p id="rate_percent"><?php echo $book->getRate(); ?>★</p>
                     </div>
                     <div id="add-favourite">
-                        <?php if ($book->check_f()) {
+
+                        <?php if (isset($_REQUEST['user'])) {
+                            if ($book->check_f()) {
                         ?>
-                            <input type="checkbox" name="favourite" id="favour" value="1" checked>
-                            <label for="favour" id="favourite"></label> <?php } else { ?>
+                                <input type="checkbox" name="favourite" id="favour" value="1" checked>
+                                <label for="favour" id="favourite"></label> <?php } else { ?>
+                                <input type="checkbox" name="favourite" id="favour" value="1">
+                                <label for="favour" id="favourite"></label>
+                            <?php }
+                                                                    } else { ?>
                             <input type="checkbox" name="favourite" id="favour" value="1">
                             <label for="favour" id="favourite"></label>
                         <?php }
@@ -95,8 +115,7 @@ while ($row = $result->fetch_assoc()) {
                 <?php $result = $book->getChapter($_REQUEST['idSach']);
                 if ($result->num_rows > 0)
                     while ($row = $result->fetch_assoc()) { ?>
-                    <a class="list-group-item list-group-item-action" 
-                    href="<?php if (isset($_REQUEST['condition'])) echo  'index.php?condition=' . $_REQUEST['condition'] . '&option=book&idSach=' . $_REQUEST['idSach'] . '&chapter=' . $row['TenChuong'] . '&page=1&kitu=0'; ?>"><span> <?php echo $row['TenChuong']; ?></span></a>
+                    <a class="list-group-item list-group-item-action" href="<?php if (isset($_REQUEST['condition'])) echo  'index.php?condition=' . $_REQUEST['condition'] . '&option=book&idSach=' . $_REQUEST['idSach'] . '&chapter=' . $row['TenChuong'] . '&page=1&kitu=0'; ?>"><span> <?php echo $row['TenChuong']; ?></span></a>
                 <?php
                     }
                 ?>
